@@ -48,6 +48,10 @@ useSeoMeta({
   ogType: 'article',
 })
 
+useHead(() => ({
+  link: technology.value ? [{ rel: 'canonical', href: `https://front-heaven.dev/learn/${techSlug.value}` }] : [],
+}))
+
 const { data: introDoc, error: introError } = await useAsyncData(
   () => `tech-intro-${techSlug.value}`,
   () => queryCollection('technologies').where('path', '=', `/technologies/${techSlug.value}`).first(),

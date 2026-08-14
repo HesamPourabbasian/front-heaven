@@ -9,6 +9,10 @@ useSeoMeta({
   description: 'The complete front-end learning roadmap: HTML, CSS, JavaScript and beyond. See the journey, your progress and what to learn next.',
 })
 
+useHead({
+  link: [{ rel: 'canonical', href: 'https://front-heaven.dev/roadmap' }],
+})
+
 const stages = computed(() => technologies.value
   .sort((a, b) => a.order - b.order)
   .map(t => computeTechnologyProgress(t, lessons.value, completed.value)))
