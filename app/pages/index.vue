@@ -149,13 +149,15 @@ function techMinutes(slug: string) {
             </NuxtLink>
           </div>
 
-          <dl class="animate-fade-up mx-auto mt-14 grid max-w-2xl grid-cols-2 gap-4 sm:grid-cols-4" style="animation-delay: 240ms">
-            <div v-for="stat in stats" :key="stat.label" class="rounded-2xl border border-border bg-surface/70 p-4">
+          <dl class="animate-fade-up mx-auto mt-14 grid max-w-2xl grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4" style="animation-delay: 240ms">
+            <div v-for="stat in stats" :key="stat.label" class="group rounded-2xl border border-border bg-surface/70 px-4 py-5 text-center transition-all duration-200 hover:border-border-strong hover:shadow-lg hover:shadow-primary/5">
               <dt class="flex items-center justify-center gap-1.5 text-[11px] font-semibold uppercase tracking-widest text-muted">
-                <component :is="stat.icon" class="size-3.5 text-primary" aria-hidden="true" />
+                <span class="flex size-6 items-center justify-center rounded-lg bg-primary/10 transition-colors duration-200 group-hover:bg-primary/15">
+                  <component :is="stat.icon" class="size-3.5 text-primary" aria-hidden="true" />
+                </span>
                 {{ stat.label }}
               </dt>
-              <dd class="mt-2 font-display text-2xl font-bold text-ink tabular-nums">
+              <dd class="mt-3 font-display text-2xl font-bold text-ink tabular-nums sm:text-3xl">
                 {{ stat.value }}
               </dd>
             </div>
