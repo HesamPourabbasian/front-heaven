@@ -31,7 +31,9 @@ useSeoMeta({
   </a>
   <AppHeader />
   <main id="main">
-    <NuxtPage />
+    <Transition name="page-fade" mode="out-in">
+      <NuxtPage />
+    </Transition>
   </main>
   <AppFooter />
   <LazySearchModal v-if="searchOpen" />
