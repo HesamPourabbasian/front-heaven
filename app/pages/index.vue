@@ -151,7 +151,7 @@ function techMinutes(slug: string) {
 
           <dl class="animate-fade-up mx-auto mt-14 grid max-w-2xl grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4" style="animation-delay: 240ms">
             <div v-for="stat in stats" :key="stat.label" class="group rounded-2xl border border-border bg-surface/70 px-4 py-5 text-center transition-all duration-200 hover:border-border-strong hover:shadow-lg hover:shadow-primary/5">
-              <dt class="flex items-center justify-center gap-1.5 text-[11px] font-semibold uppercase tracking-widest text-muted">
+              <dt class="flex h-10 items-center justify-center gap-1.5 text-[11px] font-semibold uppercase tracking-widest text-muted">
                 <span class="flex size-6 items-center justify-center rounded-lg bg-primary/10 transition-colors duration-200 group-hover:bg-primary/15">
                   <component :is="stat.icon" class="size-3.5 text-primary" aria-hidden="true" />
                 </span>
