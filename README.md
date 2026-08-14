@@ -1,75 +1,123 @@
-# Nuxt Content Starter
+# Front-Heaven
 
-Look at the [Nuxt Content documentation](https://content.nuxt.com) to learn more.
+A structured, beginner-friendly platform for learning front-end development — from HTML and CSS fundamentals to modern front-end engineering.
 
-## Setup
+## Features
 
-Make sure to install dependencies:
+- **Structured roadmap** — 10 stages covering HTML, CSS, JavaScript, Git, responsive design, accessibility, HTTP/APIs, TypeScript, frameworks, and advanced topics
+- **26+ lessons** — beginner-friendly, practical, self-contained lessons with real code examples
+- **Progress tracking** — mark lessons complete, track your percentage across technologies, resume where you left off
+- **Dark mode** — full light/dark theme with system preference detection and manual toggle
+- **Search** — instant search across all lessons and technologies (Cmd/Ctrl+K)
+- **Responsive** — mobile-first design that works on all screen sizes
+- **Accessible** — skip-to-content, screen reader support, keyboard navigation, ARIA attributes, reduced motion respect
+- **Offline-ready** — progress stored in localStorage, no sign-up required
+
+## Tech Stack
+
+| Layer | Technology |
+|-------|-----------|
+| Framework | [Nuxt 4](https://nuxt.com) |
+| UI Library | [Vue 3](https://vuejs.org) (Composition API + `<script setup>`) |
+| Styling | [Tailwind CSS v4](https://tailwindcss.com) |
+| Content | [Nuxt Content v3](https://content.nuxt.com) (Markdown-driven) |
+| Icons | [Lucide Vue Next](https://lucide.dev) |
+| Fonts | Google Fonts (Inter, Space Grotesk, JetBrains Mono) |
+| Language | TypeScript (strict mode) |
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js 18+
+- npm, pnpm, yarn, or bun
+
+### Install dependencies
 
 ```bash
-# npm
 npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
 ```
 
-## Development Server
-
-Start the development server on `http://localhost:3000`:
+### Start development server
 
 ```bash
-# npm
 npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
 
-## Production
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-Build the application for production:
+### Production build
 
 ```bash
-# npm
 npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
 ```
 
-Locally preview production build:
+### Preview production build
 
 ```bash
-# npm
 npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+### Type checking
+
+```bash
+npm run typecheck
+```
+
+## Project Structure
+
+```
+front-heaven/
+├── app/
+│   ├── app.vue                 # Root layout (header, page, footer, search)
+│   ├── error.vue               # Custom 404/500 error page
+│   ├── assets/css/main.css     # Global styles and design tokens
+│   ├── components/             # 22 Vue components
+│   ├── composables/            # useProgress, useSiteContent, useTheme
+│   ├── pages/                  # File-based routing
+│   │   ├── index.vue           # Homepage
+│   │   ├── roadmap.vue         # Full roadmap
+│   │   └── learn/
+│   │       └── [technology]/   # Technology + lesson pages
+│   ├── types/content.ts        # TypeScript interfaces
+│   └── utils/content.ts        # Utility functions
+├── content/
+│   ├── technologies/           # Technology intro pages (Markdown)
+│   └── learn/                  # Lesson content (Markdown)
+│       ├── html/               # 7 HTML lessons
+│       ├── css/                # 8 CSS lessons
+│       └── javascript/         # 11 JavaScript lessons
+├── public/                     # Static assets (favicon, og-image)
+├── nuxt.config.ts
+├── tsconfig.json
+└── package.json
+```
+
+## Routes
+
+| Route | Description |
+|-------|-------------|
+| `/` | Homepage with hero, technologies, methodology, featured lessons |
+| `/roadmap` | Visual learning roadmap with progress tracking |
+| `/learn/:technology` | Technology overview with lesson list |
+| `/learn/:technology/:lesson` | Individual lesson with content, TOC, prev/next |
+
+## Content
+
+Lessons are written in Markdown with YAML frontmatter:
+
+```yaml
+---
+title: 'What is HTML?'
+description: 'A brief introduction to HTML and what it does.'
+order: 1
+difficulty: beginner
+category: 'HTML Basics'
+estimatedMinutes: 10
+prerequisites: []
+---
+```
+
+## License
+
+Built for curious beginners.
