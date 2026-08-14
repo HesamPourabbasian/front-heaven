@@ -107,7 +107,7 @@ const buttonLabel = computed(() => {
                 <span class="text-muted">Progress</span>
                 <span class="font-mono text-muted tabular-nums">{{ stage.percent }}%</span>
               </div>
-              <div class="mt-1.5 h-1.5 overflow-hidden rounded-full bg-surface-3">
+              <div class="mt-1.5 h-1.5 overflow-hidden rounded-full bg-surface-3" role="progressbar" :aria-valuenow="stage.percent" aria-valuemin="0" aria-valuemax="100" :aria-label="`${tech.title} progress ${stage.percent}%`">
                 <div
                   class="h-full rounded-full transition-all duration-700"
                   :style="{ width: `${stage.percent}%`, background: tech.color }"

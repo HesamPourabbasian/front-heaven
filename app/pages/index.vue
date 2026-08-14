@@ -9,6 +9,10 @@ useSeoMeta({
   description: 'Follow a structured, beginner-friendly path from HTML and CSS fundamentals to modern front-end development. Track your progress, one lesson at a time.',
 })
 
+useHead({
+  link: [{ rel: 'canonical', href: 'https://front-heaven.dev/' }],
+})
+
 const available = computed(() => availableTechnologies(technologies.value))
 
 const overallPercent = computed(() => computeOverallProgress(sequence.value, completed.value))
@@ -197,6 +201,7 @@ function techMinutes(slug: string) {
     <section class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8" aria-labelledby="technologies-heading">
       <Reveal>
         <SectionHeading
+          id="technologies-heading"
           eyebrow="The curriculum"
           title="Everything you need, in the right order"
           description="Each technology is a stage on your journey. Master the fundamentals first, then progress toward modern front-end engineering."
@@ -222,6 +227,7 @@ function techMinutes(slug: string) {
       <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
         <Reveal>
           <SectionHeading
+            id="methodology-heading"
             eyebrow="How it works"
             title="A learning method that actually works"
             description="Front-Heaven is built around a simple loop: know where you are, learn one thing well, practice it, and move forward."
@@ -250,6 +256,7 @@ function techMinutes(slug: string) {
     <section class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8" aria-labelledby="why-heading">
       <Reveal>
         <SectionHeading
+          id="why-heading"
           eyebrow="Why Front-Heaven"
           title="Built for the way beginners actually learn"
           description="Most tutorials leave you lost. Front-Heaven gives you direction, structure and proof of progress at every step."
@@ -273,13 +280,14 @@ function techMinutes(slug: string) {
         <Reveal>
           <div class="flex flex-wrap items-end justify-between gap-4">
             <SectionHeading
+              id="featured-heading"
               eyebrow="Start here"
               title="Featured lessons"
               description="Not sure where to begin? These three lessons open the door to everything else."
             />
-            <NuxtLink to="/roadmap" class="btn-secondary text-sm">
+            <NuxtLink to="/roadmap" class="btn-secondary group shrink-0 whitespace-nowrap px-5 py-2.5 text-sm">
               View full roadmap
-              <ArrowRight class="size-4" aria-hidden="true" />
+              <ArrowRight class="size-4 transition-transform duration-200 group-hover:translate-x-0.5" aria-hidden="true" />
             </NuxtLink>
           </div>
         </Reveal>

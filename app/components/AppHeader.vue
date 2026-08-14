@@ -82,39 +82,45 @@ const navLinks = [
         class="max-h-[calc(100vh-4rem)] overflow-y-auto border-t border-border bg-surface px-4 py-3 md:hidden"
         aria-label="Mobile navigation"
       >
-        <div class="flex flex-col gap-1">
-          <NuxtLink
-            v-for="link in navLinks"
-            :key="link.to"
-            :to="link.to"
-            class="rounded-lg px-3 py-2.5 text-sm font-medium text-ink-soft transition-colors hover:bg-surface-2"
-            exact-active-class="!text-primary bg-primary/10"
-            :aria-current="$route.path === link.to ? 'page' : undefined"
-          >
-            {{ link.label }}
-          </NuxtLink>
-          <NuxtLink
-            to="/learn/html"
-            class="rounded-lg px-3 py-2.5 text-sm font-medium text-ink-soft transition-colors hover:bg-surface-2"
-            :aria-current="$route.path === '/learn/html' ? 'page' : undefined"
-          >
-            Learn HTML
-          </NuxtLink>
-          <NuxtLink
-            to="/learn/css"
-            class="rounded-lg px-3 py-2.5 text-sm font-medium text-ink-soft transition-colors hover:bg-surface-2"
-            :aria-current="$route.path === '/learn/css' ? 'page' : undefined"
-          >
-            Learn CSS
-          </NuxtLink>
-          <NuxtLink
-            to="/learn/javascript"
-            class="rounded-lg px-3 py-2.5 text-sm font-medium text-ink-soft transition-colors hover:bg-surface-2"
-            :aria-current="$route.path === '/learn/javascript' ? 'page' : undefined"
-          >
-            Learn JavaScript
-          </NuxtLink>
-        </div>
+        <ul class="flex flex-col gap-1">
+          <li v-for="link in navLinks" :key="link.to">
+            <NuxtLink
+              :to="link.to"
+              class="block rounded-lg px-3 py-2.5 text-sm font-medium text-ink-soft transition-colors hover:bg-surface-2"
+              exact-active-class="!text-primary bg-primary/10"
+              :aria-current="$route.path === link.to ? 'page' : undefined"
+            >
+              {{ link.label }}
+            </NuxtLink>
+          </li>
+          <li>
+            <NuxtLink
+              to="/learn/html"
+              class="block rounded-lg px-3 py-2.5 text-sm font-medium text-ink-soft transition-colors hover:bg-surface-2"
+              :aria-current="$route.path === '/learn/html' ? 'page' : undefined"
+            >
+              Learn HTML
+            </NuxtLink>
+          </li>
+          <li>
+            <NuxtLink
+              to="/learn/css"
+              class="block rounded-lg px-3 py-2.5 text-sm font-medium text-ink-soft transition-colors hover:bg-surface-2"
+              :aria-current="$route.path === '/learn/css' ? 'page' : undefined"
+            >
+              Learn CSS
+            </NuxtLink>
+          </li>
+          <li>
+            <NuxtLink
+              to="/learn/javascript"
+              class="block rounded-lg px-3 py-2.5 text-sm font-medium text-ink-soft transition-colors hover:bg-surface-2"
+              :aria-current="$route.path === '/learn/javascript' ? 'page' : undefined"
+            >
+              Learn JavaScript
+            </NuxtLink>
+          </li>
+        </ul>
       </nav>
     </Transition>
   </header>

@@ -35,7 +35,7 @@ const isAvailable = computed(() => props.technology.status === 'available')
 
     <div class="mt-5 space-y-3">
       <div class="flex items-center gap-3">
-        <div class="h-1 flex-1 overflow-hidden rounded-full bg-surface-3">
+        <div class="h-1 flex-1 overflow-hidden rounded-full bg-surface-3" role="progressbar" :aria-valuenow="percent ?? 0" aria-valuemin="0" aria-valuemax="100" :aria-label="`${technology.title} progress ${percent ?? 0}%`">
           <div
             class="h-full rounded-full transition-all duration-700"
             :style="{ width: `${percent ?? 0}%`, background: technology.color }"
