@@ -4,7 +4,7 @@ description: The developer's safety net. Track every change to your code, collab
 order: 4
 difficulty: beginner
 estimatedHours: 4
-status: coming-soon
+status: available
 color: '#f87171'
 icon: git
 prerequisites:
