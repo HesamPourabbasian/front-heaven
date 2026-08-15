@@ -150,14 +150,14 @@ function techMinutes(slug: string) {
           </div>
 
           <dl class="animate-fade-up mx-auto mt-14 grid max-w-2xl grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4" style="animation-delay: 240ms">
-            <div v-for="stat in stats" :key="stat.label" class="group rounded-2xl border border-border bg-surface/70 px-4 py-5 text-center transition-all duration-200 hover:border-border-strong hover:shadow-lg hover:shadow-primary/5">
+            <div v-for="stat in stats" :key="stat.label" class="group flex min-h-[5.5rem] flex-col justify-between rounded-2xl border border-border bg-surface/70 px-4 py-5 text-center transition-all duration-200 hover:border-border-strong hover:shadow-lg hover:shadow-primary/5 sm:min-h-28">
               <dt class="flex flex-col items-center justify-center gap-2 text-[11px] font-semibold uppercase tracking-widest text-muted">
                 <span class="flex size-8 items-center justify-center rounded-xl bg-primary/10 transition-colors duration-200 group-hover:bg-primary/15">
                   <component :is="stat.icon" class="size-4 text-primary" aria-hidden="true" />
                 </span>
                 {{ stat.label }}
               </dt>
-              <dd class="mt-4 font-display text-2xl font-bold text-ink tabular-nums sm:text-3xl">
+              <dd class="mt-auto font-display text-2xl font-bold text-ink tabular-nums sm:text-3xl">
                 {{ stat.value }}
               </dd>
             </div>
