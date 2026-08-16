@@ -6,7 +6,7 @@ difficulty: intermediate
 category: Browser APIs
 estimatedMinutes: 35
 prerequisites:
-  - learn/javascript/promises-async-await-and-fetch
+  - learn/javascript/fetch
   - learn/http-and-apis/http-status-codes
 ---
 

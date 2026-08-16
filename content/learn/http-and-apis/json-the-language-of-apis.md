@@ -6,7 +6,7 @@ difficulty: intermediate
 category: Data Formats
 estimatedMinutes: 30
 prerequisites:
-  - learn/javascript/error-handling-and-json
+  - learn/javascript/structured-data
 ---
 
 ## Introduction

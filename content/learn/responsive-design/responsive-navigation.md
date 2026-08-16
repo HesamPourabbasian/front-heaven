@@ -7,7 +7,7 @@ category: Components
 estimatedMinutes: 30
 prerequisites:
   - learn/css/flexbox
-  - learn/javascript/dom-and-events
+  - learn/javascript/browser-javascript
 ---
 
 ## Introduction

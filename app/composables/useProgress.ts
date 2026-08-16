@@ -1,5 +1,19 @@
 const STORAGE_KEY = 'front-heaven:progress:v1'
 
+const LEGACY_JAVASCRIPT_PATHS: Record<string, string[]> = {
+  '/learn/javascript/what-is-javascript': ['/learn/javascript/introduction-to-javascript'],
+  '/learn/javascript/variables-and-data-types': ['/learn/javascript/variables', '/learn/javascript/data-types'],
+  '/learn/javascript/operators-and-conditionals': ['/learn/javascript/operators', '/learn/javascript/control-flow'],
+  '/learn/javascript/loops': ['/learn/javascript/loops-and-iterations'],
+  '/learn/javascript/functions': ['/learn/javascript/functions-and-parameters'],
+  '/learn/javascript/arrays-and-objects': ['/learn/javascript/data-structures', '/learn/javascript/objects-and-prototypes'],
+  '/learn/javascript/dom-and-events': ['/learn/javascript/dom', '/learn/javascript/browser-javascript'],
+  '/learn/javascript/error-handling-and-json': ['/learn/javascript/error-handling', '/learn/javascript/structured-data'],
+  '/learn/javascript/promises-async-await-and-fetch': ['/learn/javascript/promises', '/learn/javascript/async-await', '/learn/javascript/fetch'],
+  '/learn/javascript/closures-scope-and-the-event-loop': ['/learn/javascript/scope-and-function-execution', '/learn/javascript/event-loop'],
+  '/learn/javascript/modules-and-web-storage': ['/learn/javascript/modules'],
+}
+
 let loaded = false
 
 export function useProgress() {
@@ -13,7 +27,22 @@ export function useProgress() {
       if (raw) {
         const parsed = JSON.parse(raw)
         if (parsed && typeof parsed === 'object' && !Array.isArray(parsed)) {
-          completed.value = parsed
+          const migrated = { ...parsed } as Record<string, string>
+          let changed = false
+
+          for (const [oldPath, newPaths] of Object.entries(LEGACY_JAVASCRIPT_PATHS)) {
+            const completedAt = migrated[oldPath]
+            if (!completedAt) continue
+
+            for (const newPath of newPaths) {
+              migrated[newPath] ??= completedAt
+            }
+            delete migrated[oldPath]
+            changed = true
+          }
+
+          completed.value = migrated
+          if (changed) persist()
         }
       }
     } catch {
