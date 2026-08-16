@@ -7,7 +7,7 @@ estimatedHours: 20
 status: 'available'
 track: 'core'
 color: '#f97316'
-icon: 'code'
+icon: 'html'
 prerequisites:
 
 ---

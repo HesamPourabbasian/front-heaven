@@ -7,7 +7,7 @@ estimatedHours: 20
 status: 'available'
 track: 'core'
 color: '#3b82f6'
-icon: 'shield'
+icon: 'typescript'
 prerequisites:
   - javascript
 ---

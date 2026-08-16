@@ -7,7 +7,7 @@ estimatedHours: 25
 status: 'available'
 track: 'core'
 color: '#eab308'
-icon: 'braces'
+icon: 'javascript'
 prerequisites:
   - html
   - css
