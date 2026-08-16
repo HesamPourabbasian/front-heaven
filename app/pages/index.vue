@@ -218,9 +218,6 @@ function techMinutes(slug: string) {
             </div>
           </dl>
         </div>
-
-        <!-- Interactive Learning Studio & Pathfinder Hub -->
-        <HeroInteractiveHub />
       </div>
     </section>
 
