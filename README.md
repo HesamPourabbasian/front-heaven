@@ -4,8 +4,8 @@ A structured, beginner-friendly platform for learning front-end development — 
 
 ## Features
 
-- **Structured roadmap** — 10 stages covering HTML, CSS, JavaScript, Git, responsive design, accessibility, HTTP/APIs, TypeScript, frameworks, and advanced topics
-- **180 lessons** — beginner-friendly, practical, self-contained lessons with real code examples
+- **Structured roadmap** — Core Foundations, Frontend Frameworks (React, Vue, Angular, Svelte, SolidJS, Preact, Astro, HTMX), Meta-Frameworks (Next.js & Nuxt), and CSS Frameworks (Tailwind CSS & Bootstrap)
+- **209 lessons** — beginner-friendly, practical, self-contained lessons with real code examples
 - **Progress tracking** — mark lessons complete, track your percentage across technologies, resume where you left off
 - **Dark mode** — full light/dark theme with system preference detection and manual toggle
 - **Search** — instant search across all lessons and technologies (Cmd/Ctrl+K)
