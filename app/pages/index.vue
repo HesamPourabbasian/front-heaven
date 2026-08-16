@@ -219,69 +219,8 @@ function techMinutes(slug: string) {
           </dl>
         </div>
 
-        <!-- Roadmap preview strip -->
-        <div class="animate-fade-up mt-16" style="animation-delay: 300ms" aria-label="Roadmap preview">
-          <!-- Mobile: grid layout -->
-          <div class="grid grid-cols-3 gap-4 sm:hidden">
-            <template v-for="(tech, i) in technologies" :key="tech.slug">
-              <div
-                class="flex flex-col items-center"
-                :class="tech.status === 'available' ? 'cursor-pointer' : 'opacity-45'"
-              >
-                <NuxtLink
-                  v-if="tech.status === 'available'"
-                  :to="technologyRoute(tech.slug)"
-                  class="group flex flex-col items-center gap-2"
-                >
-                  <span class="transition-transform duration-200 group-hover:scale-110" :aria-label="`Open ${tech.title} lessons`">
-                    <TechIcon :icon="tech.icon" :color="tech.color" />
-                  </span>
-                  <span class="text-[10px] font-semibold tracking-wide text-muted group-hover:text-ink">{{ tech.title }}</span>
-                  <span class="h-1 w-10 overflow-hidden rounded-full bg-surface-3">
-                    <span class="block h-full rounded-full" :style="{ width: `${techPercent(tech.slug)}%`, background: tech.color }" />
-                  </span>
-                </NuxtLink>
-                <span v-else class="flex flex-col items-center gap-2">
-                  <span class="flex size-11 items-center justify-center rounded-xl border border-border bg-surface-2" aria-hidden="true">
-                    <Lock class="size-4 text-muted" />
-                  </span>
-                  <span class="text-[10px] font-semibold tracking-wide text-muted">{{ tech.title }}</span>
-                </span>
-              </div>
-            </template>
-          </div>
-
-          <!-- Desktop: horizontal strip -->
-          <div class="hidden items-center justify-center gap-0 overflow-x-auto pb-3 [scrollbar-width:none] sm:flex [&::-webkit-scrollbar]:hidden">
-            <template v-for="(tech, i) in technologies" :key="tech.slug">
-              <div
-                class="flex min-w-fit items-center"
-                :class="tech.status === 'available' ? 'cursor-pointer' : 'opacity-45'"
-              >
-                <NuxtLink
-                  v-if="tech.status === 'available'"
-                  :to="technologyRoute(tech.slug)"
-                  class="group flex flex-col items-center gap-2 px-3"
-                >
-                  <span class="transition-transform duration-200 group-hover:scale-110" :aria-label="`Open ${tech.title} lessons`">
-                    <TechIcon :icon="tech.icon" :color="tech.color" />
-                  </span>
-                  <span class="text-[10px] font-semibold tracking-wide text-muted group-hover:text-ink">{{ tech.title }}</span>
-                  <span class="h-1 w-10 overflow-hidden rounded-full bg-surface-3">
-                    <span class="block h-full rounded-full" :style="{ width: `${techPercent(tech.slug)}%`, background: tech.color }" />
-                  </span>
-                </NuxtLink>
-                <span v-else class="flex flex-col items-center gap-2 px-3">
-                  <span class="flex size-11 items-center justify-center rounded-xl border border-border bg-surface-2" aria-hidden="true">
-                    <Lock class="size-4 text-muted" />
-                  </span>
-                  <span class="text-[10px] font-semibold tracking-wide text-muted">{{ tech.title }}</span>
-                </span>
-              </div>
-              <span v-if="i < technologies.length - 1" class="mx-0.5 mb-7 h-px w-4 shrink-0 bg-gradient-to-r from-primary/60 to-accent/60 sm:w-8" aria-hidden="true" />
-            </template>
-          </div>
-        </div>
+        <!-- Interactive Learning Studio & Pathfinder Hub -->
+        <HeroInteractiveHub />
       </div>
     </section>
 
