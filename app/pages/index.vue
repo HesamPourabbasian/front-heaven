@@ -35,13 +35,16 @@ const stats = computed(() => [
 
 const featuredLessons = computed(() => {
   const picks = [
-    { tech: 'html', slug: 'what-is-html' },
+    { tech: 'html', slug: 'introduction-to-html' },
     { tech: 'css', slug: 'flexbox' },
-    { tech: 'javascript', slug: 'functions' },
+    { tech: 'javascript', slug: 'functions-and-parameters' },
   ]
   return picks
     .map((p) => {
-      const lesson = lessons.value.find(l => l.technology === p.tech && l.slug === p.slug)
+      let lesson = lessons.value.find(l => l.technology === p.tech && l.slug === p.slug)
+      if (!lesson) {
+        lesson = lessons.value.find(l => l.technology === p.tech)
+      }
       const tech = technologies.value.find(t => t.slug === p.tech)
       return lesson && tech ? { lesson, tech } : null
     })
