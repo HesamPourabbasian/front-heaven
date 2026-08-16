@@ -3,23 +3,18 @@ import {
   ArrowLeft,
   ArrowRight,
   BookOpen,
-  Braces,
-  Briefcase,
+  Check,
   CheckCircle2,
   Clock,
-  Code,
-  FolderGit2,
-  Globe,
+  ExternalLink,
+  HelpCircle,
   Layers,
   Lightbulb,
-  Palette,
-  ShieldCheck,
+  Lock,
+  PlayCircle,
   Sparkles,
-  Terminal,
   X,
-  Zap,
 } from 'lucide-vue-next'
-import type { Component } from 'vue'
 import type { DiagramNode } from '~/types/diagram'
 
 const props = defineProps<{
@@ -32,20 +27,22 @@ const emit = defineEmits<{
   navigateNode: [nodeId: string]
 }>()
 
-const iconMap: Record<string, Component> = {
-  globe: Globe,
-  code: Code,
-  palette: Palette,
-  braces: Braces,
-  terminal: Terminal,
-  zap: Zap,
-  layers: Layers,
-  'shield-check': ShieldCheck,
-  'folder-git': FolderGit2,
-  briefcase: Briefcase,
-}
+const { lessons } = useSiteContent()
+const { completed, isCompleted } = useProgress()
 
-const nodeIcon = computed(() => (props.node ? iconMap[props.node.icon] ?? Code : Code))
+const nodeLessons = computed(() => {
+  if (!props.node?.trackSlug) return []
+  return lessons.value.filter(l => l.technology === props.node!.trackSlug)
+})
+
+const completedLessonsCount = computed(() => {
+  return nodeLessons.value.filter(l => isCompleted(l.path)).length
+})
+
+const progressPercent = computed(() => {
+  if (nodeLessons.value.length === 0) return 0
+  return Math.round((completedLessonsCount.value / nodeLessons.value.length) * 100)
+})
 
 // Local readiness checklist state
 const checkedItems = ref<Record<string, boolean>>({})
@@ -98,265 +95,220 @@ onBeforeUnmount(() => {
       <!-- Backdrop -->
       <div
         class="fixed inset-0 bg-black/60 backdrop-blur-sm transition-opacity"
+        aria-hidden="true"
         @click="emit('close')"
       />
 
-      <!-- Modal Card -->
+      <!-- Modal Panel Container -->
       <div
-        class="relative flex max-h-[90vh] w-full max-w-3xl flex-col rounded-3xl border border-border bg-surface shadow-2xl overflow-hidden animate-fade-up z-10"
+        class="relative flex max-h-[90vh] w-full max-w-2xl flex-col overflow-hidden rounded-3xl border border-border bg-surface shadow-2xl z-10 animate-fade-in"
       >
-        <!-- Header banner -->
-        <div
-          class="relative border-b border-border/80 p-6 sm:p-8"
-          :style="{
-            background: `linear-gradient(135deg, color-mix(in srgb, ${node.color} 14%, var(--surface)) 0%, var(--surface) 100%)`,
-          }"
-        >
-          <div class="flex items-start justify-between gap-4">
-            <div class="flex items-center gap-3">
-              <div
-                class="flex size-13 items-center justify-center rounded-2xl text-white shadow-md"
-                :style="{
-                  background: `linear-gradient(135deg, ${node.color} 0%, color-mix(in srgb, ${node.color} 60%, var(--surface)) 100%)`,
-                }"
+        <!-- Modal Header -->
+        <div class="flex items-start justify-between border-b border-border/80 bg-surface-2/60 px-6 py-5">
+          <div class="flex items-start gap-4">
+            <TechIcon :icon="node.icon" :color="node.color" size="lg" />
+
+            <div>
+              <div class="flex flex-wrap items-center gap-2">
+                <span class="rounded-md bg-surface-3 px-2 py-0.5 font-mono text-[10px] font-bold text-muted uppercase">
+                  Stage {{ node.stepNumber }}
+                </span>
+                <span class="rounded-md bg-primary/10 px-2 py-0.5 text-[10px] font-bold text-primary uppercase">
+                  {{ node.category }}
+                </span>
+                <UiBadge variant="default" class="capitalize text-[10px]">
+                  {{ node.difficulty }}
+                </UiBadge>
+              </div>
+
+              <h2
+                :id="`modal-title-${node.id}`"
+                class="mt-1.5 font-display text-xl font-bold tracking-tight text-ink sm:text-2xl"
               >
-                <component :is="nodeIcon" class="size-6.5" :stroke-width="2.2" />
-              </div>
-
-              <div>
-                <div class="flex items-center gap-2 flex-wrap">
-                  <span
-                    class="rounded-md font-mono text-xs font-bold text-white px-2 py-0.5"
-                    :style="{ backgroundColor: node.color }"
-                  >
-                    Stage {{ String(node.stepNumber).padStart(2, '0') }}
-                  </span>
-                  <UiBadge :variant="node.difficulty === 'beginner' ? 'beginner' : node.difficulty === 'intermediate' ? 'intermediate' : 'advanced'" class="capitalize">
-                    {{ node.difficulty }}
-                  </UiBadge>
-                  <UiBadge v-if="node.importance === 'essential'" variant="essential">
-                    Essential Foundation
-                  </UiBadge>
-                  <UiBadge v-else-if="node.importance === 'milestone'" variant="success">
-                    Major Milestone
-                  </UiBadge>
-                </div>
-
-                <h2
-                  :id="`modal-title-${node.id}`"
-                  class="mt-1.5 font-display text-2xl font-bold tracking-tight text-ink sm:text-3xl"
-                >
-                  {{ node.title }}
-                </h2>
-                <p class="text-sm text-muted">
-                  {{ node.subtitle }}
-                </p>
-              </div>
+                {{ node.title }}
+              </h2>
+              <p class="text-xs text-muted">
+                {{ node.subtitle }}
+              </p>
             </div>
-
-            <!-- Close button -->
-            <button
-              type="button"
-              class="icon-btn shrink-0 rounded-xl hover:bg-surface-2"
-              aria-label="Close dialog"
-              @click="emit('close')"
-            >
-              <X class="size-5" />
-            </button>
           </div>
+
+          <!-- Close Button -->
+          <button
+            type="button"
+            class="flex size-9 items-center justify-center rounded-xl border border-border bg-surface text-muted transition-colors hover:bg-surface-3 hover:text-ink"
+            aria-label="Close details"
+            @click="emit('close')"
+          >
+            <X class="size-4" />
+          </button>
         </div>
 
-        <!-- Scrollable Content -->
-        <div class="flex-1 overflow-y-auto p-6 sm:p-8 space-y-8">
-          <!-- Overview & Why it matters -->
-          <div class="grid gap-4 sm:grid-cols-2">
-            <div class="rounded-2xl border border-border/80 bg-surface-2/60 p-4.5">
-              <h4 class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-muted">
-                <BookOpen class="size-3.5 text-primary" />
-                Stage Overview
-              </h4>
-              <p class="mt-2 text-sm leading-relaxed text-ink">
-                {{ node.description }}
-              </p>
-            </div>
-
-            <div class="rounded-2xl border border-border/80 bg-surface-2/60 p-4.5">
-              <h4 class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-muted">
-                <Lightbulb class="size-3.5 text-amber-500" />
-                Why This Matters
-              </h4>
-              <p class="mt-2 text-sm leading-relaxed text-ink">
-                {{ node.whyItMatters }}
-              </p>
-            </div>
-          </div>
-
-          <!-- Prerequisites & Next Step Flow -->
-          <div class="rounded-2xl border border-border bg-surface-2/40 p-5">
-            <div class="grid gap-6 sm:grid-cols-2">
-              <!-- Prerequisites -->
-              <div>
-                <span class="text-xs font-bold uppercase tracking-wider text-muted">
-                  What You Need First (Prerequisites)
-                </span>
-                <ul class="mt-2.5 space-y-2">
-                  <li
-                    v-for="prereq in node.prerequisites"
-                    :key="prereq.id"
-                    class="rounded-xl border border-border bg-surface p-3 text-xs"
-                  >
-                    <div class="font-semibold text-ink">
-                      {{ prereq.title }}
-                    </div>
-                    <div class="mt-0.5 text-muted">
-                      {{ prereq.reason }}
-                    </div>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- Next Step -->
-              <div>
-                <span class="text-xs font-bold uppercase tracking-wider text-muted">
-                  Where This Leads (Next Step)
-                </span>
-                <div class="mt-2.5 rounded-xl border border-primary/30 bg-primary/5 p-3.5 text-xs">
-                  <div class="flex items-center justify-between font-semibold text-primary">
-                    <span>{{ node.nextStep.title }}</span>
-                    <ArrowRight class="size-3.5" />
-                  </div>
-                  <p class="mt-1 text-ink-soft">
-                    {{ node.nextStep.reason }}
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Topics Checklist -->
-          <div>
-            <div class="flex items-center justify-between mb-3">
-              <h4 class="font-display text-base font-bold text-ink">
-                Key Topics to Master
-              </h4>
-              <span class="text-xs text-muted">
-                {{ node.topics.filter(t => t.isEssential).length }} essential topics
+        <!-- Scrollable Modal Content -->
+        <div class="flex-1 overflow-y-auto p-6 space-y-6 [scrollbar-gutter:stable]">
+          <!-- Progress Banner (if lessons available) -->
+          <div v-if="nodeLessons.length > 0" class="rounded-2xl border border-border bg-surface-2/40 p-4">
+            <div class="flex items-center justify-between text-xs">
+              <span class="font-bold text-ink">Your Learning Progress</span>
+              <span class="font-mono font-semibold text-primary">
+                {{ completedLessonsCount }}/{{ nodeLessons.length }} lessons ({{ progressPercent }}%)
               </span>
             </div>
+            <div class="mt-2 h-2 overflow-hidden rounded-full bg-surface-3">
+              <div
+                class="h-full rounded-full bg-primary transition-all duration-500"
+                :style="{ width: `${progressPercent}%` }"
+              />
+            </div>
+          </div>
 
-            <div class="grid gap-2.5 sm:grid-cols-2">
+          <!-- Why it matters -->
+          <div class="rounded-2xl border border-primary/20 bg-primary/5 p-4.5">
+            <span class="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-primary">
+              <Lightbulb class="size-3.5" />
+              Why You Should Learn It
+            </span>
+            <p class="mt-1.5 text-xs sm:text-sm leading-relaxed text-ink font-medium">
+              {{ node.whyItMatters }}
+            </p>
+          </div>
+
+          <!-- Description -->
+          <div>
+            <h3 class="text-xs font-bold uppercase tracking-wider text-muted">Overview</h3>
+            <p class="mt-1.5 text-sm leading-relaxed text-ink-soft">
+              {{ node.description }}
+            </p>
+          </div>
+
+          <!-- Prerequisites & Unlocks Grid -->
+          <div class="grid gap-3.5 sm:grid-cols-2">
+            <!-- Prerequisites -->
+            <div class="rounded-2xl border border-border bg-surface-2/30 p-4">
+              <span class="text-[11px] font-bold uppercase tracking-wider text-muted">Required Prerequisites</span>
+              <ul class="mt-2 space-y-2">
+                <li v-for="prereq in node.prerequisites" :key="prereq.id" class="text-xs">
+                  <div class="flex items-center gap-1.5 font-bold text-ink">
+                    <CheckCircle2 class="size-3.5 text-emerald-500 shrink-0" />
+                    <span>{{ prereq.title }}</span>
+                  </div>
+                  <p class="text-[11px] text-muted pl-5">{{ prereq.reason }}</p>
+                </li>
+              </ul>
+            </div>
+
+            <!-- What Unlocks Next -->
+            <div class="rounded-2xl border border-border bg-surface-2/30 p-4">
+              <span class="text-[11px] font-bold uppercase tracking-wider text-muted">What Unlocks Next</span>
+              <div class="mt-2 text-xs">
+                <div class="flex items-center gap-1.5 font-bold text-primary">
+                  <Sparkles class="size-3.5 shrink-0" />
+                  <span>{{ node.nextStep.title }}</span>
+                </div>
+                <p class="text-[11px] text-muted pl-5 mt-0.5">{{ node.nextStep.reason }}</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Key Topics Breakdown -->
+          <div>
+            <h3 class="text-xs font-bold uppercase tracking-wider text-muted">Key Topics Covered</h3>
+            <div class="mt-2.5 grid gap-2 sm:grid-cols-2">
               <div
                 v-for="topic in node.topics"
                 :key="topic.name"
-                class="flex items-start gap-2.5 rounded-xl border border-border bg-surface p-3.5"
+                class="rounded-xl border border-border/80 bg-surface-2/40 p-3 text-xs"
               >
-                <span
-                  class="mt-0.5 size-2 rounded-full shrink-0"
-                  :style="{ backgroundColor: node.color }"
-                />
-                <div class="min-w-0 flex-1">
-                  <div class="flex items-center gap-1.5 flex-wrap">
-                    <span class="text-xs font-semibold text-ink">{{ topic.name }}</span>
-                    <UiBadge v-if="topic.isEssential" variant="essential" class="text-[9px] py-0 px-1.5">
-                      Essential
-                    </UiBadge>
-                  </div>
-                  <p v-if="topic.description" class="mt-0.5 text-[11px] text-muted leading-normal">
-                    {{ topic.description }}
-                  </p>
+                <div class="flex items-center justify-between">
+                  <span class="font-bold text-ink">{{ topic.name }}</span>
+                  <span
+                    v-if="topic.isEssential"
+                    class="rounded bg-primary/10 px-1.5 py-0.2 text-[9px] font-bold text-primary uppercase"
+                  >
+                    Core
+                  </span>
                 </div>
+                <p v-if="topic.description" class="mt-1 text-[11px] text-muted leading-relaxed">
+                  {{ topic.description }}
+                </p>
               </div>
             </div>
           </div>
 
-          <!-- Practice Project Ideas -->
-          <div>
-            <h4 class="font-display text-base font-bold text-ink mb-3">
-              What to Build (Practice Projects)
-            </h4>
-
-            <div class="space-y-3">
+          <!-- Practice Projects -->
+          <div v-if="node.practiceProjects.length > 0">
+            <h3 class="text-xs font-bold uppercase tracking-wider text-muted">Practice Projects</h3>
+            <div class="mt-2 space-y-2">
               <div
                 v-for="project in node.practiceProjects"
                 :key="project.title"
-                class="rounded-2xl border border-border bg-surface p-4.5"
+                class="rounded-2xl border border-border bg-surface-2/50 p-4 text-xs"
               >
-                <div class="flex items-start justify-between gap-3">
-                  <div>
-                    <h5 class="text-sm font-bold text-ink">
-                      {{ project.title }}
-                    </h5>
-                    <p class="mt-1 text-xs text-muted leading-relaxed">
-                      {{ project.description }}
-                    </p>
-                  </div>
-                  <UiBadge :variant="project.difficulty === 'beginner' ? 'beginner' : project.difficulty === 'intermediate' ? 'intermediate' : 'advanced'" class="capitalize text-[10px]">
+                <div class="flex items-center justify-between">
+                  <span class="font-bold text-ink text-sm">{{ project.title }}</span>
+                  <UiBadge variant="default" class="text-[10px] capitalize">
                     {{ project.difficulty }}
                   </UiBadge>
                 </div>
-
-                <div class="mt-3 flex flex-wrap gap-1.5 pt-3 border-t border-border/50">
-                  <span class="text-[11px] font-medium text-muted mr-1">Deliverables:</span>
+                <p class="mt-1 text-muted leading-relaxed">
+                  {{ project.description }}
+                </p>
+                <div class="mt-2.5 flex flex-wrap gap-1.5">
                   <span
                     v-for="deliv in project.deliverables"
                     :key="deliv"
-                    class="inline-flex items-center gap-1 rounded-md bg-surface-2 px-2 py-0.5 text-[11px] text-ink-soft"
+                    class="rounded-md bg-surface px-2 py-0.5 text-[10px] font-mono text-muted border border-border"
                   >
-                    <CheckCircle2 class="size-3 text-emerald-500" />
-                    {{ deliv }}
+                    ✓ {{ deliv }}
                   </span>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- Self-Assessment Readiness Checklist -->
-          <div class="rounded-2xl border border-border bg-surface-2/50 p-5">
-            <div class="flex items-center justify-between mb-3">
-              <div>
-                <h4 class="text-sm font-bold text-ink">
-                  Readiness Self-Assessment
-                </h4>
-                <p class="text-xs text-muted">
-                  Check off the statements you can confidently verify:
-                </p>
-              </div>
-              <span class="font-mono text-xs font-bold text-primary">
-                {{ readinessCount }}/{{ node.readinessChecklist.length }} Ready
+          <!-- Interactive Readiness Checklist -->
+          <div>
+            <div class="flex items-center justify-between">
+              <h3 class="text-xs font-bold uppercase tracking-wider text-muted">
+                Are You Ready to Advance?
+              </h3>
+              <span class="font-mono text-xs font-semibold text-primary">
+                {{ readinessCount }}/{{ node.readinessChecklist.length }} checked
               </span>
             </div>
 
-            <UiProgress :value="readinessPercent" class="mb-4" />
-
-            <div class="space-y-2">
-              <label
-                v-for="(item, i) in node.readinessChecklist"
-                :key="i"
-                class="flex items-start gap-3 rounded-xl border border-border bg-surface p-3 text-xs text-ink-soft cursor-pointer hover:bg-surface-2 transition-colors select-none"
+            <div class="mt-2 space-y-1.5">
+              <button
+                v-for="(item, idx) in node.readinessChecklist"
+                :key="idx"
+                type="button"
+                class="flex w-full items-start gap-3 rounded-xl border p-3 text-left text-xs transition-all cursor-pointer select-none"
+                :class="isChecked(idx)
+                  ? 'border-emerald-500/50 bg-emerald-500/10 text-emerald-800 dark:text-emerald-300 font-medium'
+                  : 'border-border bg-surface hover:bg-surface-2 text-ink'"
+                @click="toggleChecklist(idx)"
               >
-                <input
-                  type="checkbox"
-                  :checked="isChecked(i)"
-                  class="mt-0.5 size-4 rounded text-primary focus:ring-primary"
-                  @change="toggleChecklist(i)"
-                />
-                <span :class="isChecked(i) ? 'line-through text-muted' : 'text-ink font-medium'">
-                  {{ item }}
+                <span
+                  class="mt-0.5 flex size-4 shrink-0 items-center justify-center rounded-md border text-white transition-colors"
+                  :class="isChecked(idx) ? 'border-emerald-500 bg-emerald-500' : 'border-border bg-surface-2'"
+                >
+                  <Check v-if="isChecked(idx)" class="size-3" />
                 </span>
-              </label>
+                <span class="leading-relaxed">{{ item }}</span>
+              </button>
             </div>
           </div>
         </div>
 
-        <!-- Footer Actions -->
-        <div class="flex flex-wrap items-center justify-between gap-3 border-t border-border bg-surface-2 px-6 py-4">
+        <!-- Modal Footer CTA -->
+        <div class="flex flex-wrap items-center justify-between gap-3 border-t border-border bg-surface-2/60 px-6 py-4">
           <div class="flex items-center gap-2 text-xs text-muted">
             <Clock class="size-3.5" />
-            Estimated: <strong class="text-ink">{{ node.estimatedWeeks }}</strong>
+            <span>Estimated time: <strong>{{ node.estimatedWeeks }}</strong></span>
           </div>
 
-          <div class="flex items-center gap-2 ml-auto">
-            <UiButton variant="outline" size="sm" @click="emit('close')">
+          <div class="flex items-center gap-2">
+            <UiButton variant="secondary" size="sm" @click="emit('close')">
               Close
             </UiButton>
             <UiButton
@@ -364,8 +316,9 @@ onBeforeUnmount(() => {
               :to="node.learnRoute"
               variant="primary"
               size="sm"
+              class="gap-1.5"
             >
-              Start Learning Stage
+              <span>{{ progressPercent > 0 ? 'Continue Stage' : 'Start Stage' }}</span>
               <ArrowRight class="size-3.5" />
             </UiButton>
           </div>
@@ -380,6 +333,7 @@ onBeforeUnmount(() => {
 .modal-fade-leave-active {
   transition: opacity 0.2s ease;
 }
+
 .modal-fade-enter-from,
 .modal-fade-leave-to {
   opacity: 0;

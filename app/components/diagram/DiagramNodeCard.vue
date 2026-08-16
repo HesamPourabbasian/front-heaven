@@ -1,28 +1,16 @@
 <script setup lang="ts">
 import {
   ArrowRight,
-  BookOpen,
-  Braces,
-  Briefcase,
+  Check,
   CheckCircle2,
   Clock,
-  Code,
-  FolderGit2,
-  Globe,
-  Layers,
-  Palette,
-  ShieldCheck,
-  Sparkles,
-  Terminal,
-  Zap,
+  Lock,
 } from 'lucide-vue-next'
-import type { Component } from 'vue'
 import type { DiagramNode } from '~/types/diagram'
 
 const props = defineProps<{
   node: DiagramNode
   isActive?: boolean
-  isCompleted?: boolean
   index: number
   total: number
 }>()
@@ -31,20 +19,29 @@ const emit = defineEmits<{
   select: [node: DiagramNode]
 }>()
 
-const iconMap: Record<string, Component> = {
-  globe: Globe,
-  code: Code,
-  palette: Palette,
-  braces: Braces,
-  terminal: Terminal,
-  zap: Zap,
-  layers: Layers,
-  'shield-check': ShieldCheck,
-  'folder-git': FolderGit2,
-  briefcase: Briefcase,
-}
+const { lessons } = useSiteContent()
+const { isCompleted } = useProgress()
 
-const nodeIcon = computed(() => iconMap[props.node.icon] ?? Code)
+const nodeLessons = computed(() => {
+  if (!props.node.trackSlug) return []
+  return lessons.value.filter(l => l.technology === props.node.trackSlug)
+})
+
+const completedCount = computed(() => {
+  return nodeLessons.value.filter(l => isCompleted(l.path)).length
+})
+
+const progressPercent = computed(() => {
+  if (nodeLessons.value.length === 0) return 0
+  return Math.round((completedCount.value / nodeLessons.value.length) * 100)
+})
+
+const progressStatus = computed(() => {
+  if (nodeLessons.value.length === 0) return 'not-started'
+  if (progressPercent.value === 100) return 'completed'
+  if (progressPercent.value > 0) return 'in-progress'
+  return 'not-started'
+})
 
 const difficultyVariant = computed(() => {
   switch (props.node.difficulty) {
@@ -58,28 +55,6 @@ const difficultyVariant = computed(() => {
       return 'default'
   }
 })
-
-const importanceLabel = computed(() => {
-  switch (props.node.importance) {
-    case 'essential':
-      return 'Essential Core'
-    case 'core':
-      return 'Core Track'
-    case 'specialization':
-      return 'Specialization'
-    case 'milestone':
-      return 'Milestone Project'
-  }
-})
-
-const cardGradientStyle = computed(() => ({
-  background: `linear-gradient(135deg, color-mix(in srgb, ${props.node.color} 8%, var(--surface)) 0%, var(--surface) 100%)`,
-}))
-
-const iconTileStyle = computed(() => ({
-  background: `linear-gradient(135deg, ${props.node.color} 0%, color-mix(in srgb, ${props.node.color} 60%, var(--surface)) 100%)`,
-  boxShadow: `0 6px 18px -4px color-mix(in srgb, ${props.node.color} 40%, transparent)`,
-}))
 </script>
 
 <template>
@@ -88,12 +63,11 @@ const iconTileStyle = computed(() => ({
     tabindex="0"
     :aria-label="`Stage ${node.stepNumber}: ${node.title}`"
     :class="[
-      'group relative flex flex-col rounded-2xl border transition-all duration-300 text-left outline-none cursor-pointer',
+      'group relative flex flex-col rounded-2xl border transition-all duration-300 text-left outline-none cursor-pointer h-full justify-between',
       isActive
-        ? 'border-primary shadow-xl shadow-primary/10 ring-2 ring-primary/20 -translate-y-1'
+        ? 'border-primary shadow-xl shadow-primary/10 ring-2 ring-primary/20 -translate-y-1 bg-surface'
         : 'border-border bg-surface hover:border-border-strong hover:shadow-lg hover:-translate-y-0.5',
     ]"
-    :style="cardGradientStyle"
     @click="emit('select', node)"
     @keydown.enter="emit('select', node)"
     @keydown.space.prevent="emit('select', node)"
@@ -112,34 +86,46 @@ const iconTileStyle = computed(() => ({
         </span>
       </div>
 
+      <!-- Status Indicator Pill -->
       <div class="flex items-center gap-1.5">
-        <UiBadge :variant="difficultyVariant" class="capitalize">
+        <span
+          v-if="progressStatus === 'completed'"
+          class="inline-flex items-center gap-1 rounded-full bg-emerald-500/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400"
+        >
+          <Check class="size-3" />
+          Completed
+        </span>
+        <span
+          v-else-if="progressStatus === 'in-progress'"
+          class="inline-flex items-center gap-1 rounded-full bg-sky-500/10 px-2 py-0.5 text-[10px] font-bold text-sky-600 dark:text-sky-400 font-mono"
+        >
+          {{ progressPercent }}% Done
+        </span>
+        <UiBadge :variant="difficultyVariant" class="capitalize text-[10px]">
           {{ node.difficulty }}
         </UiBadge>
-        <span v-if="node.importance === 'essential'" class="hidden sm:inline-flex">
-          <UiBadge variant="essential" class="text-[10px]">
-            Essential
-          </UiBadge>
-        </span>
       </div>
     </div>
 
     <!-- Main Card Body -->
     <div class="flex flex-1 flex-col p-5">
       <div class="flex items-start gap-3.5">
-        <!-- Icon Tile -->
-        <div
-          class="flex size-11 shrink-0 items-center justify-center rounded-xl text-white transition-transform duration-200 group-hover:scale-105"
-          :style="iconTileStyle"
-        >
-          <component :is="nodeIcon" class="size-5.5" :stroke-width="2.2" />
-        </div>
+        <!-- Logo / Icon Tile -->
+        <TechIcon :icon="node.icon" :color="node.color" size="md" />
 
         <!-- Title & Subtitle -->
         <div class="min-w-0 flex-1">
-          <h4 class="font-display text-base font-bold leading-tight text-ink group-hover:text-primary transition-colors">
-            {{ node.title }}
-          </h4>
+          <div class="flex items-center gap-1.5">
+            <h4 class="font-display text-base font-bold leading-tight text-ink group-hover:text-primary transition-colors truncate">
+              {{ node.title }}
+            </h4>
+            <span
+              v-if="node.parentFramework"
+              class="rounded bg-surface-3 px-1.5 py-0.2 text-[9px] font-mono text-muted uppercase shrink-0"
+            >
+              {{ node.parentFramework }}
+            </span>
+          </div>
           <p class="mt-0.5 text-xs text-muted line-clamp-1">
             {{ node.subtitle }}
           </p>
@@ -147,12 +133,12 @@ const iconTileStyle = computed(() => ({
       </div>
 
       <!-- Description -->
-      <p class="mt-3.5 text-xs leading-relaxed text-ink-soft line-clamp-2">
+      <p class="mt-3 text-xs leading-relaxed text-ink-soft line-clamp-2 min-h-[2rem]">
         {{ node.description }}
       </p>
 
       <!-- Key Topics Preview Tags -->
-      <div class="mt-4 flex flex-wrap gap-1.5">
+      <div class="mt-3.5 flex flex-wrap gap-1.5">
         <span
           v-for="topic in node.topics.slice(0, 3)"
           :key="topic.name"
@@ -170,13 +156,13 @@ const iconTileStyle = computed(() => ({
 
       <!-- Card Footer info -->
       <div class="mt-auto pt-4 flex items-center justify-between border-t border-border/50 text-xs text-muted">
-        <span class="flex items-center gap-1">
+        <span class="flex items-center gap-1 font-mono text-[11px]">
           <Clock class="size-3 text-muted" />
-          {{ node.estimatedWeeks }}
+          {{ nodeLessons.length > 0 ? `${nodeLessons.length} lessons · ` : '' }}{{ node.estimatedWeeks }}
         </span>
 
         <span class="flex items-center gap-1 font-semibold text-primary group-hover:translate-x-0.5 transition-transform">
-          View details
+          Explore Stage
           <ArrowRight class="size-3.5" />
         </span>
       </div>

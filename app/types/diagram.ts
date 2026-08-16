@@ -2,6 +2,18 @@ import type { Difficulty } from './content'
 
 export type NodeImportance = 'essential' | 'core' | 'specialization' | 'milestone'
 
+export type DiagramCategory =
+  | 'fundamentals'
+  | 'javascript'
+  | 'frameworks'
+  | 'meta-frameworks'
+  | 'css-frameworks'
+  | 'tools'
+  | 'projects'
+  | 'career'
+
+export type NodeProgressStatus = 'locked' | 'not-started' | 'in-progress' | 'completed'
+
 export interface DiagramTopicItem {
   name: string
   description?: string
@@ -18,6 +30,7 @@ export interface DiagramProjectItem {
 export interface DiagramNode {
   id: string
   stepNumber: number
+  category: DiagramCategory
   title: string
   shortTitle: string
   subtitle: string
@@ -28,6 +41,7 @@ export interface DiagramNode {
   estimatedWeeks: string
   color: string
   icon: string
+  parentFramework?: string
   prerequisites: {
     id: string
     title: string
@@ -47,6 +61,7 @@ export interface DiagramNode {
 }
 
 export interface DiagramFilterOptions {
+  category?: DiagramCategory | 'all'
   difficulty?: Difficulty | 'all'
   importance?: NodeImportance | 'all'
   searchQuery?: string

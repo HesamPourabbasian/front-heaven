@@ -12,13 +12,13 @@ import {
 } from 'lucide-vue-next'
 import { DIAGRAM_STAGES, ROADMAP_FAQ } from '~/data/diagramData'
 import type { Difficulty } from '~/types/content'
-import type { DiagramNode } from '~/types/diagram'
+import type { DiagramCategory, DiagramNode } from '~/types/diagram'
 
 useSeoMeta({
-  title: 'Front-End Learning Diagram & Step-by-Step Path — Front-Heaven',
-  description: 'Interactive visual front-end learning diagram. Understand where to start, what to learn next, and how to progress from fundamentals to job-ready software engineer.',
+  title: 'Front-End Learning Diagram & Step-by-Step Architecture — Front-Heaven',
+  description: 'Interactive visual front-end learning roadmap. Understand where to start, what to learn next, framework relationships, and how to progress from beginner to job-ready software engineer.',
   ogTitle: 'Front-End Development Diagram — Front-Heaven',
-  ogDescription: 'Step-by-step visual diagram for learning front-end development the right way.',
+  ogDescription: 'Step-by-step interactive visual diagram for learning modern front-end development.',
   ogType: 'website',
   ogUrl: 'https://front-heaven.dev/diagram',
 })
@@ -31,12 +31,19 @@ const stages = ref<DiagramNode[]>(DIAGRAM_STAGES)
 const selectedNode = ref<DiagramNode | null>(null)
 const isModalOpen = ref(false)
 
+const activeCategory = ref<DiagramCategory | 'all'>('all')
 const activeDifficulty = ref<Difficulty | 'all'>('all')
 const searchQuery = ref('')
-const viewMode = ref<'path' | 'grid'>('path')
+const viewMode = ref<'tree' | 'path' | 'grid'>('tree')
+const highlightRecommended = ref(true)
 
 const filteredStages = computed(() => {
   return stages.value.filter((stage) => {
+    // Category filter
+    if (activeCategory.value !== 'all' && stage.category !== activeCategory.value) {
+      return false
+    }
+
     // Difficulty filter
     if (activeDifficulty.value !== 'all' && stage.difficulty !== activeDifficulty.value) {
       return false
@@ -84,7 +91,7 @@ function handleNavigateNode(nodeId: string) {
       <div class="text-center max-w-3xl mx-auto">
         <div class="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-4 py-1.5 text-xs font-semibold text-muted shadow-xs">
           <Network class="size-3.5 text-primary" aria-hidden="true" />
-          Interactive Learning Path
+          Interactive Architecture Map
         </div>
 
         <h1 class="mt-6 font-display text-4xl font-bold tracking-tight text-ink sm:text-5xl lg:text-6xl">
@@ -92,11 +99,11 @@ function handleNavigateNode(nodeId: string) {
         </h1>
 
         <p class="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
-          Do not learn front-end randomly. Follow this connected, battle-tested sequence to master foundations first, build real-world projects, and advance to a professional level.
+          A visual, step-by-step roadmap from absolute zero to professional frontend engineer. Understand relationships, master prerequisites, and build real-world software.
         </p>
 
-        <!-- Quick Flow Breadcrumbs Strip -->
-        <div class="mt-8 overflow-x-auto pb-2 scrollbar-none">
+        <!-- Recommended Learning Flow Strip -->
+        <div class="mt-8 overflow-x-auto pb-2 [scrollbar-width:none]">
           <div class="inline-flex items-center gap-2 rounded-2xl border border-border bg-surface/80 px-4 py-2 text-xs font-medium text-muted shadow-xs">
             <span class="font-bold text-primary">Start Here</span>
             <span>→</span>
@@ -106,13 +113,15 @@ function handleNavigateNode(nodeId: string) {
             <span>→</span>
             <span>JavaScript</span>
             <span>→</span>
-            <span>DevTools</span>
-            <span>→</span>
-            <span>Advanced JS</span>
-            <span>→</span>
-            <span>Frameworks</span>
+            <span>Git</span>
             <span>→</span>
             <span>TypeScript</span>
+            <span>→</span>
+            <span>React / Vue / Svelte</span>
+            <span>→</span>
+            <span>Next.js / Nuxt</span>
+            <span>→</span>
+            <span>Tailwind</span>
             <span>→</span>
             <span>Projects</span>
             <span>→</span>
@@ -124,18 +133,31 @@ function handleNavigateNode(nodeId: string) {
       <!-- Controls & Filter Bar -->
       <div class="mt-12 max-w-5xl mx-auto">
         <DiagramSummaryBar
+          v-model:active-category="activeCategory"
           v-model:active-difficulty="activeDifficulty"
           v-model:search-query="searchQuery"
           v-model:view-mode="viewMode"
           :total-stages="stages.length"
           :filtered-count="filteredStages.length"
+          :highlight-recommended="highlightRecommended"
+          @toggle-recommended="highlightRecommended = !highlightRecommended"
         />
       </div>
 
       <!-- Main Diagram Display -->
-      <div class="mt-12 max-w-5xl mx-auto">
-        <!-- Connected Flow Path Mode -->
-        <div v-if="viewMode === 'path'">
+      <div class="mt-10 max-w-5xl mx-auto">
+        <!-- 1. Interactive Architecture Map View (Tree Canvas) -->
+        <div v-if="viewMode === 'tree'">
+          <DiagramTreeCanvas
+            :stages="filteredStages"
+            :selected-node="selectedNode"
+            :highlight-recommended="highlightRecommended"
+            @select="openNodeDetails"
+          />
+        </div>
+
+        <!-- 2. Step-by-Step Connected Flow View (Spine) -->
+        <div v-else-if="viewMode === 'path'">
           <DiagramPathFlow
             :stages="filteredStages"
             :selected-node="selectedNode"
@@ -143,7 +165,7 @@ function handleNavigateNode(nodeId: string) {
           />
         </div>
 
-        <!-- Grid View Mode -->
+        <!-- 3. Categorized Grid View Mode -->
         <div v-else class="grid gap-6 sm:grid-cols-2 lg:grid-cols-2">
           <DiagramNodeCard
             v-for="(node, i) in filteredStages"
@@ -156,41 +178,41 @@ function handleNavigateNode(nodeId: string) {
           />
         </div>
 
-        <!-- Empty state when search has no matches -->
+        <!-- Empty state when search/filter has no matches -->
         <div
           v-if="filteredStages.length === 0"
           class="rounded-3xl border border-dashed border-border p-12 text-center"
         >
           <Compass class="mx-auto size-10 text-muted" />
           <h3 class="mt-4 font-display text-lg font-bold text-ink">
-            No stages found
+            No roadmap stages found
           </h3>
           <p class="mt-1 text-sm text-muted">
-            No roadmap stages match "{{ searchQuery }}". Try clearing your search or difficulty filter.
+            No stages match your selected filters. Try clearing your search or category filter.
           </p>
           <UiButton
             variant="secondary"
             size="sm"
             class="mt-4"
-            @click="searchQuery = ''; activeDifficulty = 'all'"
+            @click="searchQuery = ''; activeCategory = 'all'; activeDifficulty = 'all'"
           >
-            Reset filters
+            Reset all filters
           </UiButton>
         </div>
       </div>
 
-      <!-- Guided FAQ & How to Learn Section -->
+      <!-- Guided FAQ & Beginner Compass -->
       <div class="mt-24 max-w-4xl mx-auto border-t border-border pt-16">
         <div class="text-center max-w-xl mx-auto mb-10">
           <p class="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-primary">
             <HelpCircle class="size-3.5" />
-            Beginner's Compass
+            Beginner's Guide & Compass
           </p>
           <h2 class="mt-2 font-display text-2xl font-bold tracking-tight text-ink sm:text-3xl">
             Frequently Asked Questions
           </h2>
           <p class="mt-2 text-sm text-muted">
-            Answers to the most common questions beginners face when starting front-end development.
+            Clear answers to common questions about starting out, choosing frameworks, and landing a job.
           </p>
         </div>
 
@@ -218,7 +240,7 @@ function handleNavigateNode(nodeId: string) {
           Ready to Start Your Journey?
         </h2>
         <p class="mx-auto mt-2.5 max-w-xl text-sm leading-relaxed text-muted sm:text-base">
-          Begin with Step 1 (Web Fundamentals & HTTP) or explore all structured lesson tracks available for free on Front-Heaven.
+          Begin with Web Fundamentals & HTTP or explore all structured lesson tracks available for free on Front-Heaven.
         </p>
 
         <div class="mt-6 flex flex-wrap items-center justify-center gap-3">
@@ -228,7 +250,7 @@ function handleNavigateNode(nodeId: string) {
           </UiButton>
           <UiButton to="/roadmap" variant="secondary" size="lg">
             <Map class="size-4" />
-            View Stage Roadmap
+            View Full Curriculum
           </UiButton>
         </div>
       </div>
