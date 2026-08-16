@@ -5,7 +5,7 @@ A structured, beginner-friendly platform for learning front-end development — 
 ## Features
 
 - **Structured roadmap** — 10 stages covering HTML, CSS, JavaScript, Git, responsive design, accessibility, HTTP/APIs, TypeScript, frameworks, and advanced topics
-- **26+ lessons** — beginner-friendly, practical, self-contained lessons with real code examples
+- **44+ lessons** — beginner-friendly, practical, self-contained lessons with real code examples
 - **Progress tracking** — mark lessons complete, track your percentage across technologies, resume where you left off
 - **Dark mode** — full light/dark theme with system preference detection and manual toggle
 - **Search** — instant search across all lessons and technologies (Cmd/Ctrl+K)
@@ -86,7 +86,9 @@ front-heaven/
 │   └── learn/                  # Lesson content (Markdown)
 │       ├── html/               # 7 HTML lessons
 │       ├── css/                # 8 CSS lessons
-│       └── javascript/         # 11 JavaScript lessons
+│       ├── javascript/         # 11 JavaScript lessons
+│       ├── git/                # 8 Git lessons
+│       └── responsive-design/  # 10 Responsive Design lessons
 ├── public/                     # Static assets (favicon, og-image)
 ├── nuxt.config.ts
 ├── tsconfig.json
