@@ -1,9 +1,9 @@
 ---
-title: Lists and Tables
-description: Organise information the way the web understands it. Master ordered, unordered and description lists, then build accessible tables.
+title: 'Lists and Tables'
+description: 'Organise information the way the web understands it. Master ordered, unordered and description lists, then build accessible tables.'
 order: 5
-difficulty: beginner
-category: Core Content
+difficulty: 'beginner'
+category: 'Core Content'
 estimatedMinutes: 20
 prerequisites:
   - learn/html/tags-elements-and-attributes

@@ -1,12 +1,12 @@
 ---
-title: Responsive Design
-description: One page, every device. Build interfaces that look and work beautifully on phones, tablets, laptops and beyond.
+title: 'Responsive Design'
+description: 'One page, every device. Build interfaces that look and work beautifully on phones, tablets, laptops and beyond.'
 order: 5
-difficulty: beginner
+difficulty: 'beginner'
 estimatedHours: 5
-status: available
+status: 'available'
 color: '#34d399'
-icon: responsive
+icon: 'responsive'
 prerequisites:
   - css
 ---

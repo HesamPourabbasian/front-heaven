@@ -1,9 +1,9 @@
 ---
-title: Testing and debugging responsive sites
-description: Sweep viewports, hunt horizontal overflow, inspect real devices and DevTools' device mode, and build a testing habit that catches problems before users do.
+title: 'Testing and debugging responsive sites'
+description: 'Sweep viewports, hunt horizontal overflow, inspect real devices and DevTools'' device mode, and build a testing habit that catches problems before users do.'
 order: 10
-difficulty: beginner
-category: Workflow
+difficulty: 'beginner'
+category: 'Workflow'
 estimatedMinutes: 30
 prerequisites:
   - learn/responsive-design/mobile-first-development

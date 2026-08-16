@@ -1,9 +1,9 @@
 ---
-title: Installing and configuring Git
-description: Get Git running on your machine and set up your identity, editor and defaults — the essential first step before any real work.
+title: 'Installing and configuring Git'
+description: 'Get Git running on your machine and set up your identity, editor and defaults — the essential first step before any real work.'
 order: 2
-difficulty: beginner
-category: Fundamentals
+difficulty: 'beginner'
+category: 'Fundamentals'
 estimatedMinutes: 20
 prerequisites:
   - learn/git/what-is-version-control

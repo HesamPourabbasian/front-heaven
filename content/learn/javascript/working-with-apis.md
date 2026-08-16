@@ -1,9 +1,9 @@
 ---
-title: Working With APIs
-description: Consume JSON APIs, validate responses, manage loading states and design a reliable data flow.
+title: 'Working With APIs'
+description: 'Consume JSON APIs, validate responses, manage loading states and design a reliable data flow.'
 order: 30
-difficulty: intermediate
-category: Level 10 - APIs and Networking
+difficulty: 'intermediate'
+category: 'Level 10 - APIs and Networking'
 estimatedMinutes: 35
 prerequisites:
   - learn/javascript/fetch

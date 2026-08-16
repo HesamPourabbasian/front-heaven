@@ -1,9 +1,9 @@
 ---
-title: RESTful API design
-description: Learn how professional APIs are structured — resources, URLs, method mapping, pagination, filtering and versioning — so you can consume them like a native.
+title: 'RESTful API design'
+description: 'Learn how professional APIs are structured — resources, URLs, method mapping, pagination, filtering and versioning — so you can consume them like a native.'
 order: 6
-difficulty: intermediate
-category: API Design
+difficulty: 'intermediate'
+category: 'API Design'
 estimatedMinutes: 35
 prerequisites:
   - learn/http-and-apis/http-methods

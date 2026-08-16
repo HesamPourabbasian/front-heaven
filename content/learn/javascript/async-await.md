@@ -1,9 +1,9 @@
 ---
-title: Async/Await
-description: Write promise-based code in readable sequential syntax with async functions and await.
+title: 'Async/Await'
+description: 'Write promise-based code in readable sequential syntax with async functions and await.'
 order: 27
-difficulty: intermediate
-category: Level 9 - Asynchronous JavaScript
+difficulty: 'intermediate'
+category: 'Level 9 - Asynchronous JavaScript'
 estimatedMinutes: 30
 prerequisites:
   - learn/javascript/promises

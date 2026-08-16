@@ -1,9 +1,9 @@
 ---
-title: What is version control?
-description: Understand why every developer needs a system that tracks changes, prevents lost work and enables collaboration — and how Git became that system.
+title: 'What is version control?'
+description: 'Understand why every developer needs a system that tracks changes, prevents lost work and enables collaboration — and how Git became that system.'
 order: 1
-difficulty: beginner
-category: Fundamentals
+difficulty: 'beginner'
+category: 'Fundamentals'
 estimatedMinutes: 15
 prerequisites: []
 ---

@@ -1,9 +1,9 @@
 ---
-title: Branches and merging
-description: Work on features, fixes and experiments in isolation — then combine them cleanly. Branches are Git's most powerful feature.
+title: 'Branches and merging'
+description: 'Work on features, fixes and experiments in isolation — then combine them cleanly. Branches are Git''s most powerful feature.'
 order: 4
-difficulty: beginner
-category: Fundamentals
+difficulty: 'beginner'
+category: 'Fundamentals'
 estimatedMinutes: 30
 prerequisites:
   - learn/git/init-add-and-commit

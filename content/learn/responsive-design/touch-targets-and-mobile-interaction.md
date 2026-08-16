@@ -1,9 +1,9 @@
 ---
-title: Touch targets and mobile interaction
-description: Design for thumbs and fingers — 44px targets, hover that never traps, orientation handling, motion that respects users, and viewport meta done right.
+title: 'Touch targets and mobile interaction'
+description: 'Design for thumbs and fingers — 44px targets, hover that never traps, orientation handling, motion that respects users, and viewport meta done right.'
 order: 9
-difficulty: beginner
-category: Interaction
+difficulty: 'beginner'
+category: 'Interaction'
 estimatedMinutes: 25
 prerequisites:
   - learn/responsive-design/media-queries

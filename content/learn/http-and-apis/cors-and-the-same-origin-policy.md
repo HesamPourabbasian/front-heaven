@@ -1,9 +1,9 @@
 ---
-title: CORS and the same-origin policy
-description: Why the browser blocks cross-origin requests, what CORS actually is, how preflight works, and how to read CORS errors instead of fearing them.
+title: 'CORS and the same-origin policy'
+description: 'Why the browser blocks cross-origin requests, what CORS actually is, how preflight works, and how to read CORS errors instead of fearing them.'
 order: 9
-difficulty: intermediate
-category: Security
+difficulty: 'intermediate'
+category: 'Security'
 estimatedMinutes: 30
 prerequisites:
   - learn/http-and-apis/fetch-in-depth

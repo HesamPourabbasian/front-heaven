@@ -1,9 +1,9 @@
 ---
-title: The Box Model
-description: How every element measures its space. Master content, padding, border and margin — the four layers that size the web.
+title: 'The Box Model'
+description: 'How every element measures its space. Master content, padding, border and margin — the four layers that size the web.'
 order: 4
-difficulty: beginner
-category: Layout
+difficulty: 'beginner'
+category: 'Layout'
 estimatedMinutes: 25
 prerequisites:
   - learn/css/colors-and-units

@@ -1,9 +1,9 @@
 ---
-title: Selectors and Specificity
-description: Choose elements with precision. Master the selector toolbox and the specificity system that decides which styles win.
+title: 'Selectors and Specificity'
+description: 'Choose elements with precision. Master the selector toolbox and the specificity system that decides which styles win.'
 order: 2
-difficulty: beginner
-category: Fundamentals
+difficulty: 'beginner'
+category: 'Fundamentals'
 estimatedMinutes: 25
 prerequisites:
   - learn/css/what-is-css

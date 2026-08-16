@@ -1,9 +1,9 @@
 ---
-title: Iterators and Generators
-description: Produce values on demand with the iterator protocol and generator functions.
+title: 'Iterators and Generators'
+description: 'Produce values on demand with the iterator protocol and generator functions.'
 order: 32
-difficulty: advanced
-category: Level 11 - Modules and Advanced JavaScript
+difficulty: 'advanced'
+category: 'Level 11 - Modules and Advanced JavaScript'
 estimatedMinutes: 30
 prerequisites:
   - learn/javascript/modules

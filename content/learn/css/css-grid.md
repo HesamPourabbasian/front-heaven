@@ -1,9 +1,9 @@
 ---
-title: CSS Grid
-description: Two-dimensional layout, done right. Master grid tracks, areas and placement to build the layouts flexbox cannot.
+title: 'CSS Grid'
+description: 'Two-dimensional layout, done right. Master grid tracks, areas and placement to build the layouts flexbox cannot.'
 order: 7
-difficulty: beginner
-category: Layout
+difficulty: 'beginner'
+category: 'Layout'
 estimatedMinutes: 30
 prerequisites:
   - learn/css/flexbox

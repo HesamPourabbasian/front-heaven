@@ -1,9 +1,9 @@
 ---
-title: Responsive Design and Media Queries
-description: One site, every screen. Learn the mobile-first mindset and the query syntax that adapts your layouts to any device.
+title: 'Responsive Design and Media Queries'
+description: 'One site, every screen. Learn the mobile-first mindset and the query syntax that adapts your layouts to any device.'
 order: 8
-difficulty: beginner
-category: Responsive
+difficulty: 'beginner'
+category: 'Responsive'
 estimatedMinutes: 30
 prerequisites:
   - learn/css/css-grid

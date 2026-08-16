@@ -1,9 +1,9 @@
 ---
-title: Debugging network requests
-description: Read the Network tab like a professional — timings, headers, caching, throttling — and use curl to interrogate APIs outside the browser.
+title: 'Debugging network requests'
+description: 'Read the Network tab like a professional — timings, headers, caching, throttling — and use curl to interrogate APIs outside the browser.'
 order: 10
-difficulty: intermediate
-category: Workflow
+difficulty: 'intermediate'
+category: 'Workflow'
 estimatedMinutes: 30
 prerequisites:
   - learn/http-and-apis/fetch-in-depth

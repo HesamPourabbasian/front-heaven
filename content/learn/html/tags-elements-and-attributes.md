@@ -1,9 +1,9 @@
 ---
-title: Tags, Elements and Attributes
-description: The vocabulary of HTML. Learn how tags create elements, how attributes configure them, and master headings and paragraphs.
+title: 'Tags, Elements and Attributes'
+description: 'The vocabulary of HTML. Learn how tags create elements, how attributes configure them, and master headings and paragraphs.'
 order: 3
-difficulty: beginner
-category: Fundamentals
+difficulty: 'beginner'
+category: 'Fundamentals'
 estimatedMinutes: 20
 prerequisites:
   - learn/html/document-structure

@@ -1,9 +1,9 @@
 ---
-title: Operators
-description: Use JavaScript's conditional, comma, unary, assignment, arithmetic, bitwise, logical, BigInt and string operators.
+title: 'Operators'
+description: 'Use JavaScript''s conditional, comma, unary, assignment, arithmetic, bitwise, logical, BigInt and string operators.'
 order: 6
-difficulty: beginner
-category: Level 2 - Operators and Expressions
+difficulty: 'beginner'
+category: 'Level 2 - Operators and Expressions'
 estimatedMinutes: 30
 prerequisites:
   - learn/javascript/equality-and-comparison

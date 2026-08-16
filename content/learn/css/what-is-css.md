@@ -1,9 +1,9 @@
 ---
-title: What is CSS?
-description: The presentation layer of the web. Learn how CSS rules work, the cascade, and the three ways to apply styles to HTML.
+title: 'What is CSS?'
+description: 'The presentation layer of the web. Learn how CSS rules work, the cascade, and the three ways to apply styles to HTML.'
 order: 1
-difficulty: beginner
-category: Fundamentals
+difficulty: 'beginner'
+category: 'Fundamentals'
 estimatedMinutes: 20
 prerequisites:
   - learn/html/what-is-html

@@ -1,9 +1,9 @@
 ---
 title: 'JSON: the language of APIs'
-description: Master the format that carries data across the web — syntax rules, parsing and serialising in JavaScript, validation, and the common traps.
+description: 'Master the format that carries data across the web — syntax rules, parsing and serialising in JavaScript, validation, and the common traps.'
 order: 5
-difficulty: intermediate
-category: Data Formats
+difficulty: 'intermediate'
+category: 'Data Formats'
 estimatedMinutes: 30
 prerequisites:
   - learn/javascript/structured-data

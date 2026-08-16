@@ -1,9 +1,9 @@
 ---
-title: Callbacks
-description: Pass functions as values, compose asynchronous work and recognize callback hell.
+title: 'Callbacks'
+description: 'Pass functions as values, compose asynchronous work and recognize callback hell.'
 order: 25
-difficulty: beginner
-category: Level 9 - Asynchronous JavaScript
+difficulty: 'beginner'
+category: 'Level 9 - Asynchronous JavaScript'
 estimatedMinutes: 25
 prerequisites:
   - learn/javascript/functions-and-parameters

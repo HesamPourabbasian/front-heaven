@@ -1,9 +1,9 @@
 ---
-title: Semantic HTML
-description: HTML that means what it says. Structure your pages with meaningful elements for accessibility, SEO and maintainability.
+title: 'Semantic HTML'
+description: 'HTML that means what it says. Structure your pages with meaningful elements for accessibility, SEO and maintainability.'
 order: 7
-difficulty: beginner
-category: Best Practices
+difficulty: 'beginner'
+category: 'Best Practices'
 estimatedMinutes: 25
 prerequisites:
   - learn/html/lists-and-tables

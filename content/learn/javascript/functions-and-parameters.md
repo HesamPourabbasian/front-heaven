@@ -1,9 +1,9 @@
 ---
-title: Functions
-description: Build reusable logic with declarations, parameters, returns, defaults, rest parameters, arrow functions and IIFEs.
+title: 'Functions'
+description: 'Build reusable logic with declarations, parameters, returns, defaults, rest parameters, arrow functions and IIFEs.'
 order: 10
-difficulty: beginner
-category: Level 3 - Control Flow and Functions
+difficulty: 'beginner'
+category: 'Level 3 - Control Flow and Functions'
 estimatedMinutes: 35
 prerequisites:
   - learn/javascript/loops-and-iterations

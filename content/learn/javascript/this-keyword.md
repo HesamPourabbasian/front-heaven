@@ -1,9 +1,9 @@
 ---
-title: The this Keyword
-description: Predict this in methods, functions, standalone calls, event handlers and arrow functions.
+title: 'The this Keyword'
+description: 'Predict this in methods, functions, standalone calls, event handlers and arrow functions.'
 order: 12
-difficulty: intermediate
-category: Level 4 - Objects, Prototypes and this
+difficulty: 'intermediate'
+category: 'Level 4 - Objects, Prototypes and this'
 estimatedMinutes: 30
 prerequisites:
   - learn/javascript/objects-and-prototypes

@@ -1,12 +1,12 @@
 ---
-title: CSS
-description: The language of presentation. Turn plain HTML into beautiful, modern interfaces with layout, color, typography and animation.
+title: 'CSS'
+description: 'The language of presentation. Turn plain HTML into beautiful, modern interfaces with layout, color, typography and animation.'
 order: 2
-difficulty: beginner
+difficulty: 'beginner'
 estimatedHours: 12
-status: available
+status: 'available'
 color: '#38bdf8'
-icon: palette
+icon: 'palette'
 prerequisites:
   - html
 ---

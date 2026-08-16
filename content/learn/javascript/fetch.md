@@ -1,9 +1,9 @@
 ---
-title: Fetch
-description: Request resources with the modern promise-based Fetch API.
+title: 'Fetch'
+description: 'Request resources with the modern promise-based Fetch API.'
 order: 29
-difficulty: intermediate
-category: Level 10 - APIs and Networking
+difficulty: 'intermediate'
+category: 'Level 10 - APIs and Networking'
 estimatedMinutes: 30
 prerequisites:
   - learn/javascript/async-await

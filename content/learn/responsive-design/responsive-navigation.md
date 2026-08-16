@@ -1,9 +1,9 @@
 ---
-title: Responsive navigation
-description: Build the universal navigation pattern — a full link row on desktop, a hamburger menu on mobile — with accessible markup, CSS states and smooth JavaScript.
+title: 'Responsive navigation'
+description: 'Build the universal navigation pattern — a full link row on desktop, a hamburger menu on mobile — with accessible markup, CSS states and smooth JavaScript.'
 order: 5
-difficulty: beginner
-category: Components
+difficulty: 'beginner'
+category: 'Components'
 estimatedMinutes: 30
 prerequisites:
   - learn/css/flexbox

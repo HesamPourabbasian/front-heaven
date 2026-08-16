@@ -1,9 +1,9 @@
 ---
-title: Asynchronous JavaScript
-description: Schedule delayed and repeated work with setTimeout and setInterval without blocking the page.
+title: 'Asynchronous JavaScript'
+description: 'Schedule delayed and repeated work with setTimeout and setInterval without blocking the page.'
 order: 24
-difficulty: beginner
-category: Level 9 - Asynchronous JavaScript
+difficulty: 'beginner'
+category: 'Level 9 - Asynchronous JavaScript'
 estimatedMinutes: 25
 prerequisites:
   - learn/javascript/event-loop

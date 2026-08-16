@@ -1,9 +1,9 @@
 ---
-title: Strict Mode
-description: Use JavaScript's stricter execution rules to expose accidental globals and unsafe legacy behavior.
+title: 'Strict Mode'
+description: 'Use JavaScript''s stricter execution rules to expose accidental globals and unsafe legacy behavior.'
 order: 18
-difficulty: intermediate
-category: Level 6 - Scope and Execution
+difficulty: 'intermediate'
+category: 'Level 6 - Scope and Execution'
 estimatedMinutes: 20
 prerequisites:
   - learn/javascript/scope-and-function-execution

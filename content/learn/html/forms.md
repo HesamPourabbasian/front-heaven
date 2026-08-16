@@ -1,9 +1,9 @@
 ---
-title: Forms
-description: Collect input from users with confidence. Master form structure, inputs, labels, validation and accessible error handling.
+title: 'Forms'
+description: 'Collect input from users with confidence. Master form structure, inputs, labels, validation and accessible error handling.'
 order: 6
-difficulty: beginner
-category: Core Content
+difficulty: 'beginner'
+category: 'Core Content'
 estimatedMinutes: 25
 prerequisites:
   - learn/html/tags-elements-and-attributes

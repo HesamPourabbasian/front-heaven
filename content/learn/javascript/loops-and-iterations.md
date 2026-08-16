@@ -1,9 +1,9 @@
 ---
-title: Loops and Iterations
-description: Repeat work with for, while, do...while, for...of, for...in, break and continue.
+title: 'Loops and Iterations'
+description: 'Repeat work with for, while, do...while, for...of, for...in, break and continue.'
 order: 9
-difficulty: beginner
-category: Level 3 - Control Flow and Functions
+difficulty: 'beginner'
+category: 'Level 3 - Control Flow and Functions'
 estimatedMinutes: 30
 prerequisites:
   - learn/javascript/control-flow

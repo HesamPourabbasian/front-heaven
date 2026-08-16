@@ -1,12 +1,12 @@
 ---
-title: Frameworks
-description: The modern front-end at scale. Learn the component model and build real applications with React, Vue or Svelte.
+title: 'Frameworks'
+description: 'The modern front-end at scale. Learn the component model and build real applications with React, Vue or Svelte.'
 order: 9
-difficulty: intermediate
+difficulty: 'intermediate'
 estimatedHours: 12
-status: coming-soon
+status: 'coming-soon'
 color: '#818cf8'
-icon: layers
+icon: 'layers'
 prerequisites:
   - typescript
 ---

@@ -1,9 +1,9 @@
 ---
-title: HTTP status codes
-description: Decode the three-digit language of HTTP — the 1xx–5xx classes, the codes you will meet daily, and how to handle them properly in fetch.
+title: 'HTTP status codes'
+description: 'Decode the three-digit language of HTTP — the 1xx–5xx classes, the codes you will meet daily, and how to handle them properly in fetch.'
 order: 3
-difficulty: intermediate
-category: Core Content
+difficulty: 'intermediate'
+category: 'Core Content'
 estimatedMinutes: 30
 prerequisites:
   - learn/http-and-apis/what-is-http

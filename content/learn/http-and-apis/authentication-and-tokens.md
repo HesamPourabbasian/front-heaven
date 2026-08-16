@@ -1,9 +1,9 @@
 ---
-title: Authentication and tokens
-description: Secure your API calls — API keys, Basic auth, bearer tokens, refresh flows, and the secure way to store credentials in the browser.
+title: 'Authentication and tokens'
+description: 'Secure your API calls — API keys, Basic auth, bearer tokens, refresh flows, and the secure way to store credentials in the browser.'
 order: 8
-difficulty: intermediate
-category: Security
+difficulty: 'intermediate'
+category: 'Security'
 estimatedMinutes: 30
 prerequisites:
   - learn/http-and-apis/fetch-in-depth

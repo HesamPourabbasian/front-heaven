@@ -1,9 +1,9 @@
 ---
-title: Expressions
-description: Understand expressions, statements, values and evaluation so complex JavaScript reads predictably.
+title: 'Expressions'
+description: 'Understand expressions, statements, values and evaluation so complex JavaScript reads predictably.'
 order: 7
-difficulty: beginner
-category: Level 2 - Operators and Expressions
+difficulty: 'beginner'
+category: 'Level 2 - Operators and Expressions'
 estimatedMinutes: 20
 prerequisites:
   - learn/javascript/operators

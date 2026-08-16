@@ -1,9 +1,9 @@
 ---
-title: Mobile-first development
-description: Design for the smallest screen first and enhance upward. Learn the workflow, the content-driven breakpoint scale, and why the phone is the easier constraint.
+title: 'Mobile-first development'
+description: 'Design for the smallest screen first and enhance upward. Learn the workflow, the content-driven breakpoint scale, and why the phone is the easier constraint.'
 order: 4
-difficulty: beginner
-category: Breakpoints
+difficulty: 'beginner'
+category: 'Breakpoints'
 estimatedMinutes: 25
 prerequisites:
   - learn/responsive-design/media-queries

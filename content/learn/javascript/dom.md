@@ -1,9 +1,9 @@
 ---
-title: DOM
-description: Read and update the document tree with DOM APIs.
+title: 'DOM'
+description: 'Read and update the document tree with DOM APIs.'
 order: 20
-difficulty: beginner
-category: Level 7 - DOM and Browser APIs
+difficulty: 'beginner'
+category: 'Level 7 - DOM and Browser APIs'
 estimatedMinutes: 30
 prerequisites:
   - learn/javascript/introduction-to-javascript

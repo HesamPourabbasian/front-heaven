@@ -1,9 +1,9 @@
 ---
-title: Colors and Units
-description: Speak the language of visual design. Master color systems, contrast, and the modern CSS units that scale with your design.
+title: 'Colors and Units'
+description: 'Speak the language of visual design. Master color systems, contrast, and the modern CSS units that scale with your design.'
 order: 3
-difficulty: beginner
-category: Fundamentals
+difficulty: 'beginner'
+category: 'Fundamentals'
 estimatedMinutes: 25
 prerequisites:
   - learn/css/selectors-and-specificity

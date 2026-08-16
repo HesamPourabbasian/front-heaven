@@ -1,9 +1,9 @@
 ---
-title: Control Flow
-description: Direct program execution with conditions, if...else and switch statements.
+title: 'Control Flow'
+description: 'Direct program execution with conditions, if...else and switch statements.'
 order: 8
-difficulty: beginner
-category: Level 3 - Control Flow and Functions
+difficulty: 'beginner'
+category: 'Level 3 - Control Flow and Functions'
 estimatedMinutes: 25
 prerequisites:
   - learn/javascript/expressions

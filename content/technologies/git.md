@@ -1,12 +1,12 @@
 ---
-title: Git & GitHub
-description: The developer's safety net. Track every change to your code, collaborate with others and never lose work again.
+title: 'Git & GitHub'
+description: 'The developer''s safety net. Track every change to your code, collaborate with others and never lose work again.'
 order: 4
-difficulty: beginner
+difficulty: 'beginner'
 estimatedHours: 4
-status: available
+status: 'available'
 color: '#f87171'
-icon: git
+icon: 'git'
 prerequisites:
   - html
   - css

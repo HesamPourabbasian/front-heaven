@@ -1,9 +1,9 @@
 ---
-title: What is HTTP?
-description: Understand the protocol behind every request your page makes — clients, servers, request/response pairs, URL anatomy, statelessness and HTTPS.
+title: 'What is HTTP?'
+description: 'Understand the protocol behind every request your page makes — clients, servers, request/response pairs, URL anatomy, statelessness and HTTPS.'
 order: 1
-difficulty: intermediate
-category: Fundamentals
+difficulty: 'intermediate'
+category: 'Fundamentals'
 estimatedMinutes: 25
 prerequisites: []
 ---

@@ -1,9 +1,9 @@
 ---
-title: Git workflows and best practices
-description: The conventions and habits that keep your project history clean, your team coordinated, and your code deployable at any time.
+title: 'Git workflows and best practices'
+description: 'The conventions and habits that keep your project history clean, your team coordinated, and your code deployable at any time.'
 order: 7
-difficulty: beginner
-category: Best Practices
+difficulty: 'beginner'
+category: 'Best Practices'
 estimatedMinutes: 25
 prerequisites:
   - learn/git/pull-requests-and-collaboration

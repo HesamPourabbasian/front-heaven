@@ -1,9 +1,9 @@
 ---
-title: Variables
-description: Declare, reassign and scope values with var, let and const.
+title: 'Variables'
+description: 'Declare, reassign and scope values with var, let and const.'
 order: 2
-difficulty: beginner
-category: Level 1 - Fundamentals
+difficulty: 'beginner'
+category: 'Level 1 - Fundamentals'
 estimatedMinutes: 25
 prerequisites:
   - learn/javascript/introduction-to-javascript

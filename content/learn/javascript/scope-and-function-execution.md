@@ -1,9 +1,9 @@
 ---
-title: Scope and Function Execution
-description: Understand lexical scoping, the function stack, closures and recursion.
+title: 'Scope and Function Execution'
+description: 'Understand lexical scoping, the function stack, closures and recursion.'
 order: 17
-difficulty: intermediate
-category: Level 6 - Scope and Execution
+difficulty: 'intermediate'
+category: 'Level 6 - Scope and Execution'
 estimatedMinutes: 35
 prerequisites:
   - learn/javascript/functions-and-parameters

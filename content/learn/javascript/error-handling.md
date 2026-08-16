@@ -1,9 +1,9 @@
 ---
-title: Error Handling
-description: Create, throw, catch and recover from errors with Error objects and try/catch/finally.
+title: 'Error Handling'
+description: 'Create, throw, catch and recover from errors with Error objects and try/catch/finally.'
 order: 22
-difficulty: beginner
-category: Level 8 - Error Handling
+difficulty: 'beginner'
+category: 'Level 8 - Error Handling'
 estimatedMinutes: 25
 prerequisites:
   - learn/javascript/browser-javascript

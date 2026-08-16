@@ -1,9 +1,9 @@
 ---
-title: Equality and Comparison
-description: Compare values deliberately with strict equality, relational operators and JavaScript equality algorithms.
+title: 'Equality and Comparison'
+description: 'Compare values deliberately with strict equality, relational operators and JavaScript equality algorithms.'
 order: 5
-difficulty: intermediate
-category: Level 2 - Operators and Expressions
+difficulty: 'intermediate'
+category: 'Level 2 - Operators and Expressions'
 estimatedMinutes: 30
 prerequisites:
   - learn/javascript/type-casting

@@ -1,9 +1,9 @@
 ---
-title: HTML Document Structure
-description: The anatomy of every web page — doctype, head, metadata, and body. Learn the skeleton that all HTML documents share.
+title: 'HTML Document Structure'
+description: 'The anatomy of every web page — doctype, head, metadata, and body. Learn the skeleton that all HTML documents share.'
 order: 2
-difficulty: beginner
-category: Fundamentals
+difficulty: 'beginner'
+category: 'Fundamentals'
 estimatedMinutes: 15
 prerequisites:
   - learn/html/what-is-html

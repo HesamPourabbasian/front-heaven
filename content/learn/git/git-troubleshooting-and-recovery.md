@@ -1,9 +1,9 @@
 ---
-title: Git troubleshooting and recovery
-description: Everyone makes mistakes with Git — the key is knowing how to undo them. Learn to recover lost work, fix errors and escape common traps.
+title: 'Git troubleshooting and recovery'
+description: 'Everyone makes mistakes with Git — the key is knowing how to undo them. Learn to recover lost work, fix errors and escape common traps.'
 order: 8
-difficulty: intermediate
-category: Best Practices
+difficulty: 'intermediate'
+category: 'Best Practices'
 estimatedMinutes: 30
 prerequisites:
   - learn/git/git-workflows-and-best-practices

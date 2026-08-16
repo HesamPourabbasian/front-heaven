@@ -1,9 +1,9 @@
 ---
-title: Structured Data
-description: Model nested data and move it safely between JavaScript values and JSON text.
+title: 'Structured Data'
+description: 'Model nested data and move it safely between JavaScript values and JSON text.'
 order: 16
-difficulty: intermediate
-category: Level 5 - Data Structures
+difficulty: 'intermediate'
+category: 'Level 5 - Data Structures'
 estimatedMinutes: 25
 prerequisites:
   - learn/javascript/data-types

@@ -1,9 +1,9 @@
 ---
-title: Keyed Collections
-description: Use Map, WeakMap, Set and WeakSet for lookup, uniqueness and object-associated data.
+title: 'Keyed Collections'
+description: 'Use Map, WeakMap, Set and WeakSet for lookup, uniqueness and object-associated data.'
 order: 15
-difficulty: intermediate
-category: Level 5 - Data Structures
+difficulty: 'intermediate'
+category: 'Level 5 - Data Structures'
 estimatedMinutes: 30
 prerequisites:
   - learn/javascript/data-structures

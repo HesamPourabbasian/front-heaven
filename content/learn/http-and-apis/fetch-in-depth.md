@@ -1,9 +1,9 @@
 ---
-title: Fetch in depth
-description: Go beyond the one-liner — request options, headers and bodies, robust error handling, timeouts with AbortController, uploads, and the patterns that survive production.
+title: 'Fetch in depth'
+description: 'Go beyond the one-liner — request options, headers and bodies, robust error handling, timeouts with AbortController, uploads, and the patterns that survive production.'
 order: 7
-difficulty: intermediate
-category: Browser APIs
+difficulty: 'intermediate'
+category: 'Browser APIs'
 estimatedMinutes: 35
 prerequisites:
   - learn/javascript/fetch

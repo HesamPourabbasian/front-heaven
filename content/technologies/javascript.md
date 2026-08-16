@@ -1,12 +1,12 @@
 ---
-title: JavaScript
-description: The language of the web. Make your pages interactive, build logic, talk to APIs and bring your interfaces to life.
+title: 'JavaScript'
+description: 'The language of the web. Make your pages interactive, build logic, talk to APIs and bring your interfaces to life.'
 order: 3
-difficulty: beginner
+difficulty: 'beginner'
 estimatedHours: 24
-status: available
+status: 'available'
 color: '#facc15'
-icon: braces
+icon: 'braces'
 prerequisites:
   - html
   - css

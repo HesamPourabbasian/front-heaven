@@ -1,9 +1,9 @@
 ---
-title: Links and Images
-description: Connect your pages to the world. Master anchors, absolute and relative paths, and images that load fast and fail gracefully.
+title: 'Links and Images'
+description: 'Connect your pages to the world. Master anchors, absolute and relative paths, and images that load fast and fail gracefully.'
 order: 4
-difficulty: beginner
-category: Core Content
+difficulty: 'beginner'
+category: 'Core Content'
 estimatedMinutes: 20
 prerequisites:
   - learn/html/tags-elements-and-attributes

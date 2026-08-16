@@ -1,9 +1,9 @@
 ---
-title: Data Structures
-description: Choose between indexed collections, arrays and typed arrays for ordered data.
+title: 'Data Structures'
+description: 'Choose between indexed collections, arrays and typed arrays for ordered data.'
 order: 14
-difficulty: intermediate
-category: Level 5 - Data Structures
+difficulty: 'intermediate'
+category: 'Level 5 - Data Structures'
 estimatedMinutes: 30
 prerequisites:
   - learn/javascript/objects-and-prototypes

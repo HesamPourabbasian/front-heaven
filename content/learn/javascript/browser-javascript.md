@@ -1,9 +1,9 @@
 ---
-title: Browser JavaScript
-description: Combine browser APIs and event handlers to build interactive page behavior.
+title: 'Browser JavaScript'
+description: 'Combine browser APIs and event handlers to build interactive page behavior.'
 order: 21
-difficulty: beginner
-category: Level 7 - DOM and Browser APIs
+difficulty: 'beginner'
+category: 'Level 7 - DOM and Browser APIs'
 estimatedMinutes: 30
 prerequisites:
   - learn/javascript/dom

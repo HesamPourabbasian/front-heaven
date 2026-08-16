@@ -1,9 +1,9 @@
 ---
-title: Promises
-description: Model future values with pending, fulfilled and rejected promises.
+title: 'Promises'
+description: 'Model future values with pending, fulfilled and rejected promises.'
 order: 26
-difficulty: intermediate
-category: Level 9 - Asynchronous JavaScript
+difficulty: 'intermediate'
+category: 'Level 9 - Asynchronous JavaScript'
 estimatedMinutes: 30
 prerequisites:
   - learn/javascript/callbacks

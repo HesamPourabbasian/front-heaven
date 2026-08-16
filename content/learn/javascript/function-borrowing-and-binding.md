@@ -1,9 +1,9 @@
 ---
-title: Function Borrowing and Binding
-description: Reuse methods and control their receiver with call, apply and bind.
+title: 'Function Borrowing and Binding'
+description: 'Reuse methods and control their receiver with call, apply and bind.'
 order: 13
-difficulty: intermediate
-category: Level 4 - Objects, Prototypes and this
+difficulty: 'intermediate'
+category: 'Level 4 - Objects, Prototypes and this'
 estimatedMinutes: 25
 prerequisites:
   - learn/javascript/this-keyword

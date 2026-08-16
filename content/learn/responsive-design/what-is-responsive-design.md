@@ -1,9 +1,9 @@
 ---
-title: What is responsive design?
-description: Understand why the web is mobile-first, what "responsive" actually means, and the universal playbook every site follows to work on every screen.
+title: 'What is responsive design?'
+description: 'Understand why the web is mobile-first, what "responsive" actually means, and the universal playbook every site follows to work on every screen.'
 order: 1
-difficulty: beginner
-category: Fundamentals
+difficulty: 'beginner'
+category: 'Fundamentals'
 estimatedMinutes: 20
 prerequisites: []
 ---

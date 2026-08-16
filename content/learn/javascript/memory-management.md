@@ -1,9 +1,9 @@
 ---
-title: Memory Management
-description: Understand the memory lifecycle, reachability and garbage collection in JavaScript.
+title: 'Memory Management'
+description: 'Understand the memory lifecycle, reachability and garbage collection in JavaScript.'
 order: 33
-difficulty: advanced
-category: Level 12 - Memory and Performance
+difficulty: 'advanced'
+category: 'Level 12 - Memory and Performance'
 estimatedMinutes: 30
 prerequisites:
   - learn/javascript/scope-and-function-execution

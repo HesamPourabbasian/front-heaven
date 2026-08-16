@@ -1,9 +1,9 @@
 ---
-title: Modern CSS
-description: The modern toolbox — custom properties, transitions, animations, container queries and cascade layers. CSS as a real programming language.
+title: 'Modern CSS'
+description: 'The modern toolbox — custom properties, transitions, animations, container queries and cascade layers. CSS as a real programming language.'
 order: 9
-difficulty: intermediate
-category: Best Practices
+difficulty: 'intermediate'
+category: 'Best Practices'
 estimatedMinutes: 35
 prerequisites:
   - learn/css/responsive-design-and-media-queries

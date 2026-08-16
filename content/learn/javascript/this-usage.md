@@ -1,9 +1,9 @@
 ---
-title: Using this Keyword
-description: Apply this deliberately in constructors, methods, callbacks and browser code.
+title: 'Using this Keyword'
+description: 'Apply this deliberately in constructors, methods, callbacks and browser code.'
 order: 19
-difficulty: intermediate
-category: Level 6 - Scope and Execution
+difficulty: 'intermediate'
+category: 'Level 6 - Scope and Execution'
 estimatedMinutes: 25
 prerequisites:
   - learn/javascript/this-keyword

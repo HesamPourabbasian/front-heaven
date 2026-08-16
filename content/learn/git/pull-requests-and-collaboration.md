@@ -1,9 +1,9 @@
 ---
-title: Pull requests and collaboration
-description: The workflow that powers every team on GitHub — propose changes, review code, discuss improvements and merge with confidence.
+title: 'Pull requests and collaboration'
+description: 'The workflow that powers every team on GitHub — propose changes, review code, discuss improvements and merge with confidence.'
 order: 6
-difficulty: beginner
-category: Collaboration
+difficulty: 'beginner'
+category: 'Collaboration'
 estimatedMinutes: 30
 prerequisites:
   - learn/git/remote-repositories-and-github

@@ -1,12 +1,12 @@
 ---
-title: HTTP & APIs
-description: How browsers and servers talk. Master requests, responses and the JSON APIs that power modern applications.
+title: 'HTTP & APIs'
+description: 'How browsers and servers talk. Master requests, responses and the JSON APIs that power modern applications.'
 order: 7
-difficulty: intermediate
+difficulty: 'intermediate'
 estimatedHours: 5
-status: available
+status: 'available'
 color: '#22d3ee'
-icon: network
+icon: 'network'
 prerequisites:
   - javascript
 ---

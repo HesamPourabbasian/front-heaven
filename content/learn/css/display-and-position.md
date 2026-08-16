@@ -1,9 +1,9 @@
 ---
-title: Display and Position
-description: Control how boxes flow and where they sit. Master block and inline behavior, and the five position modes that place elements.
+title: 'Display and Position'
+description: 'Control how boxes flow and where they sit. Master block and inline behavior, and the five position modes that place elements.'
 order: 5
-difficulty: beginner
-category: Layout
+difficulty: 'beginner'
+category: 'Layout'
 estimatedMinutes: 25
 prerequisites:
   - learn/css/box-model

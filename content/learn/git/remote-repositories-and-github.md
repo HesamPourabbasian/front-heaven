@@ -1,9 +1,9 @@
 ---
-title: Remote repositories and GitHub
-description: Share your code with the world, collaborate across distances and keep your work safe off your machine — the GitHub essentials.
+title: 'Remote repositories and GitHub'
+description: 'Share your code with the world, collaborate across distances and keep your work safe off your machine — the GitHub essentials.'
 order: 5
-difficulty: beginner
-category: Collaboration
+difficulty: 'beginner'
+category: 'Collaboration'
 estimatedMinutes: 30
 prerequisites:
   - learn/git/branches-and-merging

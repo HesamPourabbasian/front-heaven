@@ -1,9 +1,9 @@
 ---
-title: Event Loop
-description: Understand the call stack, task queue and microtask queue that keep JavaScript responsive.
+title: 'Event Loop'
+description: 'Understand the call stack, task queue and microtask queue that keep JavaScript responsive.'
 order: 23
-difficulty: intermediate
-category: Level 9 - Asynchronous JavaScript
+difficulty: 'intermediate'
+category: 'Level 9 - Asynchronous JavaScript'
 estimatedMinutes: 30
 prerequisites:
   - learn/javascript/scope-and-function-execution

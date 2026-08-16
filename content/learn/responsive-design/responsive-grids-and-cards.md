@@ -1,9 +1,9 @@
 ---
-title: Responsive grids and cards
-description: Build card grids that reflow themselves, card components that adapt to any container, and layouts where the grid and the content share one story.
+title: 'Responsive grids and cards'
+description: 'Build card grids that reflow themselves, card components that adapt to any container, and layouts where the grid and the content share one story.'
 order: 6
-difficulty: beginner
-category: Layout
+difficulty: 'beginner'
+category: 'Layout'
 estimatedMinutes: 30
 prerequisites:
   - learn/css/css-grid

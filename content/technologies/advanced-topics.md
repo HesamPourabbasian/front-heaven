@@ -1,12 +1,12 @@
 ---
-title: Advanced Topics
-description: Become a well-rounded engineer. Performance, security, testing, build tooling and deployment — the craft behind great products.
+title: 'Advanced Topics'
+description: 'Become a well-rounded engineer. Performance, security, testing, build tooling and deployment — the craft behind great products.'
 order: 10
-difficulty: advanced
+difficulty: 'advanced'
 estimatedHours: 10
-status: coming-soon
+status: 'coming-soon'
 color: '#e879f9'
-icon: rocket
+icon: 'rocket'
 prerequisites:
   - frameworks
 ---

@@ -1,12 +1,12 @@
 ---
-title: HTML
-description: The skeleton of every website. Learn to structure content with the language every front-end developer starts with.
+title: 'HTML'
+description: 'The skeleton of every website. Learn to structure content with the language every front-end developer starts with.'
 order: 1
-difficulty: beginner
+difficulty: 'beginner'
 estimatedHours: 8
-status: available
+status: 'available'
 color: '#f97316'
-icon: code
+icon: 'code'
 prerequisites: []
 ---
 

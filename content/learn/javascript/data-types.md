@@ -1,9 +1,9 @@
 ---
-title: Data Types
-description: Master JavaScript primitives, objects, typeof, built-in objects, JSON and the values programs manipulate.
+title: 'Data Types'
+description: 'Master JavaScript primitives, objects, typeof, built-in objects, JSON and the values programs manipulate.'
 order: 3
-difficulty: beginner
-category: Level 1 - Fundamentals
+difficulty: 'beginner'
+category: 'Level 1 - Fundamentals'
 estimatedMinutes: 30
 prerequisites:
   - learn/javascript/variables

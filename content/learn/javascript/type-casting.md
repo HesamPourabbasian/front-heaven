@@ -1,9 +1,9 @@
 ---
-title: Type Casting
-description: Distinguish conversion from coercion and convert values explicitly and predictably.
+title: 'Type Casting'
+description: 'Distinguish conversion from coercion and convert values explicitly and predictably.'
 order: 4
-difficulty: beginner
-category: Level 1 - Fundamentals
+difficulty: 'beginner'
+category: 'Level 1 - Fundamentals'
 estimatedMinutes: 25
 prerequisites:
   - learn/javascript/data-types

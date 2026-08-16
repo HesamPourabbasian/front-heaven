@@ -1,9 +1,9 @@
 ---
-title: Fluid layouts and flexible units
-description: Build the responsive foundation that needs no media queries — fluid units, max-width media, auto-fill grids, clamp() typography and dvh heights.
+title: 'Fluid layouts and flexible units'
+description: 'Build the responsive foundation that needs no media queries — fluid units, max-width media, auto-fill grids, clamp() typography and dvh heights.'
 order: 2
-difficulty: beginner
-category: Layout
+difficulty: 'beginner'
+category: 'Layout'
 estimatedMinutes: 30
 prerequisites:
   - learn/css/colors-and-units

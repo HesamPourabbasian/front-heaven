@@ -1,9 +1,9 @@
 ---
-title: Flexbox
-description: The layout system that ended float-driven hacks. Arrange, align and distribute elements in one dimension with confidence.
+title: 'Flexbox'
+description: 'The layout system that ended float-driven hacks. Arrange, align and distribute elements in one dimension with confidence.'
 order: 6
-difficulty: beginner
-category: Layout
+difficulty: 'beginner'
+category: 'Layout'
 estimatedMinutes: 30
 prerequisites:
   - learn/css/display-and-position

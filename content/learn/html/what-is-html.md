@@ -1,9 +1,9 @@
 ---
-title: What is HTML?
-description: Meet the language that structures the entire web. Learn what HTML is, how the web works, and write your very first web page.
+title: 'What is HTML?'
+description: 'Meet the language that structures the entire web. Learn what HTML is, how the web works, and write your very first web page.'
 order: 1
-difficulty: beginner
-category: Fundamentals
+difficulty: 'beginner'
+category: 'Fundamentals'
 estimatedMinutes: 15
 prerequisites: []
 ---

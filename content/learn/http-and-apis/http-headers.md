@@ -1,9 +1,9 @@
 ---
-title: HTTP headers
-description: The metadata layer of every request and response — content negotiation, caching headers, and the headers you will set and read in daily work.
+title: 'HTTP headers'
+description: 'The metadata layer of every request and response — content negotiation, caching headers, and the headers you will set and read in daily work.'
 order: 4
-difficulty: intermediate
-category: Core Content
+difficulty: 'intermediate'
+category: 'Core Content'
 estimatedMinutes: 30
 prerequisites:
   - learn/http-and-apis/http-methods

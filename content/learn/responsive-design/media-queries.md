@@ -1,9 +1,9 @@
 ---
-title: Media queries
-description: Master @media syntax — min-width versus max-width, range syntax, combining conditions, and the pointer, hover, motion and colour-scheme queries beyond width.
+title: 'Media queries'
+description: 'Master @media syntax — min-width versus max-width, range syntax, combining conditions, and the pointer, hover, motion and colour-scheme queries beyond width.'
 order: 3
-difficulty: beginner
-category: Breakpoints
+difficulty: 'beginner'
+category: 'Breakpoints'
 estimatedMinutes: 30
 prerequisites:
   - learn/css/responsive-design-and-media-queries

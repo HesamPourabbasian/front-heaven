@@ -1,9 +1,9 @@
 ---
-title: Browser DevTools
-description: Debug JavaScript, inspect memory and measure performance with professional browser tooling.
+title: 'Browser DevTools'
+description: 'Debug JavaScript, inspect memory and measure performance with professional browser tooling.'
 order: 34
-difficulty: advanced
-category: Level 12 - Memory and Performance
+difficulty: 'advanced'
+category: 'Level 12 - Memory and Performance'
 estimatedMinutes: 35
 prerequisites:
   - learn/javascript/memory-management

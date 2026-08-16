@@ -1,12 +1,12 @@
 ---
-title: Accessibility
-description: Build for everyone. Make your sites usable by people of all abilities — and meet the standards the industry expects.
+title: 'Accessibility'
+description: 'Build for everyone. Make your sites usable by people of all abilities — and meet the standards the industry expects.'
 order: 6
-difficulty: beginner
+difficulty: 'beginner'
 estimatedHours: 5
-status: coming-soon
+status: 'coming-soon'
 color: '#a78bfa'
-icon: accessibility
+icon: 'accessibility'
 prerequisites:
   - html
   - css

@@ -1,9 +1,9 @@
 ---
-title: Introduction to JavaScript
-description: Meet the language of the web, its history, versions, runtimes and the ways to run your first script.
+title: 'Introduction to JavaScript'
+description: 'Meet the language of the web, its history, versions, runtimes and the ways to run your first script.'
 order: 1
-difficulty: beginner
-category: Level 1 - Fundamentals
+difficulty: 'beginner'
+category: 'Level 1 - Fundamentals'
 estimatedMinutes: 20
 prerequisites: []
 ---

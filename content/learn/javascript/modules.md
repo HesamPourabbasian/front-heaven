@@ -1,9 +1,9 @@
 ---
-title: Modules in JavaScript
-description: Organize JavaScript with ES modules and understand the CommonJS module system.
+title: 'Modules in JavaScript'
+description: 'Organize JavaScript with ES modules and understand the CommonJS module system.'
 order: 31
-difficulty: intermediate
-category: Level 11 - Modules and Advanced JavaScript
+difficulty: 'intermediate'
+category: 'Level 11 - Modules and Advanced JavaScript'
 estimatedMinutes: 30
 prerequisites:
   - learn/javascript/working-with-apis

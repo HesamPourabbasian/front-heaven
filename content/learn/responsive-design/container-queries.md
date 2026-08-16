@@ -1,9 +1,9 @@
 ---
-title: Container queries
-description: Make components respond to their own space, not the viewport. Learn @container, container-type, container units, and when to reach for them instead of media queries.
+title: 'Container queries'
+description: 'Make components respond to their own space, not the viewport. Learn @container, container-type, container units, and when to reach for them instead of media queries.'
 order: 8
-difficulty: beginner
-category: Modern Techniques
+difficulty: 'beginner'
+category: 'Modern Techniques'
 estimatedMinutes: 30
 prerequisites:
   - learn/css/modern-css

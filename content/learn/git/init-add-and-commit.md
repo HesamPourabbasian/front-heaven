@@ -1,9 +1,9 @@
 ---
-title: Init, add, and commit
-description: The three commands that form the core of every Git workflow. Learn how to create a repository, stage changes, and record snapshots of your work.
+title: 'Init, add, and commit'
+description: 'The three commands that form the core of every Git workflow. Learn how to create a repository, stage changes, and record snapshots of your work.'
 order: 3
-difficulty: beginner
-category: Fundamentals
+difficulty: 'beginner'
+category: 'Fundamentals'
 estimatedMinutes: 25
 prerequisites:
   - learn/git/installing-and-configuring-git

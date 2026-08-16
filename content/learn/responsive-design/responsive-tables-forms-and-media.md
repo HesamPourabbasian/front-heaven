@@ -1,9 +1,9 @@
 ---
-title: Responsive tables, forms and media
-description: Tame the web's hardest elements — horizontal-scrolling tables, stacked card tables, forms that reflow, and images and video that serve the right size to every device.
+title: 'Responsive tables, forms and media'
+description: 'Tame the web''s hardest elements — horizontal-scrolling tables, stacked card tables, forms that reflow, and images and video that serve the right size to every device.'
 order: 7
-difficulty: beginner
-category: Components
+difficulty: 'beginner'
+category: 'Components'
 estimatedMinutes: 35
 prerequisites:
   - learn/html/lists-and-tables

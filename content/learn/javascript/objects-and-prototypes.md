@@ -1,9 +1,9 @@
 ---
-title: Objects
-description: Work with object records, prototypes, prototypal inheritance and classes.
+title: 'Objects'
+description: 'Work with object records, prototypes, prototypal inheritance and classes.'
 order: 11
-difficulty: intermediate
-category: Level 4 - Objects, Prototypes and this
+difficulty: 'intermediate'
+category: 'Level 4 - Objects, Prototypes and this'
 estimatedMinutes: 35
 prerequisites:
   - learn/javascript/functions-and-parameters

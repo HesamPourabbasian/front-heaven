@@ -1,9 +1,9 @@
 ---
-title: HTTP methods
-description: GET, POST, PUT, PATCH and DELETE — the verbs of the web. Learn what each method means, why safe and idempotent matter, and how to choose correctly.
+title: 'HTTP methods'
+description: 'GET, POST, PUT, PATCH and DELETE — the verbs of the web. Learn what each method means, why safe and idempotent matter, and how to choose correctly.'
 order: 2
-difficulty: intermediate
-category: Core Content
+difficulty: 'intermediate'
+category: 'Core Content'
 estimatedMinutes: 25
 prerequisites:
   - learn/http-and-apis/what-is-http

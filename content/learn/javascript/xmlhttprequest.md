@@ -1,9 +1,9 @@
 ---
-title: XMLHttpRequest
-description: Read the older event-based networking API and understand where it still appears in browser code.
+title: 'XMLHttpRequest'
+description: 'Read the older event-based networking API and understand where it still appears in browser code.'
 order: 28
-difficulty: intermediate
-category: Level 10 - APIs and Networking
+difficulty: 'intermediate'
+category: 'Level 10 - APIs and Networking'
 estimatedMinutes: 25
 prerequisites:
   - learn/javascript/browser-javascript
