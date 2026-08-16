@@ -36,6 +36,7 @@ watch(() => route.fullPath, () => {
 const navLinks = [
   { label: 'Home', to: '/' },
   { label: 'Roadmap', to: '/roadmap' },
+  { label: 'Diagram', to: '/diagram' },
 ]
 </script>
 

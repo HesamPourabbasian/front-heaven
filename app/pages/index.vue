@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ArrowRight, BarChart3, BookOpenCheck, CheckCircle2, Compass, FileCode2, Gauge, GraduationCap, Layers3, Lightbulb, Lock, Map, MousePointerClick, PencilRuler, Rocket, Search, Sparkles, Target, Trophy } from 'lucide-vue-next'
+import { ArrowRight, BarChart3, BookOpenCheck, CheckCircle2, Compass, FileCode2, Gauge, GraduationCap, Layers3, Lightbulb, Lock, Map, MousePointerClick, Network, PencilRuler, Rocket, Search, Sparkles, Target, Trophy } from 'lucide-vue-next'
 
 const { technologies, lessons, sequence, totalMinutes } = useSiteContent()
 const { completed, isCompleted } = useProgress()
@@ -146,6 +146,10 @@ function techMinutes(slug: string) {
             <NuxtLink to="/roadmap" class="btn-secondary px-6 py-3 text-sm">
               <Map class="size-4" aria-hidden="true" />
               Explore the roadmap
+            </NuxtLink>
+            <NuxtLink to="/diagram" class="btn-secondary px-6 py-3 text-sm">
+              <Network class="size-4" aria-hidden="true" />
+              View learning diagram
             </NuxtLink>
           </div>
 
