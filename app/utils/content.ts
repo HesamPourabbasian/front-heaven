@@ -34,12 +34,14 @@ export function toLessonSummary(raw: { path: string; title: string; description:
   }
 }
 
-export function toTechnologySummary(raw: { path: string; title: string; description: string; order: number; difficulty: Difficulty; estimatedHours: number; status?: 'available' | 'coming-soon'; color: string; icon: string; prerequisites?: string[] }): TechnologySummary {
+export function toTechnologySummary(raw: { path: string; title: string; description: string; order: number; difficulty: Difficulty; estimatedHours: number; status?: 'available' | 'coming-soon'; track?: 'core' | 'frontend-framework' | 'meta-framework' | 'css-framework' | 'advanced'; parentFramework?: string; color: string; icon: string; prerequisites?: string[] }): TechnologySummary {
   return {
     ...raw,
     order: Number(raw.order),
     estimatedHours: Number(raw.estimatedHours),
     status: raw.status ?? 'coming-soon',
+    track: raw.track ?? 'core',
+    parentFramework: raw.parentFramework,
     prerequisites: raw.prerequisites ?? [],
     slug: technologySlugFromPath(raw.path),
   }

@@ -431,9 +431,9 @@ export const DIAGRAM_STAGES: DiagramNode[] = [
       'I create composables/hooks to reuse business logic across multiple components.',
       'I configure client-side routing and handle global shared application state.',
     ],
-    learnRoute: '/learn/frameworks',
-    trackSlug: 'frameworks',
-    status: 'coming-soon',
+    learnRoute: '/learn/react',
+    trackSlug: 'react',
+    status: 'available',
   },
   {
     id: 'professional-frontend',

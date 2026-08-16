@@ -51,6 +51,54 @@ const featuredLessons = computed(() => {
     .filter((x): x is NonNullable<typeof x> => Boolean(x))
 })
 
+const selectedTrack = ref<'all' | 'core' | 'frontend-framework' | 'meta-framework' | 'css-framework'>('all')
+
+const trackTabs = [
+  { id: 'all', label: 'All Curricula' },
+  { id: 'core', label: 'Core Fundamentals' },
+  { id: 'frontend-framework', label: 'Frontend Frameworks' },
+  { id: 'meta-framework', label: 'Meta-Frameworks' },
+  { id: 'css-framework', label: 'CSS Frameworks' },
+]
+
+const trackSections = computed(() => {
+  const all = [
+    {
+      id: 'core',
+      title: 'Core Fundamentals',
+      eyebrow: 'The Foundation',
+      description: 'HTML, CSS, JavaScript, TypeScript, Git, Responsive Design, HTTP/APIs, and Web Accessibility.',
+      technologies: technologies.value.filter(t => !t.track || t.track === 'core' || t.track === 'advanced'),
+    },
+    {
+      id: 'frontend-framework',
+      title: 'Frontend Frameworks',
+      eyebrow: 'Component Architecture',
+      description: 'Dedicated standalone tutorials for the 8 major frontend component libraries and frameworks.',
+      technologies: technologies.value.filter(t => t.track === 'frontend-framework'),
+    },
+    {
+      id: 'meta-framework',
+      title: 'Meta-Frameworks',
+      eyebrow: 'Universal SSR & Full-Stack',
+      description: 'Next.js (built on React) and Nuxt (built on Vue) for enterprise hybrid rendering and routing.',
+      technologies: technologies.value.filter(t => t.track === 'meta-framework'),
+    },
+    {
+      id: 'css-framework',
+      title: 'CSS Frameworks',
+      eyebrow: 'Rapid UI Toolkits',
+      description: 'Utility-first styling with Tailwind CSS and modular responsive components with Bootstrap.',
+      technologies: technologies.value.filter(t => t.track === 'css-framework'),
+    },
+  ]
+
+  if (selectedTrack.value === 'all') {
+    return all.filter(s => s.technologies.length > 0)
+  }
+  return all.filter(s => s.id === selectedTrack.value && s.technologies.length > 0)
+})
+
 const methodology = [
   {
     icon: Map,
@@ -237,28 +285,65 @@ function techMinutes(slug: string) {
       </div>
     </section>
 
-    <!-- Technologies -->
+    <!-- Technologies & Frameworks -->
     <section class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8" aria-labelledby="technologies-heading">
       <Reveal>
-        <SectionHeading
-          id="technologies-heading"
-          eyebrow="The curriculum"
-          title="Everything you need, in the right order"
-          description="Each technology is a stage on your journey. Master the fundamentals first, then progress toward modern front-end engineering."
-        />
+        <div class="flex flex-col items-center text-center">
+          <SectionHeading
+            id="technologies-heading"
+            eyebrow="The curriculum"
+            title="Complete Front-End Learning Tracks"
+            description="Master the fundamentals first, then branch into specialized frontend frameworks, full-stack meta-frameworks, and CSS toolkits."
+            align="center"
+          />
+
+          <!-- Track Tabs -->
+          <div class="mt-8 flex flex-wrap items-center justify-center gap-2 rounded-2xl border border-border bg-surface/80 p-1.5 backdrop-blur-sm">
+            <button
+              v-for="tab in trackTabs"
+              :key="tab.id"
+              type="button"
+              class="rounded-xl px-4 py-2 text-xs font-semibold transition-all duration-200"
+              :class="selectedTrack === tab.id
+                ? 'bg-primary text-white shadow-sm'
+                : 'text-muted hover:bg-surface-2 hover:text-ink'"
+              @click="selectedTrack = tab.id as any"
+            >
+              {{ tab.label }}
+            </button>
+          </div>
+        </div>
       </Reveal>
 
-      <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        <Reveal v-for="(tech, i) in technologies" :key="tech.slug">
-          <div style="animation-delay: 0ms">
-            <TechCard
-              :technology="tech"
-              :percent="techPercent(tech.slug)"
-              :lesson-count="lessons.filter(l => l.technology === tech.slug).length"
-              :total-minutes="techMinutes(tech.slug) || undefined"
-            />
+      <!-- Grouped Track Sections -->
+      <div class="mt-14 space-y-16">
+        <div v-for="section in trackSections" :key="section.id" class="space-y-6">
+          <Reveal>
+            <div class="flex flex-wrap items-end justify-between gap-4 border-b border-border/70 pb-4">
+              <div>
+                <span class="text-xs font-bold uppercase tracking-wider text-primary">{{ section.eyebrow }}</span>
+                <h3 class="mt-1 font-display text-2xl font-bold tracking-tight text-ink">{{ section.title }}</h3>
+                <p class="mt-1 text-sm text-muted">{{ section.description }}</p>
+              </div>
+              <span class="rounded-full border border-border bg-surface px-3 py-1 text-xs font-medium text-muted">
+                {{ section.technologies.length }} {{ section.technologies.length === 1 ? 'Track' : 'Tracks' }}
+              </span>
+            </div>
+          </Reveal>
+
+          <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            <Reveal v-for="tech in section.technologies" :key="tech.slug">
+              <div style="animation-delay: 0ms">
+                <TechCard
+                  :technology="tech"
+                  :percent="techPercent(tech.slug)"
+                  :lesson-count="lessons.filter(l => l.technology === tech.slug).length"
+                  :total-minutes="techMinutes(tech.slug) || undefined"
+                />
+              </div>
+            </Reveal>
           </div>
-        </Reveal>
+        </div>
       </div>
     </section>
 

@@ -13,6 +13,8 @@ export interface LessonSummary {
   slug: string
 }
 
+export type TrackCategory = 'core' | 'frontend-framework' | 'meta-framework' | 'css-framework' | 'advanced'
+
 export interface TechnologySummary {
   path: string
   title: string
@@ -21,6 +23,8 @@ export interface TechnologySummary {
   difficulty: Difficulty
   estimatedHours: number
   status: 'available' | 'coming-soon'
+  track?: TrackCategory
+  parentFramework?: string
   color: string
   icon: string
   prerequisites: string[]

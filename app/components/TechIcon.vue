@@ -1,5 +1,27 @@
 <script setup lang="ts">
-import { Accessibility, Braces, FileCode, GitBranch, Layers, MonitorSmartphone, Network, Palette, Rocket, ShieldCheck } from 'lucide-vue-next'
+import {
+  Accessibility,
+  Atom,
+  Box,
+  Braces,
+  Component as ComponentIcon,
+  Cpu,
+  FileCode,
+  Flame,
+  GitBranch,
+  Layers,
+  MonitorSmartphone,
+  Network,
+  Paintbrush,
+  Palette,
+  Rocket,
+  Send,
+  Server,
+  ShieldCheck,
+  Sparkles,
+  Triangle,
+  Zap,
+} from 'lucide-vue-next'
 import type { Component } from 'vue'
 
 const ICONS: Record<string, Component> = {
@@ -13,6 +35,29 @@ const ICONS: Record<string, Component> = {
   shield: ShieldCheck,
   layers: Layers,
   rocket: Rocket,
+  atom: Atom,
+  react: Atom,
+  component: ComponentIcon,
+  vue: ComponentIcon,
+  triangle: Triangle,
+  angular: Triangle,
+  flame: Flame,
+  svelte: Flame,
+  zap: Zap,
+  solidjs: Zap,
+  sparkles: Sparkles,
+  preact: Sparkles,
+  astro: Rocket,
+  send: Send,
+  htmx: Send,
+  server: Server,
+  nextjs: Server,
+  cpu: Cpu,
+  nuxtjs: Cpu,
+  paintbrush: Paintbrush,
+  tailwindcss: Paintbrush,
+  box: Box,
+  bootstrap: Box,
 }
 
 const props = withDefaults(defineProps<{

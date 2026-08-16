@@ -1,27 +1,17 @@
 ---
 title: 'Git & GitHub'
-description: 'The developer''s safety net. Track every change to your code, collaborate with others and never lose work again.'
-order: 4
+description: 'The foundation of professional development. Track changes, branch safely and collaborate with other developers.'
+order: 5
 difficulty: 'beginner'
-estimatedHours: 4
+estimatedHours: 6
 status: 'available'
-color: '#f87171'
+track: 'core'
+color: '#ef4444'
 icon: 'git'
 prerequisites:
-  - html
-  - css
-  - javascript
+
 ---
 
-## What you will learn
+## Why Git Matters
 
-Git is a version control system that records the history of your code, and GitHub is the platform where teams share that code. Together they are the standard workflow of every professional developer.
-
-This stage will cover:
-
-- What version control is and why every project needs it
-- `init`, `add`, `commit` — recording your work
-- Branches and merging
-- Pushing to GitHub and pulling changes
-- Pull requests and collaboration basics
-- Writing good commit messages and READMEs
+Version control is the backbone of all software engineering.

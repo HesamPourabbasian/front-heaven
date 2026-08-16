@@ -1,7 +1,7 @@
 export function useSiteContent() {
   const { data: rawTechnologies } = useAsyncData('fh-technologies', () =>
     queryCollection('technologies')
-      .select('path', 'title', 'description', 'order', 'difficulty', 'estimatedHours', 'status', 'color', 'icon', 'prerequisites')
+      .select('path', 'title', 'description', 'order', 'difficulty', 'estimatedHours', 'status', 'track', 'parentFramework', 'color', 'icon', 'prerequisites')
       .all(),
   )
 

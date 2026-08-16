@@ -25,6 +25,8 @@ export default defineContentConfig({
         difficulty: z.enum(['beginner', 'intermediate', 'advanced']),
         estimatedHours: z.number().int().positive(),
         status: z.enum(['available', 'coming-soon']).default('available'),
+        track: z.enum(['core', 'frontend-framework', 'meta-framework', 'css-framework', 'advanced']).default('core'),
+        parentFramework: z.string().optional(),
         color: z.string(),
         icon: z.string(),
         prerequisites: z.array(z.string()).default([]),
