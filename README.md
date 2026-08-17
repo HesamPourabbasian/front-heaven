@@ -29,7 +29,7 @@ A structured, beginner-friendly platform for learning front-end development — 
 
 ### Prerequisites
 
-- Node.js 18+
+- Node.js 22+ (LTS)
 - npm, pnpm, yarn, or bun
 
 ### Install dependencies
