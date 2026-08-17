@@ -5,10 +5,8 @@ import {
   Compass,
   HelpCircle,
   Lightbulb,
-  Map,
   Network,
   Rocket,
-  Sparkles,
 } from 'lucide-vue-next'
 import { DIAGRAM_STAGES, ROADMAP_FAQ } from '~/data/diagramData'
 import type { Difficulty } from '~/types/content'
@@ -34,8 +32,7 @@ const isModalOpen = ref(false)
 const activeCategory = ref<DiagramCategory | 'all'>('all')
 const activeDifficulty = ref<Difficulty | 'all'>('all')
 const searchQuery = ref('')
-const viewMode = ref<'tree' | 'path' | 'grid'>('tree')
-const highlightRecommended = ref(true)
+const viewMode = ref<'path' | 'grid'>('path')
 
 const filteredStages = computed(() => {
   return stages.value.filter((stage) => {
@@ -91,7 +88,7 @@ function handleNavigateNode(nodeId: string) {
       <div class="text-center max-w-3xl mx-auto">
         <div class="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-4 py-1.5 text-xs font-semibold text-muted shadow-xs">
           <Network class="size-3.5 text-primary" aria-hidden="true" />
-          Interactive Architecture Map
+          Interactive Learning Diagram
         </div>
 
         <h1 class="mt-6 font-display text-4xl font-bold tracking-tight text-ink sm:text-5xl lg:text-6xl">
@@ -101,33 +98,6 @@ function handleNavigateNode(nodeId: string) {
         <p class="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
           A visual, step-by-step roadmap from absolute zero to professional frontend engineer. Understand relationships, master prerequisites, and build real-world software.
         </p>
-
-        <!-- Recommended Learning Flow Strip -->
-        <div class="mt-8 overflow-x-auto pb-2 [scrollbar-width:none]">
-          <div class="inline-flex items-center gap-2 rounded-2xl border border-border bg-surface/80 px-4 py-2 text-xs font-medium text-muted shadow-xs">
-            <span class="font-bold text-primary">Start Here</span>
-            <span>→</span>
-            <span>HTML</span>
-            <span>→</span>
-            <span>CSS</span>
-            <span>→</span>
-            <span>JavaScript</span>
-            <span>→</span>
-            <span>Git</span>
-            <span>→</span>
-            <span>TypeScript</span>
-            <span>→</span>
-            <span>React / Vue / Svelte</span>
-            <span>→</span>
-            <span>Next.js / Nuxt</span>
-            <span>→</span>
-            <span>Tailwind</span>
-            <span>→</span>
-            <span>Projects</span>
-            <span>→</span>
-            <span class="font-bold text-emerald-500">Job Ready</span>
-          </div>
-        </div>
       </div>
 
       <!-- Controls & Filter Bar -->
@@ -139,25 +109,13 @@ function handleNavigateNode(nodeId: string) {
           v-model:view-mode="viewMode"
           :total-stages="stages.length"
           :filtered-count="filteredStages.length"
-          :highlight-recommended="highlightRecommended"
-          @toggle-recommended="highlightRecommended = !highlightRecommended"
         />
       </div>
 
       <!-- Main Diagram Display -->
       <div class="mt-10 max-w-5xl mx-auto">
-        <!-- 1. Interactive Architecture Map View (Tree Canvas) -->
-        <div v-if="viewMode === 'tree'">
-          <DiagramTreeCanvas
-            :stages="filteredStages"
-            :selected-node="selectedNode"
-            :highlight-recommended="highlightRecommended"
-            @select="openNodeDetails"
-          />
-        </div>
-
-        <!-- 2. Step-by-Step Connected Flow View (Spine) -->
-        <div v-else-if="viewMode === 'path'">
+        <!-- 1. Step-by-Step Connected Flow View (Spine) -->
+        <div v-if="viewMode === 'path'">
           <DiagramPathFlow
             :stages="filteredStages"
             :selected-node="selectedNode"
@@ -165,7 +123,7 @@ function handleNavigateNode(nodeId: string) {
           />
         </div>
 
-        <!-- 3. Categorized Grid View Mode -->
+        <!-- 2. Categorized Grid View Mode -->
         <div v-else class="grid gap-6 sm:grid-cols-2 lg:grid-cols-2">
           <DiagramNodeCard
             v-for="(node, i) in filteredStages"
@@ -249,7 +207,7 @@ function handleNavigateNode(nodeId: string) {
             <ArrowRight class="size-4" />
           </UiButton>
           <UiButton to="/roadmap" variant="secondary" size="lg">
-            <Map class="size-4" />
+            <Compass class="size-4" />
             View Full Curriculum
           </UiButton>
         </div>

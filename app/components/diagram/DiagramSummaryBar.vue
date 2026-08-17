@@ -1,16 +1,8 @@
 <script setup lang="ts">
 import {
-  Boxes,
-  Code2,
   Compass,
-  Filter,
-  Grid,
-  Layers,
   LayoutGrid,
-  Map,
-  Network,
   Search,
-  Sparkles,
 } from 'lucide-vue-next'
 import type { Difficulty } from '~/types/content'
 import type { DiagramCategory } from '~/types/diagram'
@@ -21,16 +13,14 @@ const props = defineProps<{
   searchQuery: string
   totalStages: number
   filteredCount: number
-  viewMode: 'tree' | 'path' | 'grid'
-  highlightRecommended?: boolean
+  viewMode: 'path' | 'grid'
 }>()
 
 const emit = defineEmits<{
   'update:activeCategory': [cat: DiagramCategory | 'all']
   'update:activeDifficulty': [difficulty: Difficulty | 'all']
   'update:searchQuery': [query: string]
-  'update:viewMode': [mode: 'tree' | 'path' | 'grid']
-  'toggleRecommended': []
+  'update:viewMode': [mode: 'path' | 'grid']
 }>()
 
 const categoryTabs: { label: string, value: DiagramCategory | 'all' }[] = [
@@ -76,61 +66,33 @@ const difficultyTabs = [
         </button>
       </div>
 
-      <!-- Right Controls: Recommended Path Toggle & View Mode Switcher -->
-      <div class="flex flex-wrap items-center gap-2">
+      <!-- Right Controls: View Mode Switcher -->
+      <div class="flex items-center gap-0.5 rounded-xl border border-border bg-surface-2 p-1">
         <button
           type="button"
-          class="inline-flex items-center gap-1.5 rounded-xl border px-3 py-1.5 text-xs font-semibold transition-all select-none cursor-pointer"
-          :class="highlightRecommended
-            ? 'border-primary/50 bg-primary/10 text-primary shadow-xs'
-            : 'border-border bg-surface-2 text-muted hover:text-ink'"
-          @click="emit('toggleRecommended')"
+          class="flex items-center gap-1.5 rounded-lg px-2.5 py-1 text-xs font-medium transition-colors cursor-pointer"
+          :class="viewMode === 'path'
+            ? 'bg-surface text-ink shadow-xs font-semibold'
+            : 'text-muted hover:text-ink'"
+          title="Step-by-Step Connected Spine View"
+          @click="emit('update:viewMode', 'path')"
         >
-          <Sparkles class="size-3.5" />
-          <span>Recommended Path</span>
+          <Compass class="size-3.5" />
+          <span>Flow</span>
         </button>
 
-        <!-- View Mode Switcher (Tree Map / Linear Flow / Grid) -->
-        <div class="flex items-center gap-0.5 rounded-xl border border-border bg-surface-2 p-1">
-          <button
-            type="button"
-            class="flex items-center gap-1.5 rounded-lg px-2.5 py-1 text-xs font-medium transition-colors cursor-pointer"
-            :class="viewMode === 'tree'
-              ? 'bg-surface text-ink shadow-xs font-semibold'
-              : 'text-muted hover:text-ink'"
-            title="Interactive Tree Architecture View"
-            @click="emit('update:viewMode', 'tree')"
-          >
-            <Network class="size-3.5" />
-            <span>Map</span>
-          </button>
-
-          <button
-            type="button"
-            class="flex items-center gap-1.5 rounded-lg px-2.5 py-1 text-xs font-medium transition-colors cursor-pointer"
-            :class="viewMode === 'path'
-              ? 'bg-surface text-ink shadow-xs font-semibold'
-              : 'text-muted hover:text-ink'"
-            title="Step-by-Step Connected Spine View"
-            @click="emit('update:viewMode', 'path')"
-          >
-            <Compass class="size-3.5" />
-            <span>Flow</span>
-          </button>
-
-          <button
-            type="button"
-            class="flex items-center gap-1.5 rounded-lg px-2.5 py-1 text-xs font-medium transition-colors cursor-pointer"
-            :class="viewMode === 'grid'
-              ? 'bg-surface text-ink shadow-xs font-semibold'
-              : 'text-muted hover:text-ink'"
-            title="Category Grid View"
-            @click="emit('update:viewMode', 'grid')"
-          >
-            <LayoutGrid class="size-3.5" />
-            <span>Grid</span>
-          </button>
-        </div>
+        <button
+          type="button"
+          class="flex items-center gap-1.5 rounded-lg px-2.5 py-1 text-xs font-medium transition-colors cursor-pointer"
+          :class="viewMode === 'grid'
+            ? 'bg-surface text-ink shadow-xs font-semibold'
+            : 'text-muted hover:text-ink'"
+          title="Category Grid View"
+          @click="emit('update:viewMode', 'grid')"
+        >
+          <LayoutGrid class="size-3.5" />
+          <span>Grid</span>
+        </button>
       </div>
     </div>
 
