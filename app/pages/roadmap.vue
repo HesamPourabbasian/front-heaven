@@ -13,7 +13,7 @@ useHead({
   link: [{ rel: 'canonical', href: 'https://front-heaven.dev/roadmap' }],
 })
 
-const activeTrack = ref<'all' | 'core' | 'frontend-framework' | 'meta-framework' | 'css-framework'>('all')
+const activeTrack = ref<'all' | 'core' | 'frontend-framework' | 'meta-framework' | 'css-framework' | 'advanced'>('all')
 
 const trackTabs = [
   { id: 'all', label: 'All Stages' },
@@ -21,6 +21,7 @@ const trackTabs = [
   { id: 'frontend-framework', label: 'Frontend Frameworks' },
   { id: 'meta-framework', label: 'Meta-Frameworks' },
   { id: 'css-framework', label: 'CSS Frameworks' },
+  { id: 'advanced', label: 'Advanced topics' },
 ]
 
 const allStages = computed(() => technologies.value
@@ -29,7 +30,7 @@ const allStages = computed(() => technologies.value
 
 const stages = computed(() => {
   if (activeTrack.value === 'all') return allStages.value
-  if (activeTrack.value === 'core') return allStages.value.filter(s => !s.technology.track || s.technology.track === 'core' || s.technology.track === 'advanced')
+  if (activeTrack.value === 'core') return allStages.value.filter(s => !s.technology.track || s.technology.track === 'core')
   return allStages.value.filter(s => s.technology.track === activeTrack.value)
 })
 

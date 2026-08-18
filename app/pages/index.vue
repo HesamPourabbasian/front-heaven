@@ -51,7 +51,7 @@ const featuredLessons = computed(() => {
     .filter((x): x is NonNullable<typeof x> => Boolean(x))
 })
 
-const selectedTrack = ref<'all' | 'core' | 'frontend-framework' | 'meta-framework' | 'css-framework'>('all')
+const selectedTrack = ref<'all' | 'core' | 'frontend-framework' | 'meta-framework' | 'css-framework' | 'advanced'>('all')
 
 const trackTabs = [
   { id: 'all', label: 'All Curricula' },
@@ -59,6 +59,7 @@ const trackTabs = [
   { id: 'frontend-framework', label: 'Frontend Frameworks' },
   { id: 'meta-framework', label: 'Meta-Frameworks' },
   { id: 'css-framework', label: 'CSS Frameworks' },
+  { id: 'advanced', label: 'Advanced topics' },
 ]
 
 const trackSections = computed(() => {
@@ -68,7 +69,7 @@ const trackSections = computed(() => {
       title: 'Core Fundamentals',
       eyebrow: 'The Foundation',
       description: 'HTML, CSS, JavaScript, TypeScript, Git, Responsive Design, HTTP/APIs, and Web Accessibility.',
-      technologies: sortTechnologies(technologies.value.filter(t => !t.track || t.track === 'core' || t.track === 'advanced')),
+      technologies: sortTechnologies(technologies.value.filter(t => !t.track || t.track === 'core')),
     },
     {
       id: 'frontend-framework',
@@ -90,6 +91,13 @@ const trackSections = computed(() => {
       eyebrow: 'Rapid UI Toolkits',
       description: 'Utility-first styling with Tailwind CSS and modular responsive components with Bootstrap.',
       technologies: sortTechnologies(technologies.value.filter(t => t.track === 'css-framework')),
+    },
+    {
+      id: 'advanced',
+      title: 'Advanced topics',
+      eyebrow: 'Senior Engineering',
+      description: 'From developer to engineer. Master browser internals, performance, memory, testing, architecture, security, observability, CI/CD, and system design.',
+      technologies: sortTechnologies(technologies.value.filter(t => t.track === 'advanced')),
     },
   ]
 
