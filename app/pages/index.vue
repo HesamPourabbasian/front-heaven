@@ -68,28 +68,28 @@ const trackSections = computed(() => {
       title: 'Core Fundamentals',
       eyebrow: 'The Foundation',
       description: 'HTML, CSS, JavaScript, TypeScript, Git, Responsive Design, HTTP/APIs, and Web Accessibility.',
-      technologies: technologies.value.filter(t => !t.track || t.track === 'core' || t.track === 'advanced'),
+      technologies: sortTechnologies(technologies.value.filter(t => !t.track || t.track === 'core' || t.track === 'advanced')),
     },
     {
       id: 'frontend-framework',
       title: 'Frontend Frameworks',
       eyebrow: 'Component Architecture',
       description: 'Dedicated standalone tutorials for the 8 major frontend component libraries and frameworks.',
-      technologies: technologies.value.filter(t => t.track === 'frontend-framework'),
+      technologies: sortTechnologies(technologies.value.filter(t => t.track === 'frontend-framework')),
     },
     {
       id: 'meta-framework',
       title: 'Meta-Frameworks',
       eyebrow: 'Universal SSR & Full-Stack',
       description: 'Next.js (built on React) and Nuxt (built on Vue) for enterprise hybrid rendering and routing.',
-      technologies: technologies.value.filter(t => t.track === 'meta-framework'),
+      technologies: sortTechnologies(technologies.value.filter(t => t.track === 'meta-framework')),
     },
     {
       id: 'css-framework',
       title: 'CSS Frameworks',
       eyebrow: 'Rapid UI Toolkits',
       description: 'Utility-first styling with Tailwind CSS and modular responsive components with Bootstrap.',
-      technologies: technologies.value.filter(t => t.track === 'css-framework'),
+      technologies: sortTechnologies(technologies.value.filter(t => t.track === 'css-framework')),
     },
   ]
 

@@ -11,8 +11,8 @@ export function useSiteContent() {
       .all(),
   )
 
-  const technologies = computed(() => (rawTechnologies.value ?? []).map(toTechnologySummary))
-  const lessons = computed(() => (rawLessons.value ?? []).map(toLessonSummary))
+  const technologies = computed(() => sortTechnologies((rawTechnologies.value ?? []).map(toTechnologySummary)))
+  const lessons = computed(() => sortLessons((rawLessons.value ?? []).map(toLessonSummary)))
   const sequence = computed(() => buildSequence(technologies.value, lessons.value))
   const totalMinutes = computed(() => lessons.value.reduce((sum, l) => sum + l.estimatedMinutes, 0))
 
