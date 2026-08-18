@@ -6,7 +6,7 @@ difficulty: 'intermediate'
 category: 'Tailwind CSS Fundamentals'
 estimatedMinutes: 20
 prerequisites:
-  - /learn/css/css-fundamentals
+  - /learn/css/01-css-fundamentals
 ---
 
 ## The Utility-First Workflow

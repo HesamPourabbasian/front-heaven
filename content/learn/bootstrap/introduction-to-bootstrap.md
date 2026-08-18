@@ -6,7 +6,7 @@ difficulty: 'beginner'
 category: 'Bootstrap Fundamentals'
 estimatedMinutes: 20
 prerequisites:
-  - /learn/css/css-fundamentals
+  - /learn/css/01-css-fundamentals
 ---
 
 ## What is Bootstrap?
