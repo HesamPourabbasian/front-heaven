@@ -37,6 +37,7 @@ const navLinks = [
   { label: 'Home', to: '/' },
   { label: 'Roadmap', to: '/roadmap' },
   { label: 'Diagram', to: '/diagram' },
+  { label: 'About US', to: '/about' },
 ]
 </script>
 
