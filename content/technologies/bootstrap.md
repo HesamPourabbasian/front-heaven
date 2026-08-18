@@ -1,7 +1,7 @@
 ---
 title: 'Bootstrap'
 description: 'The world’s most popular front-end component library. Build responsive, mobile-first sites with pre-built grid systems and UI components.'
-order: 20
+order: 17
 difficulty: 'beginner'
 estimatedHours: 10
 status: 'available'

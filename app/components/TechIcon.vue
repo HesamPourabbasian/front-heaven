@@ -59,11 +59,6 @@ const SHIELDS_BADGES: Record<string, string> = {
   flame: 'https://img.shields.io/badge/Svelte-4A4A55?style=for-the-badge&logo=svelte&logoColor=FF3E00',
   solidjs: 'https://img.shields.io/badge/SolidJS-2C4F7C?style=for-the-badge&logo=solid&logoColor=c8c9cb',
   zap: 'https://img.shields.io/badge/SolidJS-2C4F7C?style=for-the-badge&logo=solid&logoColor=c8c9cb',
-  preact: 'https://img.shields.io/badge/Preact-673AB8?style=for-the-badge&logo=preact&logoColor=white',
-  sparkles: 'https://img.shields.io/badge/Preact-673AB8?style=for-the-badge&logo=preact&logoColor=white',
-  astro: 'https://img.shields.io/badge/Astro-0C1222?style=for-the-badge&logo=astro&logoColor=FF5D01',
-  htmx: 'https://img.shields.io/badge/HTMX-3366CC?style=for-the-badge&logo=htmx&logoColor=white',
-  send: 'https://img.shields.io/badge/HTMX-3366CC?style=for-the-badge&logo=htmx&logoColor=white',
 
   // Meta-Frameworks
   nextjs: 'https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white',
