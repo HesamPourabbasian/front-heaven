@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Menu, X } from 'lucide-vue-next'
+import { ArrowRight, Home, Info, Map, Menu, Network, X } from 'lucide-vue-next'
 
 const { searchOpen } = useUiState()
 const mobileOpen = ref(false)
@@ -10,6 +10,8 @@ function handleKeydown(e: KeyboardEvent) {
   if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
     e.preventDefault()
     searchOpen.value = !searchOpen.value
+  } else if (e.key === 'Escape' && mobileOpen.value) {
+    mobileOpen.value = false
   }
 }
 
@@ -27,17 +29,30 @@ onMounted(() => {
 onBeforeUnmount(() => {
   window.removeEventListener('keydown', handleKeydown)
   if (onScroll) window.removeEventListener('scroll', onScroll)
+  if (import.meta.client) {
+    document.body.style.overflow = ''
+  }
 })
 
 watch(() => route.fullPath, () => {
   mobileOpen.value = false
 })
 
+watch(mobileOpen, (isOpen) => {
+  if (import.meta.client) {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+  }
+})
+
 const navLinks = [
-  { label: 'Home', to: '/' },
-  { label: 'Roadmap', to: '/roadmap' },
-  { label: 'Diagram', to: '/diagram' },
-  { label: 'About US', to: '/about' },
+  { label: 'Home', to: '/', icon: Home },
+  { label: 'Roadmap', to: '/roadmap', icon: Map },
+  { label: 'Diagram', to: '/diagram', icon: Network },
+  { label: 'About US', to: '/about', icon: Info },
 ]
 </script>
 
@@ -67,75 +82,101 @@ const navLinks = [
         <ThemeToggle />
         <button
           type="button"
-          class="inline-flex size-11 items-center justify-center rounded-xl border border-transparent text-muted transition-all duration-200 md:hidden"
+          class="inline-flex size-11 items-center justify-center rounded-xl border border-border/70 bg-surface text-muted transition-all duration-200 hover:border-border-strong hover:text-ink md:hidden"
           :aria-label="mobileOpen ? 'Close menu' : 'Open menu'"
           :aria-expanded="mobileOpen"
           @click="mobileOpen = !mobileOpen"
         >
-          <X v-if="mobileOpen" class="size-5" />
-          <Menu v-else class="size-5" />
+          <Menu class="size-5" />
         </button>
       </div>
     </div>
 
-    <Transition name="mobile-nav">
-      <nav
-        v-if="mobileOpen"
-        class="max-h-[calc(100vh-4rem)] overflow-y-auto border-t border-border bg-surface px-4 py-3 md:hidden"
-        aria-label="Mobile navigation"
-      >
-        <ul class="flex flex-col gap-1">
-          <li v-for="link in navLinks" :key="link.to">
-            <NuxtLink
-              :to="link.to"
-              class="block rounded-lg px-3 py-2.5 text-sm font-medium text-ink-soft transition-colors hover:bg-surface-2"
-              exact-active-class="!text-primary bg-primary/10"
-              :aria-current="$route.path === link.to ? 'page' : undefined"
+    <!-- Mobile Drawer & Backdrop -->
+    <Teleport to="body">
+      <!-- Backdrop Overlay -->
+      <Transition name="drawer-fade">
+        <div
+          v-if="mobileOpen"
+          class="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs md:hidden"
+          aria-hidden="true"
+          @click="mobileOpen = false"
+        />
+      </Transition>
+
+      <!-- Right-Sliding Sidebar Drawer -->
+      <Transition name="drawer-slide">
+        <aside
+          v-if="mobileOpen"
+          class="fixed inset-y-0 right-0 z-50 flex w-72 max-w-[85vw] flex-col border-l border-border bg-surface shadow-2xl md:hidden"
+          aria-label="Mobile navigation drawer"
+          role="dialog"
+          aria-modal="true"
+        >
+          <!-- Drawer Header -->
+          <div class="flex h-16 items-center justify-between border-b border-border px-5">
+            <Brand />
+            <button
+              type="button"
+              class="inline-flex size-10 items-center justify-center rounded-xl border border-border/80 bg-surface-2 text-ink-soft transition-colors hover:border-border-strong hover:bg-surface hover:text-ink"
+              aria-label="Close navigation menu"
+              @click="mobileOpen = false"
             >
-              {{ link.label }}
-            </NuxtLink>
-          </li>
-          <li>
+              <X class="size-5" />
+            </button>
+          </div>
+
+          <!-- Drawer Navigation Links -->
+          <nav class="flex-1 overflow-y-auto px-4 py-6">
+            <ul class="flex flex-col gap-1.5">
+              <li v-for="link in navLinks" :key="link.to">
+                <NuxtLink
+                  :to="link.to"
+                  class="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-semibold text-ink-soft transition-all hover:bg-surface-2 hover:text-ink"
+                  exact-active-class="!bg-primary/10 !text-primary shadow-xs"
+                  :aria-current="$route.path === link.to ? 'page' : undefined"
+                  @click="mobileOpen = false"
+                >
+                  <component :is="link.icon" class="size-5 shrink-0 opacity-80" />
+                  <span>{{ link.label }}</span>
+                </NuxtLink>
+              </li>
+            </ul>
+          </nav>
+
+          <!-- Drawer Bottom Action -->
+          <div class="border-t border-border p-4">
             <NuxtLink
               to="/learn/html"
-              class="block rounded-lg px-3 py-2.5 text-sm font-medium text-ink-soft transition-colors hover:bg-surface-2"
-              :aria-current="$route.path === '/learn/html' ? 'page' : undefined"
+              class="flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-4 py-3 text-sm font-semibold text-white shadow-md transition-all hover:bg-primary-hover active:scale-98"
+              @click="mobileOpen = false"
             >
-              Learn HTML
+              Start Learning
+              <ArrowRight class="size-4" />
             </NuxtLink>
-          </li>
-          <li>
-            <NuxtLink
-              to="/learn/css"
-              class="block rounded-lg px-3 py-2.5 text-sm font-medium text-ink-soft transition-colors hover:bg-surface-2"
-              :aria-current="$route.path === '/learn/css' ? 'page' : undefined"
-            >
-              Learn CSS
-            </NuxtLink>
-          </li>
-          <li>
-            <NuxtLink
-              to="/learn/javascript"
-              class="block rounded-lg px-3 py-2.5 text-sm font-medium text-ink-soft transition-colors hover:bg-surface-2"
-              :aria-current="$route.path === '/learn/javascript' ? 'page' : undefined"
-            >
-              Learn JavaScript
-            </NuxtLink>
-          </li>
-        </ul>
-      </nav>
-    </Transition>
+          </div>
+        </aside>
+      </Transition>
+    </Teleport>
   </header>
 </template>
 
 <style scoped>
-.mobile-nav-enter-active,
-.mobile-nav-leave-active {
-  transition: opacity 0.18s ease, transform 0.18s ease;
+.drawer-fade-enter-active,
+.drawer-fade-leave-active {
+  transition: opacity 0.25s ease-out;
 }
-.mobile-nav-enter-from,
-.mobile-nav-leave-to {
+.drawer-fade-enter-from,
+.drawer-fade-leave-to {
   opacity: 0;
-  transform: translateY(-6px);
+}
+
+.drawer-slide-enter-active,
+.drawer-slide-leave-active {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.drawer-slide-enter-from,
+.drawer-slide-leave-to {
+  transform: translateX(100%);
 }
 </style>
