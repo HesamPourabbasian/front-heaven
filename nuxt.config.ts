@@ -86,6 +86,7 @@ export default defineNuxtConfig({
         '/learn/accessibility',
         '/learn/http-and-apis',
         '/learn/typescript',
+        '/learn/ai-assisted-coding',
         '/learn/react',
         '/learn/vue',
         '/learn/angular',

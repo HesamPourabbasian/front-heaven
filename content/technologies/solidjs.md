@@ -1,7 +1,7 @@
 ---
 title: 'SolidJS'
 description: 'Simple and performant reactivity for building user interfaces. Enjoy JSX with fine-grained reactivity and zero virtual DOM.'
-order: 13
+order: 14
 difficulty: 'intermediate'
 estimatedHours: 12
 status: 'available'

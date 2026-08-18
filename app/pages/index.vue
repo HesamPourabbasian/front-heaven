@@ -68,7 +68,7 @@ const trackSections = computed(() => {
       id: 'core',
       title: 'Core Fundamentals',
       eyebrow: 'The Foundation',
-      description: 'HTML, CSS, JavaScript, TypeScript, Git, Responsive Design, HTTP/APIs, and Web Accessibility.',
+      description: 'HTML, CSS, JavaScript, TypeScript, Git, Responsive Design, HTTP/APIs, Web Accessibility, and AI-Assisted Coding.',
       technologies: sortTechnologies(technologies.value.filter(t => !t.track || t.track === 'core')),
     },
     {

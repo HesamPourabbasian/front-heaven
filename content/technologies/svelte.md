@@ -1,7 +1,7 @@
 ---
 title: 'Svelte'
 description: 'Cybernetically enhanced web apps. Compile components into surgical vanilla JavaScript with zero virtual DOM overhead, Svelte 5 Runes, and full-stack SvelteKit.'
-order: 12
+order: 13
 difficulty: 'intermediate'
 estimatedHours: 40
 status: 'available'

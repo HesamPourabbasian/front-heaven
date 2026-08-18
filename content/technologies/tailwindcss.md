@@ -1,7 +1,7 @@
 ---
 title: 'Tailwind CSS'
 description: 'A utility-first CSS framework for rapid UI development. Compose modern designs directly in your markup with zero stylesheet bloat.'
-order: 16
+order: 17
 difficulty: 'intermediate'
 estimatedHours: 12
 status: 'available'

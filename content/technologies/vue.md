@@ -1,7 +1,7 @@
 ---
 title: 'Vue.js'
 description: 'The progressive JavaScript framework. Master Single-File Components (SFCs), the Composition API, reactive refs, Pinia state architecture, Vue Router, Nuxt, and enterprise DevOps.'
-order: 10
+order: 11
 difficulty: 'intermediate'
 estimatedHours: 40
 status: 'available'

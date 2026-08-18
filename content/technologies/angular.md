@@ -1,7 +1,7 @@
 ---
 title: 'Angular'
 description: 'The batteries-included enterprise web framework. Master TypeScript-first components, services, dependency injection, and modern Signals.'
-order: 11
+order: 12
 difficulty: 'intermediate'
 estimatedHours: 20
 status: 'available'

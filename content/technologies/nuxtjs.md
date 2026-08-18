@@ -1,7 +1,7 @@
 ---
 title: 'Nuxt'
 description: 'The intuitive Vue framework. Master file-based routing, auto-imports, universal SSR, Nitro server engine, and SEO module ecosystems.'
-order: 15
+order: 16
 difficulty: 'advanced'
 estimatedHours: 20
 status: 'available'

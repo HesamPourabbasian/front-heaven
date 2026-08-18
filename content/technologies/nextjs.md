@@ -1,7 +1,7 @@
 ---
 title: 'Next.js'
 description: 'The React framework for the web. Master App Router, React Server Components (RSC), Server Actions, SSR, SSG, and edge rendering.'
-order: 14
+order: 15
 difficulty: 'advanced'
 estimatedHours: 20
 status: 'available'

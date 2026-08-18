@@ -47,6 +47,9 @@ const SHIELDS_BADGES: Record<string, string> = {
   typescript: 'https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white',
   shield: 'https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white',
   git: 'https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white',
+  'ai-assisted-coding': 'https://img.shields.io/badge/AI_Coding-8B5CF6?style=for-the-badge&logo=openai&logoColor=white',
+  ai: 'https://img.shields.io/badge/AI_Coding-8B5CF6?style=for-the-badge&logo=openai&logoColor=white',
+  bot: 'https://img.shields.io/badge/AI_Coding-8B5CF6?style=for-the-badge&logo=openai&logoColor=white',
 
   // Frontend Frameworks
   react: 'https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB',

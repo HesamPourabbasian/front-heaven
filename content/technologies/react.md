@@ -1,7 +1,7 @@
 ---
 title: 'React'
 description: 'The declarative, component-based library for building user interfaces. Master JSX, hooks, state, and component lifecycles.'
-order: 9
+order: 10
 difficulty: 'intermediate'
 estimatedHours: 18
 status: 'available'
