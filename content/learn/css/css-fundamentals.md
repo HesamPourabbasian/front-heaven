@@ -6,7 +6,7 @@ difficulty: 'beginner'
 category: 'Level 1 - Beginner CSS'
 estimatedMinutes: 20
 prerequisites:
-  - /learn/html/html-and-css
+  - /learn/html/01-html-fundamentals
 ---
 
 ## What is CSS?

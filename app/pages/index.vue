@@ -35,7 +35,7 @@ const stats = computed(() => [
 
 const featuredLessons = computed(() => {
   const picks = [
-    { tech: 'html', slug: 'introduction-to-html' },
+    { tech: 'html', slug: '01-html-fundamentals' },
     { tech: 'css', slug: 'flexbox' },
     { tech: 'javascript', slug: 'functions-and-parameters' },
   ]
