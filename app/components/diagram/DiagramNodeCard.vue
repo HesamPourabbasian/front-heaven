@@ -63,7 +63,7 @@ const difficultyVariant = computed(() => {
     tabindex="0"
     :aria-label="`Stage ${node.stepNumber}: ${node.title}`"
     :class="[
-      'group relative flex flex-col rounded-2xl border transition-all duration-300 text-left outline-none cursor-pointer h-full justify-between',
+      'group relative flex flex-col rounded-2xl border transition-all duration-300 text-left outline-none cursor-pointer h-full justify-between w-full min-w-0',
       isActive
         ? 'border-primary shadow-xl shadow-primary/10 ring-2 ring-primary/20 -translate-y-1 bg-surface'
         : 'border-border bg-surface hover:border-border-strong hover:shadow-lg hover:-translate-y-0.5',
@@ -73,50 +73,50 @@ const difficultyVariant = computed(() => {
     @keydown.space.prevent="emit('select', node)"
   >
     <!-- Top step indicator strip -->
-    <div class="flex items-center justify-between border-b border-border/60 px-5 py-3">
-      <div class="flex items-center gap-2">
+    <div class="flex items-center justify-between border-b border-border/60 px-4 sm:px-5 py-2.5 sm:py-3 gap-2">
+      <div class="flex items-center gap-1.5 sm:gap-2 shrink-0">
         <span
-          class="flex size-6 items-center justify-center rounded-md font-mono text-xs font-bold text-white shadow-sm"
+          class="flex size-5 sm:size-6 items-center justify-center rounded-md font-mono text-[11px] sm:text-xs font-bold text-white shadow-sm shrink-0"
           :style="{ backgroundColor: node.color }"
         >
           {{ String(node.stepNumber).padStart(2, '0') }}
         </span>
-        <span class="text-xs font-semibold uppercase tracking-wider text-muted">
+        <span class="text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-muted whitespace-nowrap">
           Stage {{ node.stepNumber }}
         </span>
       </div>
 
       <!-- Status Indicator Pill -->
-      <div class="flex items-center gap-1.5">
+      <div class="flex items-center gap-1 sm:gap-1.5 shrink-0">
         <span
           v-if="progressStatus === 'completed'"
-          class="inline-flex items-center gap-1 rounded-full bg-emerald-500/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400"
+          class="inline-flex items-center gap-1 rounded-full bg-emerald-500/10 px-1.5 sm:px-2 py-0.5 text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400 whitespace-nowrap"
         >
-          <Check class="size-3" />
-          Completed
+          <Check class="size-2.5 sm:size-3" />
+          Done
         </span>
         <span
           v-else-if="progressStatus === 'in-progress'"
-          class="inline-flex items-center gap-1 rounded-full bg-sky-500/10 px-2 py-0.5 text-[10px] font-bold text-sky-600 dark:text-sky-400 font-mono"
+          class="inline-flex items-center gap-1 rounded-full bg-sky-500/10 px-1.5 sm:px-2 py-0.5 text-[9px] sm:text-[10px] font-bold text-sky-600 dark:text-sky-400 font-mono whitespace-nowrap"
         >
-          {{ progressPercent }}% Done
+          {{ progressPercent }}%
         </span>
-        <UiBadge :variant="difficultyVariant" class="capitalize text-[10px]">
+        <UiBadge :variant="difficultyVariant" class="capitalize text-[9px] sm:text-[10px] px-1.5 py-0.5">
           {{ node.difficulty }}
         </UiBadge>
       </div>
     </div>
 
     <!-- Main Card Body -->
-    <div class="flex flex-1 flex-col p-5">
-      <div class="flex items-start gap-3.5">
+    <div class="flex flex-1 flex-col p-4 sm:p-5 min-w-0">
+      <div class="flex items-start gap-3 sm:gap-3.5 min-w-0">
         <!-- Logo / Icon Tile -->
-        <TechIcon :icon="node.icon" :color="node.color" size="md" />
+        <TechIcon :icon="node.icon" :color="node.color" size="md" class="shrink-0" />
 
         <!-- Title & Subtitle -->
         <div class="min-w-0 flex-1">
-          <div class="flex items-center gap-1.5">
-            <h4 class="font-display text-base font-bold leading-tight text-ink group-hover:text-primary transition-colors truncate">
+          <div class="flex flex-wrap items-center gap-1 sm:gap-1.5">
+            <h4 class="font-display text-sm sm:text-base font-bold leading-tight text-ink group-hover:text-primary transition-colors break-words">
               {{ node.title }}
             </h4>
             <span
@@ -126,44 +126,44 @@ const difficultyVariant = computed(() => {
               {{ node.parentFramework }}
             </span>
           </div>
-          <p class="mt-0.5 text-xs text-muted line-clamp-1">
+          <p class="mt-0.5 text-[11px] sm:text-xs text-muted line-clamp-1">
             {{ node.subtitle }}
           </p>
         </div>
       </div>
 
       <!-- Description -->
-      <p class="mt-3 text-xs leading-relaxed text-ink-soft line-clamp-2 min-h-[2rem]">
+      <p class="mt-2.5 sm:mt-3 text-xs leading-relaxed text-ink-soft line-clamp-2 min-h-[2rem]">
         {{ node.description }}
       </p>
 
       <!-- Key Topics Preview Tags -->
-      <div class="mt-3.5 flex flex-wrap gap-1.5">
+      <div class="mt-3 sm:mt-3.5 flex flex-wrap gap-1 sm:gap-1.5">
         <span
           v-for="topic in node.topics.slice(0, 3)"
           :key="topic.name"
-          class="inline-flex items-center rounded-md bg-surface-2 px-2 py-0.5 text-[11px] font-medium text-muted transition-colors group-hover:bg-surface-3 group-hover:text-ink-soft"
+          class="inline-flex items-center rounded-md bg-surface-2 px-1.5 sm:px-2 py-0.5 text-[10px] sm:text-[11px] font-medium text-muted transition-colors group-hover:bg-surface-3 group-hover:text-ink-soft"
         >
           {{ topic.name }}
         </span>
         <span
           v-if="node.topics.length > 3"
-          class="inline-flex items-center rounded-md bg-surface-2/60 px-1.5 py-0.5 text-[10px] font-semibold text-muted"
+          class="inline-flex items-center rounded-md bg-surface-2/60 px-1.5 py-0.5 text-[9px] sm:text-[10px] font-semibold text-muted"
         >
-          +{{ node.topics.length - 3 }} more
+          +{{ node.topics.length - 3 }}
         </span>
       </div>
 
       <!-- Card Footer info -->
-      <div class="mt-auto pt-4 flex items-center justify-between border-t border-border/50 text-xs text-muted">
-        <span class="flex items-center gap-1 font-mono text-[11px]">
-          <Clock class="size-3 text-muted" />
+      <div class="mt-auto pt-3.5 sm:pt-4 flex items-center justify-between border-t border-border/50 text-[11px] sm:text-xs text-muted gap-2">
+        <span class="flex items-center gap-1 font-mono text-[10px] sm:text-[11px] truncate">
+          <Clock class="size-3 text-muted shrink-0" />
           {{ nodeLessons.length > 0 ? `${nodeLessons.length} lessons · ` : '' }}{{ node.estimatedWeeks }}
         </span>
 
-        <span class="flex items-center gap-1 font-semibold text-primary group-hover:translate-x-0.5 transition-transform">
-          Explore Stage
-          <ArrowRight class="size-3.5" />
+        <span class="flex items-center gap-1 font-semibold text-primary group-hover:translate-x-0.5 transition-transform shrink-0">
+          Explore
+          <ArrowRight class="size-3 sm:size-3.5" />
         </span>
       </div>
     </div>

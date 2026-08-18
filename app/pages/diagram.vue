@@ -113,9 +113,9 @@ function handleNavigateNode(nodeId: string) {
       </div>
 
       <!-- Main Diagram Display -->
-      <div class="mt-10 max-w-5xl mx-auto">
+      <div class="mt-8 sm:mt-10 max-w-5xl mx-auto w-full min-w-0">
         <!-- 1. Step-by-Step Connected Flow View (Spine) -->
-        <div v-if="viewMode === 'path'">
+        <div v-if="viewMode === 'path'" class="w-full min-w-0">
           <DiagramPathFlow
             :stages="filteredStages"
             :selected-node="selectedNode"
@@ -124,7 +124,7 @@ function handleNavigateNode(nodeId: string) {
         </div>
 
         <!-- 2. Categorized Grid View Mode -->
-        <div v-else class="grid gap-6 sm:grid-cols-2 lg:grid-cols-2">
+        <div v-else class="grid gap-4 sm:gap-6 grid-cols-1 md:grid-cols-2 w-full min-w-0">
           <DiagramNodeCard
             v-for="(node, i) in filteredStages"
             :key="node.id"

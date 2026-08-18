@@ -108,20 +108,20 @@ const emit = defineEmits<{
     </div>
 
     <!-- Mobile / Tablet Connected Vertical Spine -->
-    <div class="lg:hidden relative pl-12 sm:pl-14 space-y-6 py-4">
+    <div class="lg:hidden relative pl-8 sm:pl-12 space-y-4 sm:space-y-6 py-4 w-full min-w-0">
       <!-- Vertical Continuous Line -->
       <div
-        class="absolute left-4 sm:left-5 top-6 bottom-6 w-0.5 bg-gradient-to-b from-sky-500 via-primary to-pink-500 opacity-30 rounded-full"
+        class="absolute left-3 sm:left-4 top-6 bottom-6 w-0.5 bg-gradient-to-b from-sky-500 via-primary to-pink-500 opacity-30 rounded-full"
       />
 
       <div
         v-for="(node, i) in stages"
         :key="node.id"
-        class="relative"
+        class="relative w-full min-w-0"
       >
         <!-- Spine Node Bullet Pin (perfectly centered on line) -->
         <div
-          class="absolute -left-8 sm:-left-9 top-6 flex size-8 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-surface font-mono text-xs font-bold text-white shadow-md z-10"
+          class="absolute -left-5 sm:-left-8 top-5.5 sm:top-6 flex size-6 sm:size-8 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-surface font-mono text-[10px] sm:text-xs font-bold text-white shadow-md z-10"
           :style="{
             backgroundColor: node.color,
             boxShadow: `0 0 12px -2px ${node.color}66`,

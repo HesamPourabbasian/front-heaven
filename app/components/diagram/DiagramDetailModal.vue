@@ -87,7 +87,7 @@ onBeforeUnmount(() => {
   <Transition name="modal-fade">
     <div
       v-if="open && node"
-      class="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6"
+      class="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6"
       role="dialog"
       aria-modal="true"
       :aria-labelledby="`modal-title-${node.id}`"
@@ -101,29 +101,29 @@ onBeforeUnmount(() => {
 
       <!-- Modal Panel Container -->
       <div
-        class="relative flex max-h-[90vh] w-full max-w-2xl flex-col overflow-hidden rounded-3xl border border-border bg-surface shadow-2xl z-10 animate-fade-in"
+        class="relative flex max-h-[92vh] sm:max-h-[90vh] w-full max-w-2xl flex-col overflow-hidden rounded-2xl sm:rounded-3xl border border-border bg-surface shadow-2xl z-10 animate-fade-in my-auto"
       >
         <!-- Modal Header -->
-        <div class="flex items-start justify-between border-b border-border/80 bg-surface-2/60 px-6 py-5">
-          <div class="flex items-start gap-4">
-            <TechIcon :icon="node.icon" :color="node.color" size="lg" />
+        <div class="flex items-start justify-between border-b border-border/80 bg-surface-2/60 px-4 py-3.5 sm:px-6 sm:py-5 gap-3">
+          <div class="flex items-start gap-3 sm:gap-4 min-w-0 flex-1">
+            <TechIcon :icon="node.icon" :color="node.color" size="lg" class="shrink-0" />
 
-            <div>
-              <div class="flex flex-wrap items-center gap-2">
-                <span class="rounded-md bg-surface-3 px-2 py-0.5 font-mono text-[10px] font-bold text-muted uppercase">
+            <div class="min-w-0 flex-1">
+              <div class="flex flex-wrap items-center gap-1.5 sm:gap-2">
+                <span class="rounded-md bg-surface-3 px-1.5 sm:px-2 py-0.5 font-mono text-[9px] sm:text-[10px] font-bold text-muted uppercase">
                   Stage {{ node.stepNumber }}
                 </span>
-                <span class="rounded-md bg-primary/10 px-2 py-0.5 text-[10px] font-bold text-primary uppercase">
+                <span class="rounded-md bg-primary/10 px-1.5 sm:px-2 py-0.5 text-[9px] sm:text-[10px] font-bold text-primary uppercase">
                   {{ node.category }}
                 </span>
-                <UiBadge variant="default" class="capitalize text-[10px]">
+                <UiBadge variant="default" class="capitalize text-[9px] sm:text-[10px]">
                   {{ node.difficulty }}
                 </UiBadge>
               </div>
 
               <h2
                 :id="`modal-title-${node.id}`"
-                class="mt-1.5 font-display text-xl font-bold tracking-tight text-ink sm:text-2xl"
+                class="mt-1 font-display text-lg sm:text-2xl font-bold tracking-tight text-ink break-words"
               >
                 {{ node.title }}
               </h2>
@@ -136,7 +136,7 @@ onBeforeUnmount(() => {
           <!-- Close Button -->
           <button
             type="button"
-            class="flex size-9 items-center justify-center rounded-xl border border-border bg-surface text-muted transition-colors hover:bg-surface-3 hover:text-ink"
+            class="flex size-8 sm:size-9 items-center justify-center rounded-xl border border-border bg-surface text-muted transition-colors hover:bg-surface-3 hover:text-ink shrink-0"
             aria-label="Close details"
             @click="emit('close')"
           >
@@ -145,7 +145,7 @@ onBeforeUnmount(() => {
         </div>
 
         <!-- Scrollable Modal Content -->
-        <div class="flex-1 overflow-y-auto p-6 space-y-6 [scrollbar-gutter:stable]">
+        <div class="flex-1 overflow-y-auto p-4 sm:p-6 space-y-4 sm:space-y-6 [scrollbar-gutter:stable]">
           <!-- Progress Banner (if lessons available) -->
           <div v-if="nodeLessons.length > 0" class="rounded-2xl border border-border bg-surface-2/40 p-4">
             <div class="flex items-center justify-between text-xs">
@@ -301,13 +301,13 @@ onBeforeUnmount(() => {
         </div>
 
         <!-- Modal Footer CTA -->
-        <div class="flex flex-wrap items-center justify-between gap-3 border-t border-border bg-surface-2/60 px-6 py-4">
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 border-t border-border bg-surface-2/60 px-4 py-3.5 sm:px-6 sm:py-4">
           <div class="flex items-center gap-2 text-xs text-muted">
-            <Clock class="size-3.5" />
+            <Clock class="size-3.5 shrink-0" />
             <span>Estimated time: <strong>{{ node.estimatedWeeks }}</strong></span>
           </div>
 
-          <div class="flex items-center gap-2">
+          <div class="flex items-center justify-end gap-2">
             <UiButton variant="secondary" size="sm" @click="emit('close')">
               Close
             </UiButton>

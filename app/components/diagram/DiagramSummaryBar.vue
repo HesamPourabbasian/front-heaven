@@ -43,17 +43,17 @@ const difficultyTabs = [
 </script>
 
 <template>
-  <div class="space-y-3 rounded-2xl border border-border bg-surface p-4 shadow-sm">
+  <div class="space-y-3 rounded-2xl border border-border bg-surface p-3.5 sm:p-4 shadow-sm w-full min-w-0">
     <!-- Top Row: Search & View Mode Switcher -->
-    <div class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+    <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2.5 sm:gap-3">
       <!-- Search Input -->
-      <div class="relative flex-1 max-w-md">
+      <div class="relative flex-1 min-w-0">
         <Search class="absolute left-3.5 top-1/2 -translate-y-1/2 size-4 text-muted pointer-events-none" />
         <input
           type="text"
           :value="searchQuery"
           placeholder="Search technologies, concepts, or projects..."
-          class="w-full rounded-xl border border-border bg-surface-2 pl-10 pr-4 py-2 text-xs text-ink placeholder:text-muted focus:border-primary focus:bg-surface focus:outline-none transition-colors"
+          class="w-full rounded-xl border border-border bg-surface-2 pl-10 pr-10 py-2 text-xs text-ink placeholder:text-muted focus:border-primary focus:bg-surface focus:outline-none transition-colors"
           @input="emit('update:searchQuery', ($event.target as HTMLInputElement).value)"
         />
         <button
@@ -67,10 +67,10 @@ const difficultyTabs = [
       </div>
 
       <!-- Right Controls: View Mode Switcher -->
-      <div class="flex items-center gap-0.5 rounded-xl border border-border bg-surface-2 p-1">
+      <div class="flex items-center justify-center gap-1 rounded-xl border border-border bg-surface-2 p-1 shrink-0 self-end sm:self-auto">
         <button
           type="button"
-          class="flex items-center gap-1.5 rounded-lg px-2.5 py-1 text-xs font-medium transition-colors cursor-pointer"
+          class="flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-medium transition-colors cursor-pointer"
           :class="viewMode === 'path'
             ? 'bg-surface text-ink shadow-xs font-semibold'
             : 'text-muted hover:text-ink'"
@@ -83,7 +83,7 @@ const difficultyTabs = [
 
         <button
           type="button"
-          class="flex items-center gap-1.5 rounded-lg px-2.5 py-1 text-xs font-medium transition-colors cursor-pointer"
+          class="flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-medium transition-colors cursor-pointer"
           :class="viewMode === 'grid'
             ? 'bg-surface text-ink shadow-xs font-semibold'
             : 'text-muted hover:text-ink'"
@@ -96,13 +96,13 @@ const difficultyTabs = [
       </div>
     </div>
 
-    <!-- Category Tabs Filter Row -->
-    <div class="flex items-center gap-1.5 overflow-x-auto pb-1 [scrollbar-width:none]">
+    <!-- Category Tabs Filter Row (Edge-to-edge touch scrollable on mobile) -->
+    <div class="flex items-center gap-1.5 overflow-x-auto pb-1 [scrollbar-width:none] -mx-3.5 px-3.5 sm:mx-0 sm:px-0">
       <button
         v-for="tab in categoryTabs"
         :key="tab.value"
         type="button"
-        class="rounded-xl px-3 py-1.5 text-xs font-semibold whitespace-nowrap transition-all duration-200 select-none cursor-pointer"
+        class="rounded-xl px-3 py-1.5 text-xs font-semibold whitespace-nowrap transition-all duration-200 select-none cursor-pointer shrink-0"
         :class="activeCategory === tab.value
           ? 'bg-primary text-white shadow-sm'
           : 'text-muted hover:bg-surface-2 hover:text-ink'"
