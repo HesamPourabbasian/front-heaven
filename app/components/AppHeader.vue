@@ -52,7 +52,7 @@ const navLinks = [
   { label: 'Home', to: '/', icon: Home },
   { label: 'Roadmap', to: '/roadmap', icon: Map },
   { label: 'Diagram', to: '/diagram', icon: Network },
-  { label: 'About US', to: '/about', icon: Info },
+  { label: 'About ME', to: '/about', icon: Info },
 ]
 </script>
 

@@ -21,8 +21,8 @@ import {
 } from 'lucide-vue-next'
 
 useSeoMeta({
-  title: 'About Us — Front-Heaven',
-  description: 'Learn about Front-Heaven, our mission to make front-end development accessible to everyone, our step-by-step learning methodology, and meet the creator.',
+  title: 'About Me — Front-Heaven',
+  description: 'Learn about Front-Heaven, our mission to make front-end development accessible to everyone, our step-by-step learning methodology, and meet the creator Hesam Pourabbasian.',
 })
 
 useHead({
