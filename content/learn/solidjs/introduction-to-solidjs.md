@@ -6,7 +6,7 @@ difficulty: 'intermediate'
 category: 'SolidJS Fundamentals'
 estimatedMinutes: 20
 prerequisites:
-  - /learn/javascript/functions-and-parameters
+  - /learn/javascript/06-functions
 ---
 
 ## What is SolidJS?
