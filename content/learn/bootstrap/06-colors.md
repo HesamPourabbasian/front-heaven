@@ -109,14 +109,36 @@ Bootstrap uses CSS custom properties to manage body foreground and background co
 
 ---
 
+## 5. Color Opacity Modifiers (`text-opacity-*` & `bg-opacity-*`)
+
+Adjust foreground and background opacity dynamically using CSS custom property opacity helpers:
+
+```html
+<!-- Text Opacity -->
+<div class="text-primary">Default 100% text opacity</div>
+<div class="text-primary text-opacity-75">75% text opacity</div>
+<div class="text-primary text-opacity-50">50% text opacity</div>
+<div class="text-primary text-opacity-25">25% text opacity</div>
+
+<!-- Background Opacity -->
+<div class="bg-success p-2 text-white mb-2">Default 100% bg opacity</div>
+<div class="bg-success bg-opacity-75 p-2 text-white mb-2">75% bg opacity</div>
+<div class="bg-success bg-opacity-50 p-2 text-white mb-2">50% bg opacity</div>
+<div class="bg-success bg-opacity-25 p-2 text-dark">25% bg opacity</div>
+```
+
+---
+
 ## Summary & Key Takeaways
 
 - 8 core theme colors: `primary`, `secondary`, `success`, `danger`, `warning`, `info`, `light`, and `dark`.
 - Text utilities (`text-primary`, `text-muted`) and background utilities (`bg-primary`, `bg-dark`) format UI elements quickly.
 - Modern Bootstrap 5.3 adds `.bg-*-subtle` and `.text-*-emphasis` for accessible, soft-toned UI surfaces.
 - Body color utilities (`text-body-secondary`, `bg-body-tertiary`) automatically respect system color modes.
+- `text-opacity-*` and `bg-opacity-*` adjust alpha channels without altering base hex values.
 
 ## Best Practices & Senior Guidance
 
 1. **Pair Subtle Backgrounds with Emphasis Text**: Always pair `.bg-primary-subtle` with `.text-primary-emphasis` to ensure WCAG AA color contrast compliance.
 2. **Avoid Hardcoding Hex Codes**: Use theme classes so your UI automatically switches between light and dark modes when `data-bs-theme` is applied.
+3. **Use `bg-opacity-*` for Overlay Backdrops**: Provides soft tinted backgrounds while allowing foreground text to remain sharp.
