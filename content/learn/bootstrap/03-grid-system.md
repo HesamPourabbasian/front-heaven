@@ -155,14 +155,32 @@ To nest grid columns within a parent column, simply add a new `.row` inside that
 
 ---
 
+## 8. Row Columns Utilities (`.row-cols-*`)
+
+Instead of declaring `.col-md-4` on every individual child column, use `.row-cols-*` on the parent `.row` to specify the number of columns per row:
+
+```html
+<!-- Automatically creates a 2-column grid on mobile, 4-column grid on desktop -->
+<div class="row row-cols-2 row-cols-lg-4 g-3">
+  <div class="col"><div class="p-3 bg-light border">Card 1</div></div>
+  <div class="col"><div class="p-3 bg-light border">Card 2</div></div>
+  <div class="col"><div class="p-3 bg-light border">Card 3</div></div>
+  <div class="col"><div class="p-3 bg-light border">Card 4</div></div>
+</div>
+```
+
+---
+
 ## Summary & Key Takeaways
 
 - The grid is composed of containers, rows (`display: flex; flex-wrap: wrap;`), and 12-column fractional children (`col-*`).
 - `.col` provides auto-distributing equal-width columns.
+- `.row-cols-*` sets column counts declaratively on the parent row container.
 - Breakpoint classes (`col-sm-*`, `col-md-*`, `col-lg-*`) control mobile-first responsive layout adaptation.
 - `offset-*` pushes columns rightwards, `order-*` reorganizes visual order, and `g-*` adjusts gutter spacing.
 
 ## Best Practices & Senior Guidance
 
 1. **Columns Sum to 12 per Row**: Ensure immediate column units add up to 12 within each viewport tier; any overflow automatically wraps to the next line.
-2. **Never Apply Padding Directly to `.row`**: Always configure gutters via `g-*` classes or apply spacing to parent containers.
+2. **Use `.row-cols-*` for Uniform Card Grids**: Eliminates redundant class names across dozens of dynamic template items.
+3. **Never Apply Padding Directly to `.row`**: Always configure gutters via `g-*` classes or apply spacing to parent containers.
