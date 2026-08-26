@@ -155,15 +155,32 @@ Auto margins (`ms-auto`, `me-auto`, `my-auto`) in flexbox push adjacent elements
 
 ---
 
+## 7. Multi-Line Flex Wrapping & `align-content`
+
+When flex items wrap across multiple lines (`flex-wrap`), align rows along the cross-axis using `.align-content-*`:
+
+```html
+<div class="d-flex flex-wrap align-content-between bg-light border p-3" style="height: 200px;">
+  <div class="p-2 border bg-white" style="width: 45%;">Row 1 Item A</div>
+  <div class="p-2 border bg-white" style="width: 45%;">Row 1 Item B</div>
+  <div class="p-2 border bg-white" style="width: 45%;">Row 2 Item A</div>
+  <div class="p-2 border bg-white" style="width: 45%;">Row 2 Item B</div>
+</div>
+```
+
+---
+
 ## Summary & Key Takeaways
 
 - `d-flex` turns any element into a flexbox container.
 - `flex-row` and `flex-column` set main axis flow direction.
 - `justify-content-*` aligns items horizontally along the main axis.
 - `align-items-*` and `align-self-*` control vertical cross-axis alignment.
+- `align-content-*` controls multi-line row spacing when `flex-wrap` is enabled.
 - `flex-grow-1` expands an item to fill remaining container space, and `ms-auto` acts as a powerful push spacer.
 
 ## Best Practices & Senior Guidance
 
 1. **Leverage `ms-auto` for Navbars**: Using `ms-auto` on the rightmost nav item is cleaner than creating multiple nested wrapper divs.
 2. **Combine `d-flex` with `gap-*`**: Use `gap-2` or `gap-3` instead of manual margin utilities to maintain clean responsive flex child spacing.
+3. **Set `flex-shrink-0` on Avatars & Fixed Badges**: Prevents flex child icons from shrinking when sibling text expands.
