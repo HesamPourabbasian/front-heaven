@@ -127,14 +127,36 @@ Adjust spacing across breakpoints by including breakpoint infixes (`sm`, `md`, `
 
 ---
 
+## 6. Customizing Spacing via Sass `$spacers`
+
+In Sass, you can expand or alter the spacing scale by modifying `$spacers`:
+
+```scss
+// Custom spacing scale
+$spacers: (
+  0: 0,
+  1: ($spacer * 0.25), // 4px
+  2: ($spacer * 0.5),  // 8px
+  3: $spacer,          // 16px
+  4: ($spacer * 1.5),  // 24px
+  5: ($spacer * 3),    // 48px
+  6: ($spacer * 4.5),  // 72px
+  7: ($spacer * 6)     // 96px
+);
+```
+
+---
+
 ## Summary & Key Takeaways
 
 - Spacing follows `{property}{sides}-{size}` from scale `0` (0px) to `5` (48px) and `auto`.
 - Sides use logical naming: `s` (start), `e` (end), `x` (horizontal), and `y` (vertical) supporting RTL languages automatically.
 - `gap-*`, `row-gap-*`, and `column-gap-*` distribute spacing cleanly in flexbox and grid containers.
 - Responsive infixes (e.g., `py-md-5`) adapt whitespace for mobile and desktop screens.
+- Custom `$spacers` maps in Sass allow adding extra spacing scale increments (`m-6`, `p-7`).
 
 ## Best Practices & Senior Guidance
 
 1. **Use `gap-*` Over Child Margins in Flexbox**: Using `gap-3` on a flex container eliminates unwanted outer margins on the first and last child.
 2. **Use `mx-auto` for Centering Blocks**: Pair `mx-auto` with a fixed or maximum width on block elements for reliable horizontal centering.
+3. **Maintain Proportional Hierarchy**: Keep padding inside components (`p-3`) smaller than macro-layout margins (`mb-5`) between major sections.
