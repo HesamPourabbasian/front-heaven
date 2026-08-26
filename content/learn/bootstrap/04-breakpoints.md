@@ -123,13 +123,38 @@ Change text alignment and formatting depending on screen size:
 
 ---
 
+## 5. Sass Breakpoint Mixins (`media-breakpoint-*`)
+
+When authoring custom stylesheets, use Bootstrap's Sass mixins rather than writing manual pixel media queries:
+
+```scss
+// Targets viewport sizes md (768px) and higher
+@include media-breakpoint-up(md) {
+  .custom-hero { padding: 4rem 2rem; }
+}
+
+// Targets viewport sizes smaller than lg (<992px)
+@include media-breakpoint-down(lg) {
+  .mobile-drawer { display: block; }
+}
+
+// Targets exclusively md viewport (768px to 991.98px)
+@include media-breakpoint-only(md) {
+  .tablet-badge { display: inline-block; }
+}
+```
+
+---
+
 ## Summary & Key Takeaways
 
 - Bootstrap 5 defines 6 breakpoint tiers: `xs` (<576px), `sm` (≥576px), `md` (≥768px), `lg` (≥992px), `xl` (≥1200px), and `xxl` (≥1400px).
 - Mobile-first architecture uses `min-width` media queries, meaning higher breakpoints inherit and override lower breakpoints.
 - Display utilities (`d-none`, `d-md-block`, `d-lg-flex`) offer precise control over layout visibility across devices.
+- Sass mixins (`media-breakpoint-up`, `media-breakpoint-down`) standardize responsive CSS rules.
 
 ## Best Practices & Senior Guidance
 
 1. **Default to Mobile First**: Avoid writing desktop styles first and forcing overrides with `max-width`; build for narrow viewports first and scale upwards.
 2. **Minimize Breakpoint Overrides**: Keep layouts straightforward by leveraging flexible flexbox utilities rather than declaring overrides at every single breakpoint.
+3. **Use `media-breakpoint-up()` in SCSS**: Keeps media queries synchronized with `$grid-breakpoints` automatically if token dimensions change.
