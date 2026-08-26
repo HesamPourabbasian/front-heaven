@@ -194,6 +194,27 @@ export function setBrandTheme(brandId, mode = 'light') {
 }
 ```
 
+### Storybook Architecture & Configuration Recipe
+```typescript
+// .storybook/main.ts
+import type { StorybookConfig } from '@storybook/react-vite';
+
+const config: StorybookConfig = {
+  stories: ['../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
+  addons: [
+    '@storybook/addon-links',
+    '@storybook/addon-essentials',
+    '@storybook/addon-interactions',
+    '@storybook/addon-a11y' // Mandatory for automated WCAG AA compliance auditing
+  ],
+  framework: {
+    name: '@storybook/react-vite',
+    options: {}
+  }
+};
+export default config;
+```
+
 ---
 
 # 🎯 Complete Bootstrap Learning Path & Career Roadmap
