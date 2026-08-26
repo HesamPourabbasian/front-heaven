@@ -121,14 +121,29 @@ By default, Bootstrap containers apply horizontal padding (`--bs-gutter-x: 1.5re
 
 ---
 
+## 6. Container CSS Variables & Custom Padding
+ 
+Bootstrap 5 exposes container horizontal padding via the `--bs-gutter-x` CSS custom property:
+
+```scss
+// Custom container padding override
+.custom-container {
+  --bs-gutter-x: 2rem; // Increases left & right container padding to 32px
+}
+```
+
+---
+
 ## Summary & Key Takeaways
 
 - `.container` centers content with stepped max-widths from `540px` up to `1320px`.
 - `.container-fluid` always stays `100%` wide across all viewports.
 - Responsive containers (`.container-{breakpoint}`) remain fluid until their designated threshold.
 - Containers establish the padding context that `.row` elements counteract using negative horizontal margins.
+- Container padding is controlled locally via `--bs-gutter-x`.
 
 ## Best Practices & Senior Guidance
 
 1. **Top-Level Wrapper**: Wrap entire page sections in separate containers rather than wrapping the entire `<body>` in a single fixed container if you plan on full-width colored section backgrounds.
 2. **Never Place Columns Directly Inside Containers**: Always place `.col` inside a `.row`, and place the `.row` inside a `.container`.
+3. **Adjust Padding via `--bs-gutter-x`**: Modify container horizontal padding cleanly using `--bs-gutter-x` without breaking row alignment.
