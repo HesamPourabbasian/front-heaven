@@ -178,10 +178,36 @@ const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstra
 
 ---
 
+## 6. Static Backdrop & Keyboard Trapping Configuration
+
+Prevent users from dismissing a modal by clicking outside it when performing critical operations (such as credit card checkouts or database deletions) using `data-bs-backdrop="static"` and `data-bs-keyboard="false"`:
+
+```html
+<!-- Modal with Unclosable Static Backdrop -->
+<div class="modal fade" id="staticBackdropModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Critical Payment in Progress</h1>
+      </div>
+      <div class="modal-body">
+        Please do not refresh the page or close your browser while your payment is processing.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">I Understand</button>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+---
+
 ## Summary & Key Takeaways
 
 - Bootstrap 5 components operate declaratively via `data-bs-*` attributes.
 - Modals, Offcanvas, and Accordions manage focus, backdrop overlays, and accessibility automatically.
+- `data-bs-backdrop="static"` prevents accidental dismissal during critical processes.
 - Tooltips and Popovers require manual JS initialization via `bootstrap.Tooltip`.
 - All components fire custom DOM lifecycle events (e.g. `shown.bs.modal`, `hidden.bs.offcanvas`).
 
@@ -189,3 +215,4 @@ const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstra
 
 1. **Always Include `aria-labelledby` and `aria-hidden` on Modals**: Crucial for screen reader compatibility when dialogs open and close.
 2. **Use Popper.js Bundle**: Ensure `bootstrap.bundle.min.js` is loaded so Dropdowns and Tooltips position accurately without console errors.
+3. **Use Static Backdrops on Multi-Step Forms**: Prevents users from losing filled form inputs due to an accidental click outside the modal dialog.
