@@ -133,6 +133,34 @@ Prevent text overflow and truncate long strings with ellipses:
 
 ---
 
+## 7. Blockquotes & Inline Formatting Elements
+
+Bootstrap styles HTML semantic typography elements cleanly:
+
+```html
+<!-- Blockquote with Custom Source Footer -->
+<figure class="p-3 bg-light border-start border-primary border-4 rounded">
+  <blockquote class="blockquote">
+    <p>Simplicity is prerequisite for reliability.</p>
+  </blockquote>
+  <figcaption class="blockquote-footer">
+    Edsger W. Dijkstra in <cite title="Source Title">Selected Writings</cite>
+  </figcaption>
+</figure>
+
+<!-- Inline Semantic Tags -->
+<p>You can use the mark tag to <mark>highlight</mark> text.</p>
+<p><del>This line of text is meant to be treated as deleted text.</del></p>
+<p><s>This line of text is meant to be treated as no longer accurate.</s></p>
+<p><ins>This line of text is meant to be treated as an addition to the document.</ins></p>
+<p><u>This line of text will render as underlined.</u></p>
+<p><small>This line of text is meant to be treated as fine print.</small></p>
+<p><strong>This line rendered as bold text.</strong></p>
+<p><em>This line rendered as italicized text.</em></p>
+```
+
+---
+
 ## Summary & Key Takeaways
 
 - Standard headings range from `h1` (2.5rem) to `h6` (1.0rem) with matching `.h1`–`.h6` classes.
@@ -140,8 +168,10 @@ Prevent text overflow and truncate long strings with ellipses:
 - `.lead` highlights introductory body text.
 - Font weight classes (`fw-bold`, `fw-semibold`, `fw-light`) and text alignment utilities (`text-start`, `text-center`, `text-end`) customize formatting without custom CSS.
 - `.text-truncate` adds ellipsis overflow protection to single-line text containers.
+- `.blockquote` and `.blockquote-footer` format editorial quotes.
 
 ## Best Practices & Senior Guidance
 
 1. **Maintain Semantic Heading Structure**: Always use semantic `<h1>`–`<h6>` tags for document accessibility and SEO; use `.display-*` or `.h*` classes purely for visual sizing.
 2. **Combine `.text-truncate` with Block Containers**: Truncation requires `display: inline-block` or `display: block` with an explicit or constrained width.
+3. **Use `.blockquote-footer` for Author Citations**: Automatically adds an em-dash prefix before author names.
