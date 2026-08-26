@@ -210,13 +210,30 @@ bootstrap/
 
 ---
 
+## 5. CDN Security & Subresource Integrity (SRI)
+
+When loading Bootstrap via public CDNs in production environments, always include Subresource Integrity (`integrity="..."`) and `crossorigin="anonymous"` attributes. SRI enables browsers to verify cryptographic hashes, ensuring CDN assets have not been maliciously tampered with.
+
+```html
+<link 
+  rel="stylesheet" 
+  href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" 
+  integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" 
+  crossorigin="anonymous"
+>
+```
+
+---
+
 ## Summary & Key Takeaways
 
 - Bootstrap 5 provides a comprehensive, mobile-first 12-column grid, modular Sass design tokens, and ES6 JavaScript components without jQuery.
 - You can install Bootstrap via CDN for quick scripts or via npm/Vite/webpack with full Sass customization support.
 - `bootstrap.bundle.min.js` includes Popper.js, which is mandatory for dropdowns, tooltips, and popovers.
+- Subresource Integrity (SRI) guarantees cryptographic asset validation on CDN links.
 
 ## Best Practices & Senior Guidance
 
 1. **Use the Bundle JS**: Avoid separate Popper.js script tags by importing `bootstrap.bundle.min.js` to eliminate version mismatch errors.
 2. **Prefer npm & Sass over Static CDN for Production**: Compiling Bootstrap from Sass allows stripping unused components and overriding default theme colors cleanly.
+3. **Always Include SRI on Third-Party CDNs**: Protects users from compromised CDN edge nodes and man-in-the-middle attacks.
