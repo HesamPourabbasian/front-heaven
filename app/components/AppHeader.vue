@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ArrowRight, Home, Info, Map, Menu, Network, X } from 'lucide-vue-next'
+import { ArrowRight, Home, Info, Map, Menu, X } from 'lucide-vue-next'
 
 const { searchOpen } = useUiState()
 const mobileOpen = ref(false)
@@ -51,7 +51,6 @@ watch(mobileOpen, (isOpen) => {
 const navLinks = [
   { label: 'Home', to: '/', icon: Home },
   { label: 'Roadmap', to: '/roadmap', icon: Map },
-  { label: 'Diagram', to: '/diagram', icon: Network },
   { label: 'About ME', to: '/about', icon: Info },
 ]
 </script>

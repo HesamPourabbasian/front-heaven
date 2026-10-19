@@ -106,7 +106,7 @@ const platformHighlights = [
   },
   {
     title: 'Visual Learning Roadmaps',
-    description: 'Interactive roadmap stages and full architectural diagrams give you clear mental models of how technologies connect.',
+    description: 'Interactive roadmap stages and visual guides give you clear mental models of how technologies connect.',
     icon: Map,
   },
   {

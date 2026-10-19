@@ -80,7 +80,7 @@ Create fully accessible, expandable FAQs and disclosure panels with zero JavaScr
 
 <details open>
   <summary>Is this curriculum completely free?</summary>
-  <p>Yes, the entire curriculum, roadmap, and diagram tools are 100% free forever.</p>
+  <p>Yes, the entire curriculum and roadmap are 100% free forever.</p>
 </details>
 ```
 

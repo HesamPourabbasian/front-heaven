@@ -76,7 +76,6 @@ export default defineNuxtConfig({
       routes: [
         '/',
         '/roadmap',
-        '/diagram',
         '/about',
         '/learn/html',
         '/learn/css',

@@ -25,7 +25,6 @@ const year = new Date().getFullYear()
           <h3 class="text-xs font-semibold uppercase tracking-widest text-muted">Journey</h3>
           <ul class="mt-4 space-y-2.5">
             <li><NuxtLink to="/roadmap" class="text-sm text-ink-soft transition-colors hover:text-primary">Roadmap</NuxtLink></li>
-            <li><NuxtLink to="/diagram" class="text-sm text-ink-soft transition-colors hover:text-primary">Diagram</NuxtLink></li>
             <li><NuxtLink to="/about" class="text-sm text-ink-soft transition-colors hover:text-primary">About Me</NuxtLink></li>
             <li><NuxtLink to="/" class="text-sm text-ink-soft transition-colors hover:text-primary">Home</NuxtLink></li>
           </ul>

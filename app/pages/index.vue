@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ArrowRight, BarChart3, BookOpenCheck, CheckCircle2, Compass, FileCode2, Gauge, GraduationCap, Layers3, Lightbulb, Lock, Map, MousePointerClick, Network, PencilRuler, Rocket, Search, Sparkles, Target, Trophy } from 'lucide-vue-next'
+import { ArrowRight, BarChart3, BookOpenCheck, CheckCircle2, Compass, FileCode2, Gauge, GraduationCap, Layers3, Lightbulb, Lock, Map, MousePointerClick, PencilRuler, Rocket, Search, Sparkles, Target, Trophy } from 'lucide-vue-next'
 
 const { technologies, lessons, sequence, totalMinutes } = useSiteContent()
 const { completed, isCompleted } = useProgress()
@@ -204,7 +204,7 @@ function techMinutes(slug: string) {
           </h1>
 
           <p class="animate-fade-up mx-auto mt-6 max-w-2xl text-base leading-relaxed text-muted sm:text-lg" style="animation-delay: 120ms">
-            Follow a structured path from HTML and CSS fundamentals to modern front-end frameworks — with progress tracking, interactive learning diagrams, and a curriculum you can trust.
+            Follow a structured path from HTML and CSS fundamentals to modern front-end frameworks — with progress tracking, hands-on lessons, and a curriculum you can trust.
           </p>
 
           <div class="animate-fade-up mt-9 flex flex-wrap items-center justify-center gap-3" style="animation-delay: 180ms">
@@ -215,10 +215,6 @@ function techMinutes(slug: string) {
             <NuxtLink to="/roadmap" class="btn-secondary px-6 py-3 text-sm">
               <Map class="size-4" aria-hidden="true" />
               Explore the roadmap
-            </NuxtLink>
-            <NuxtLink to="/diagram" class="btn-secondary px-6 py-3 text-sm">
-              <Network class="size-4" aria-hidden="true" />
-              View learning diagram
             </NuxtLink>
           </div>
 
